@@ -1,0 +1,7 @@
+/* Colors variables */
+:root {
+    --color: var(--black, #2B2A29);
+    --color: var(--black-mid-tone, #4A4948);
+    --color: var(--red, #AF222A);
+    --color: var(--grey-gradient, linear-gradient(90deg, #E2E3E3 0%, #F5F5F5 100%));
+}
