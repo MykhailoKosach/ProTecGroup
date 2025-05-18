@@ -5,3 +5,9 @@
     --color: var(--red, #AF222A);
     --color: var(--grey-gradient, linear-gradient(90deg, #E2E3E3 0%, #F5F5F5 100%));
 }
+
+body {
+    width: 100%;
+    padding: 0px 155px;
+    background-color: #AF222A;
+}
