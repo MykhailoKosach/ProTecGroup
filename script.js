@@ -6,3 +6,4 @@ document.querySelectorAll('.marquee-track').forEach(track => {
     track.appendChild(content.cloneNode(true));
   }
 });
+
