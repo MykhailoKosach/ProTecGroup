@@ -743,3 +743,51 @@ footer {
 .activity-img img {
     border-radius: 10px;
 }
+
+/* partners-page */
+.partners-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.filter {
+    width: 120px;
+    padding: 10px 10px;
+    background: var(--grey-gradient);
+    color: var(--black-mid-tone);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 10px;
+}
+
+.partners-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logo-item {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 16px 16px;
+    border-radius: 10px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    color: var(--black);
+    width: 100px;
+    height: 90px;
+}
+
+.logo-title {
+    text-align: center;
+}
