@@ -104,6 +104,26 @@ header>ul>li {
     font-weight: 600;
 }
 
+.btn-soft-reverse {
+    background-color: var(--red);
+    border: 0;
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 10px;
+    align-items: center;
+    justify-content: start;
+    flex-shrink: 0;
+    width: 200px;
+    height: 50px;
+    color: var(--white, #af222a);
+    text-align: left;
+    font-family: "Lato-SemiBold", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .btn {
     background-color: var(--red);
     border: 0;
@@ -684,4 +704,42 @@ footer {
 
 .city-marker {
     fill: var(--red);
+}
+
+/* activity-page */
+
+.activity-wrapper {
+    padding: 80px 155px;
+    display: flex;
+    gap: 60px;
+}
+
+.activity-wrapper-reverse {
+    padding: 80px 155px;
+    background-color: var(--red);
+    color: var(--white);
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 60px;
+}
+
+.activity-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.activity-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.activity-text h3 {
+    font-weight: lighter;
+}
+
+.activity-img img {
+    border-radius: 10px;
 }
