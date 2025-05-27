@@ -10,13 +10,39 @@
 
 <body>
     <header>
-        <ul>
+        <ul class="header-nav-list">
             <li><a href="./index.html"><img src="./image/Logo SVG.svg" alt=""></a></li>
-            <li><a href="./about-us.html">Про нас</a></li>
-            <li><a href="./activity.html">Діяльність</a></li>
-            <li><a href="#">Моделі роботи</a></li>
-            <li><a href="#">Партнери</a></li>
-            <li><a href="./contacts.html">Контакти</a></li>
+            <li class="header-nav-item"><a href="#">Про нас</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">Наші цінності</a></li>
+                        <li class="header-dropdown-item"><a href="#">Історія</a></li>
+                    </ul>
+            </li>
+            <li class="header-nav-item"><a href="./activity.html">Діяльність</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">Дистрибуція</a></li>
+                        <li class="header-dropdown-item"><a href="#">Виробництво</a></li>
+                        <li class="header-dropdown-item"><a href="#">Міжнародна транспортна логістика</a></li>
+                        <li class="header-dropdown-item"><a href="#">Складська транспортна логістика</a></li>
+                        <li class="header-dropdown-item"><a href="#">Будівництво та девелопмент</a></li>
+                        <li class="header-dropdown-item"><a href="#">Второсировина</a></li>
+                        <li class="header-dropdown-item"><a href="#">Рітейл</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="header-nav-item"><a href="#">Моделі роботи</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">3PL Модель</a></li>
+                        <li class="header-dropdown-item"><a href="#">3PD Модель</a></li>
+                        <li class="header-dropdown-item"><a href="#">3PD+ Модель</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="header-nav-item"><a href="./partners.html">Партнери</a></li>
+            <li class="header-nav-item"><a href="./contacts.html">Контакти</a></li>
             <li><a href="#" class="btn-soft">
                     <div>Кар'єра</div><img class="arrow-red" src="./image/Arrow-btn.svg" alt="">
                     <img class="arrow-white" src="./image/arrow-white.svg" alt="">
@@ -27,144 +53,153 @@
         <section>
             <div class="partners-container">
                 <h2>ПАРТНЕРИ</h2>
-                <div class="filter">Дистрибуція</div>
-                <div class="filter">Логістика</div>
+                <div class="filter" id="filter-distribution">Дистрибуція</div>
+                <div class="filter" id="filter-logistic">Логістика</div>
+                <div class="filter" id="filter-all">Усі</div>
             </div>
             <div class="partners-wrapper">
-                <div class="logo-item">
+                <div class="logo-item logo-distribution">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-logistic">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
+                    </div>
+                    <div class="logo-title">ProTec Group</div>
+                </div>
+                <div class="logo-item logo-distribution">
+                    <div class="logo">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
                 <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                    <div class="logo logo-logistic">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-distribution">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-logistic">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-distribution">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-logistic">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-distribution">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
-                <div class="logo-item">
+                <div class="logo-item logo-logistic">
                     <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
-                    </div>
-                    <div class="logo-title">ProTec Group</div>
-                </div>
-                <div class="logo-item">
-                    <div class="logo">
-                        <img src="./image/Logo-SVG-black.svg" alt="">
+                        <img src="./image/Logo-SVG-black.svg" alt="" class="logo-black">
+                        <img src="./image/Logo SVG.svg" class="logo-color"                  >
                     </div>
                     <div class="logo-title">ProTec Group</div>
                 </div>
             </div>
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
     <footer>
         <div class="footer-left">
@@ -246,10 +281,12 @@
                 <div>
                     <img src="./image/Logo SVG.svg" alt="">
                     <img src="./image/Logo SVG.svg" alt="">
-                    <img src="./image/Logo SVG.svg" alt="">
                 </div>
                 <div>
                     <img src="./image/Logo SVG.svg" alt="">
+                    <img src="./image/Logo SVG.svg" alt="">
+                </div>
+                <div>
                     <img src="./image/Logo SVG.svg" alt="">
                     <img src="./image/Logo SVG.svg" alt="">
                 </div>
