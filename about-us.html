@@ -10,13 +10,39 @@
 
 <body>
     <header>
-        <ul>
+        <ul class="header-nav-list">
             <li><a href="./index.html"><img src="./image/Logo SVG.svg" alt=""></a></li>
-            <li><a href="#">Про нас</a></li>
-            <li><a href="./activity.html">Діяльність</a></li>
-            <li><a href="#">Моделі роботи</a></li>
-            <li><a href="./partners.html">Партнери</a></li>
-            <li><a href="./contacts.html">Контакти</a></li>
+            <li class="header-nav-item"><a href="#">Про нас</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">Наші цінності</a></li>
+                        <li class="header-dropdown-item"><a href="#">Історія</a></li>
+                    </ul>
+            </li>
+            <li class="header-nav-item"><a href="./activity.html">Діяльність</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">Дистрибуція</a></li>
+                        <li class="header-dropdown-item"><a href="#">Виробництво</a></li>
+                        <li class="header-dropdown-item"><a href="#">Міжнародна транспортна логістика</a></li>
+                        <li class="header-dropdown-item"><a href="#">Складська транспортна логістика</a></li>
+                        <li class="header-dropdown-item"><a href="#">Будівництво та девелопмент</a></li>
+                        <li class="header-dropdown-item"><a href="#">Второсировина</a></li>
+                        <li class="header-dropdown-item"><a href="#">Рітейл</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="header-nav-item"><a href="#">Моделі роботи</a>
+                <div class="header-dropdown">
+                    <ul class="header-dropdown-list">
+                        <li class="header-dropdown-item"><a href="#">3PL Модель</a></li>
+                        <li class="header-dropdown-item"><a href="#">3PD Модель</a></li>
+                        <li class="header-dropdown-item"><a href="#">3PD+ Модель</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="header-nav-item"><a href="./partners.html">Партнери</a></li>
+            <li class="header-nav-item"><a href="./contacts.html">Контакти</a></li>
             <li><a href="#" class="btn-soft">
                     <div>Кар'єра</div><img class="arrow-red" src="./image/Arrow-btn.svg" alt="">
                     <img class="arrow-white" src="./image/arrow-white.svg" alt="">
@@ -208,7 +234,7 @@
                 </div>
             </div>
         </section>
-        <section class="history" id="history">
+        <section class="history" id="history" style="scroll-margin-top: 120px">
             <div class="history-description">
                 <h1>НАША ІСТОРІЯ</h1>
                 <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repellendus recusandae
