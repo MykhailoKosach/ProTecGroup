@@ -38,32 +38,56 @@ btnAll.addEventListener('click', () => {
     });
 });
 
-// Overlay
-  document.addEventListener('DOMContentLoaded', function () {
-    const openBtn = document.getElementById('openPartnersOverlay');
-    const overlay = document.getElementById('partnersOverlay');
-    if (openBtn && overlay) {
-      openBtn.addEventListener('click', () => {
-        overlay.classList.add('active');
-      });
+// // Overlay
+//   document.addEventListener('DOMContentLoaded', function () {
+//     const openBtn = document.getElementById('openPartnersOverlay');
+//     const overlay = document.getElementById('partnersOverlay');
+//     if (openBtn && overlay) {
+//       openBtn.addEventListener('click', () => {
+//         overlay.classList.add('active');
+//       });
 
-      // Додатково: закривати по кліку на фон
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          overlay.classList.remove('active');
-        }
-      });
+//       // Додатково: закривати по кліку на фон
+//       overlay.addEventListener('click', (e) => {
+//         if (e.target === overlay) {
+//           overlay.classList.remove('active');
+//         }
+//       });
 
-      // Закриття по Esc
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          overlay.classList.remove('active');
+//       // Закриття по Esc
+//       document.addEventListener('keydown', (e) => {
+//         if (e.key === 'Escape') {
+//           overlay.classList.remove('active');
+//         }
+//       });
+//     } else {
+//       console.error('Не знайдено openPartnersOverlay або partnersOverlay');
+//     }
+//   });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("openPartnersOverlay");
+    const overlay = document.getElementById("partnersOverlay");
+    const closeBtn = document.querySelector(".btn-close");
+
+    // Відкрити оверлей
+    openBtn.addEventListener("click", function () {
+        overlay.classList.add("active");
+    });
+
+    // Закрити оверлей
+    closeBtn.addEventListener("click", function () {
+        overlay.classList.remove("active");
+    });
+
+    // Закрити по кліку на фон
+    overlay.addEventListener("click", function (e) {
+        if (e.target === overlay || e.target.classList.contains('overlay-layer')) {
+            overlay.classList.remove("active");
         }
-      });
-    } else {
-      console.error('Не знайдено openPartnersOverlay або partnersOverlay');
-    }
-  });
+    });
+});
+
 
 
 
