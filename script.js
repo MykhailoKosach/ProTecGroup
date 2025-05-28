@@ -44,6 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // тільки раз
+    }
+  });
+}, { threshold: 0.1 });
+
+// Обираємо всі елементи з класом fade-in-on-scroll
+document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
+  observer.observe(el);
+});
+
 // Marquee
 document.querySelectorAll('.marquee-track').forEach(track => {
   const container = track.closest('.marquee-container');
@@ -84,7 +99,7 @@ btnAll.addEventListener('click', () => {
     });
 });
 
-// // Overlay
+// Overlay
 document.addEventListener("DOMContentLoaded", function () {
     const openBtn = document.getElementById("openPartnersOverlay");
     const overlay = document.getElementById("partnersOverlay");

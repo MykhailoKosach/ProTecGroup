@@ -394,6 +394,17 @@ footer {
     border-radius: 10px;
 }
 
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .swiper-slide {
     background-image: url(https://picsum.photos/id/1025/1440/800);
     background-position: center;
@@ -469,6 +480,11 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.counter-container {
+    min-width: 26%;
+    text-align: center;
 }
 
 .counter {
