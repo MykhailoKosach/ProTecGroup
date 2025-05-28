@@ -1,12 +1,3 @@
-/* Colors variables */
-/* :root {
-    --black: var(--black, #2B2A29);
-    --color: var(--white, #fefefe);
-    --color: var(--black-mid-tone, #4A4948);
-    --color: var(--red, #AF222A);
-    --color: var(--grey-gradient, linear-gradient(90deg, #E2E3E3 0%, #F5F5F5 100%));
-} */
-
 :root {
     --black: #2B2A29;
     --white: #fefefe;
@@ -28,8 +19,10 @@
             rgba(255, 255, 255, 0) 0%,
             rgba(175, 34, 42, 0.4) 20.67301869392395%,
             rgba(175, 34, 42, 1) 39.72383737564087%);
+    --shadow-base: 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2);
+    --shadow-middle: 0 8px 20px rgba(0, 0, 0, 0.15); /* зробив для хедера */
+    --shadow-large: 0px 10px 40px 0px rgba(0, 0, 0, 0.2);
 }
-
 
 body {
     width: 100%;
@@ -46,6 +39,8 @@ main {
 main>section {
     margin: 100px 155px 100px 155px;
 }
+
+/* Шрифти */
 
 a {
     text-decoration: none;
@@ -83,9 +78,19 @@ h5 {
     margin: 0;
 }
 
+.red {
+    color: var(--red);
+}
+
+.white {
+    color: var(--white);
+}
+
 .lighter {
     font-weight: lighter;
 }
+
+/* Повторювані елементи */
 
 header {
     width: 100%;
@@ -116,6 +121,7 @@ header {
     font-weight: bold;
     text-align: center;
     border-radius: 10px;
+    position: relative;
 }
 
 .header-nav-item:hover {
@@ -123,7 +129,45 @@ header {
 }
 
 .header-dropdown {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 300px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-middle);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.header-dropdown-list {
+    list-style: none;
+    margin: 0;
+    /* padding: 0 0 16px 0; */
+    padding: 16px;
+}
+
+.header-dropdown-item a {
+    display: block;
+    text-align: left;
+    padding: 16px 16px;
+    color: var(--black-mid-tone);
+    transition: background-color 0.2s ease;
+}
+
+.header-dropdown-item a:hover {
+    background: var(--grey-gradient);
+    color: var(--black);
+    border-radius: 10px;
+}
+
+.header-nav-item:hover .header-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 footer {
@@ -349,6 +393,7 @@ footer {
     display: flex;
     flex-direction: row;
     font-size: 18px;
+    font-weight: 600;
     align-items: center;
     justify-content: center;
 }
@@ -356,6 +401,8 @@ footer {
 .btn:hover {
     background-color: #E92626;
 }
+
+/* Універсальні контейнери */
 
 .white-wrapper {
     padding: 80px 155px;
@@ -380,6 +427,12 @@ footer {
     gap: 60px;
 }
 
+.heading-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
 .container-description {
     display: flex;
     flex-direction: column;
@@ -402,16 +455,8 @@ footer {
     border-radius: 10px;
 }
 
-.fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.6s ease-out;
-}
 
-.fade-in-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Main-page */
 
 .swiper-slide {
     background-image: url(https://picsum.photos/id/1025/1440/800);
@@ -479,7 +524,7 @@ footer {
                 rgba(226, 227, 227, 1) 0%,
                 rgba(245, 245, 245, 1) 100%));
     border-radius: 10px;
-    box-shadow: var(--shadow-box-shadow, 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2));
+    box-shadow: var(--shadow-base);
     padding: 20px 20px 20px 10px;
     gap: 16px;
 }
@@ -513,18 +558,19 @@ footer {
     gap: 18px;
 }
 
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+}
 
-/* .activity>div>div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
-
-
+.fade-in-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* template */
 /* grid-area: row-start / column-start / row-end / column-end; */
-
 
 .distribution {
     grid-area: 1 / 1 / 2 / 13;
@@ -621,9 +667,8 @@ footer {
     }
 }
 
-/* page about-company */
+/* About-us-page */
 .about-company {
-    /* padding-top: 80px; */
     display: flex;
 }
 
@@ -696,7 +741,7 @@ footer {
     width: 24%;
     height: 230px;
     position: relative;
-    box-shadow: var(--shadow-box-shadow, 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2));
+    box-shadow: var(--shadow-base);
 }
 
 .honour-block h1 {
@@ -729,7 +774,7 @@ footer {
     width: 27%;
     height: 300px;
     position: relative;
-    box-shadow: var(--shadows-box-shadow, 0px 10px 40px 0px rgba(0, 0, 0, 0.2));
+    box-shadow: var(--shadow-large);
 }
 
 .value {
@@ -766,7 +811,7 @@ footer {
     justify-content: flex-start;
     height: 300px;
     position: relative;
-    box-shadow: var(--shadow-box-shadow, 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2));
+    box-shadow: var(--shadow-base);
 }
 
 .holding-wrapper {
@@ -804,6 +849,7 @@ footer {
     color: var(--white);
     border-radius: 10px;
     padding: 56px 24px 0 24px;
+    /* Падінг 56px потенційно є кастилем, бо сам .holding-block-description вилазить за межі контейнера */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -889,15 +935,7 @@ footer {
     fill: var(--red);
 }
 
-
-
-
-/* partners-page */
-.heading-container {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
+/* Partners-page */
 
 .filter {
     width: 120px;
@@ -1079,7 +1117,8 @@ footer {
     }
 }
 
-/* contacts-page */
+/* Сontacts-page */
+
 .form {
     padding: 50px;
 }
@@ -1142,10 +1181,11 @@ textarea {
     background: var(--grey-gradient);
     border-radius: 10px;
     width: 23%;
-    box-shadow: var(--shadow-box-shadow, 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2));
+    box-shadow: var(--shadow-base);
 }
 
 /* Model-page */
+
 .model-wrapper {
     padding: 40px 0px;
     display: flex;
