@@ -471,7 +471,7 @@ footer {
     gap: 8px;
 }
 
-.achievement-block>div>h1 {
+.counter {
     font-size: 80px;
     color: var(--black-mid-tone);
 }
