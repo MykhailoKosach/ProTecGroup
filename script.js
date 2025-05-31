@@ -59,6 +59,44 @@ document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
   observer.observe(el);
 });
 
+
+// ТЕСТУВАННЯ
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.fade-in-left');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Якщо потрібно лише один раз — відключаємо спостереження
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // коли 10% елемента видно
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
+
+     document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.fade-in-right');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // виконується один раз
+                }
+            });
+        }, {
+            threshold: 0.1 // активується, коли видно 10% елемента
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
+
+
 // Marquee
 document.querySelectorAll('.marquee-track').forEach(track => {
   const container = track.closest('.marquee-container');
