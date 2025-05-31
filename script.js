@@ -96,7 +96,27 @@ document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
         elements.forEach(el => observer.observe(el));
     });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const containers = document.querySelectorAll('[data-stagger]');
 
+  containers.forEach(container => {
+    const items = container.querySelectorAll('[data-item]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          items.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('visible');
+            }, index * 80); // 120ms затримка між кожним
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(container);
+  });
+});
 // Marquee
 document.querySelectorAll('.marquee-track').forEach(track => {
   const container = track.closest('.marquee-container');
