@@ -70,34 +70,45 @@ document.querySelectorAll('.marquee-track').forEach(track => {
 });
 
 // Filters
-    const btnDistribution = document.getElementById('filter-distribution');
-    const btnLogistic = document.getElementById('filter-logistic');
+const btnDistribution = document.getElementById('filter-distribution');
+const btnLogistic = document.getElementById('filter-logistic');
+const btnAll = document.getElementById('filter-all');
 
-    btnDistribution.addEventListener('click', () => filterLogos('logo-distribution'));
-    btnLogistic.addEventListener('click', () => filterLogos('logo-logistic'));
+const allButtons = document.querySelectorAll('.filter'); // всі елементи з класом .filter
 
-    function filterLogos(type) {
-        const allLogos = document.querySelectorAll('.logo-item');
+btnDistribution.addEventListener('click', () => {
+    setActiveButton(btnDistribution);
+    filterLogos('logo-distribution');
+});
 
-        allLogos.forEach(logo => {
-            if (type === 'logo-distribution') {
-                logo.classList.contains('logo-distribution')
-                    ? logo.style.display = 'flex'
-                    : logo.style.display = 'none';
-            } else if (type === 'logo-logistic') {
-                logo.classList.contains('logo-logistic')
-                    ? logo.style.display = 'flex'
-                    : logo.style.display = 'none';
-            }
-        });
-    }
+btnLogistic.addEventListener('click', () => {
+    setActiveButton(btnLogistic);
+    filterLogos('logo-logistic');
+});
 
-    const btnAll = document.getElementById('filter-all');
 btnAll.addEventListener('click', () => {
+    setActiveButton(btnAll);
     document.querySelectorAll('.logo-item').forEach(logo => {
         logo.style.display = 'flex';
     });
 });
+
+function filterLogos(type) {
+    const allLogos = document.querySelectorAll('.logo-item');
+
+    allLogos.forEach(logo => {
+        if (logo.classList.contains(type)) {
+            logo.style.display = 'flex';
+        } else {
+            logo.style.display = 'none';
+        }
+    });
+}
+
+function setActiveButton(activeBtn) {
+    allButtons.forEach(btn => btn.classList.remove('active'));
+    activeBtn.classList.add('active');
+}
 
 // Overlay
 document.addEventListener("DOMContentLoaded", function () {
@@ -122,6 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
 
 
 

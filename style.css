@@ -19,8 +19,10 @@
             rgba(255, 255, 255, 0) 0%,
             rgba(175, 34, 42, 0.4) 20.67301869392395%,
             rgba(175, 34, 42, 1) 39.72383737564087%);
+    --red-btn-hover: #E92626;
     --shadow-base: 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2);
-    --shadow-middle: 0 8px 20px rgba(0, 0, 0, 0.15); /* зробив для хедера */
+    --shadow-middle: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* зробив для хедера */
     --shadow-large: 0px 10px 40px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -30,6 +32,7 @@ body {
     margin: 0px;
     font-family: "Lato-regular", sans-serif;
     color: var(--black);
+    overflow-y: scroll;
 }
 
 main {
@@ -38,6 +41,29 @@ main {
 
 main>section {
     margin: 100px 155px 100px 155px;
+}
+
+/* Скролбар */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--grey-gradient);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--red);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red-btn-hover);
+    border: 2px solid transparent;
+    background-clip: content-box;
 }
 
 /* Шрифти */
@@ -854,7 +880,7 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     transition: height 0.4s ease, background 0.4s ease;
 }
 
@@ -948,6 +974,7 @@ footer {
     align-items: center;
     border: 0;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .filter:hover {
@@ -955,9 +982,14 @@ footer {
     color: var(--white);
 }
 
+.filter.active {
+    background: var(--red-gradient);
+    color: var(--white);
+}
+
 .partners-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -965,9 +997,8 @@ footer {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 140px;
+    width: 20%;
     padding: 16px 16px;
-    margin: 20px 40px;
     border-radius: 10px;
 
     .logo-black {
