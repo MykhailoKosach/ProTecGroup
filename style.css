@@ -1269,3 +1269,114 @@ textarea {
     flex-direction: column;
     gap: 24px;
 }
+
+/* Career-page */
+.career {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.career-description {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.career-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.career-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 28px;
+    border-radius: 10px;
+    width: 25%;
+    background: var(--red);
+    color: var(--white);
+    box-shadow: var(--shadow-large);
+}
+
+.career-img {
+    width: 100%;
+    text-align: right;
+}
+
+.career-1 {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.career-description-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    width: 30%;
+}
+
+.career-wrapper-1 {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.career-block-1 {
+    display: flex;
+    align-items: center;
+    background: var(--grey-gradient);
+    box-shadow: var(--shadow-base);
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    gap: 24px;
+}
+
+.career-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.app-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    gap: 5%;
+}
+
+.app-block {
+    margin: 12px 0;
+    box-sizing: border-box;
+    width: 30%;
+    background: var(--grey-gradient);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.app-block-img {
+    background-image: url(https://picsum.photos/350/200);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.app-block-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-block-border {
+    border-top: 5px solid var(--red);
+}
+

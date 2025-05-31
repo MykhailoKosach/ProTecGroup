@@ -60,7 +60,7 @@ document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
 });
 
 
-// ТЕСТУВАННЯ
+// ТЕСТУВАННЯ АНІМАЦІЙ
     document.addEventListener("DOMContentLoaded", function () {
         const elements = document.querySelectorAll('.fade-in-left');
 
