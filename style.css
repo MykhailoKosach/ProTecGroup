@@ -433,6 +433,7 @@ footer {
     padding: 80px 155px;
     display: flex;
     gap: 60px;
+    scroll-margin: 80px;
 }
 
 .red-wrapper {
@@ -441,6 +442,7 @@ footer {
     color: var(--white);
     display: flex;
     gap: 60px;
+    scroll-margin: 80px;
 }
 
 .red-wrapper-reverse {
@@ -450,6 +452,7 @@ footer {
     display: flex;
     flex-direction: row-reverse;
     gap: 60px;
+    scroll-margin: 80px;
 }
 
 .heading-container {
@@ -619,14 +622,14 @@ footer {
 }
 
 [data-stagger=fadeup] [data-item] {
-  opacity: 0;
-  transform: translateY(clamp(16px, 1.25vw, 24px));
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(clamp(16px, 1.25vw, 24px));
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 [data-item].visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* template */
@@ -857,6 +860,9 @@ footer {
 .animation-item {
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 .value-block {

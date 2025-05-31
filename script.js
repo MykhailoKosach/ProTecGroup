@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(container);
   });
 });
+
 // Marquee
 document.querySelectorAll('.marquee-track').forEach(track => {
   const container = track.closest('.marquee-container');
