@@ -326,23 +326,24 @@ footer {
 }
 
 .btn-soft {
-    box-sizing: border-box;
     text-decoration: none;
-    background-color: var(--white);
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
     padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    background-color: var(--white);
+    color: var(--red, #af222a);
+    font-family: "Lato-SemiBold", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
     justify-content: start;
-    width: 200px;
-    height: 50px;
-    color: var(--red, #af222a);
-    text-align: left;
-    font-family: "Lato-SemiBold", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    transition: transform 600ms ease-out, background-color 600ms ease-out;
+    transition: all linear 0, 2s;
 
     .arrow-white {
         display: none;
@@ -350,11 +351,10 @@ footer {
 }
 
 .btn-soft:hover {
-    flex-direction: row-reverse;
-    justify-content: center;
     background-color: var(--red);
     color: var(--white);
-    border-radius: 10px;
+    flex-direction: row-reverse;
+    justify-content: center;
 
     .arrow-red {
         display: none;
@@ -366,25 +366,24 @@ footer {
 }
 
 .btn-soft-reverse {
-    box-sizing: border-box;
     text-decoration: none;
-    background-color: var(--red);
-    border: 0;
-    padding: 10px 10px 10px 0px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    gap: 10px;
-    align-items: center;
-    justify-content: start;
-    flex-shrink: 0;
+    box-sizing: border-box;
     width: 200px;
     height: 50px;
+    padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    background-color: var(--red);
     color: var(--white, #af222a);
-    text-align: left;
     font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
     font-weight: 600;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    transition: all linear 0, 2s;
 
     .arrow-red {
         display: none;
@@ -392,11 +391,10 @@ footer {
 }
 
 .btn-soft-reverse:hover {
-    flex-direction: row-reverse;
-    justify-content: center;
     background-color: var(--white);
     color: var(--red);
-    border-radius: 10px;
+    flex-direction: row-reverse;
+    justify-content: center;
 
     .arrow-red {
         display: inline;
@@ -408,23 +406,24 @@ footer {
 }
 
 .btn {
-    background-color: var(--red);
-    border: 0;
-    border-radius: 10px;
-    color: var(--white);
+    box-sizing: border-box;
     width: 200px;
     height: 50px;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
+    border-radius: 10px;
+    background-color: var(--red);
+    color: var(--white);
+    font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
     font-weight: 600;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
 .btn:hover {
-    background-color: #E92626;
+    background-color: var(--red-btn-hover);
 }
 
 /* Універсальні контейнери */
@@ -617,6 +616,17 @@ footer {
 }
 
 /* Анімації */
+
+.fade-in-down-on-scroll {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in-down-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .fade-in-left {
     opacity: 0;
@@ -974,24 +984,23 @@ footer {
 }
 
 .map {
-    width: 100%;
+    width: 1499px;
     height: 1000px;
-    position: relative;
 }
 
-.map>img {
+/* .map>img {
     display: block;
     width: 100%;
     height: 100%;
-}
+} */
 
-.map>svg {
+/* .map>svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
+} */
 
 .city-marker {
     fill: var(--red);
@@ -1191,6 +1200,7 @@ footer {
 }
 
 label {
+    box-sizing: border-box;
     display: block;
     padding: 0 0 8px 20px;
 }
@@ -1208,9 +1218,9 @@ select {
 }
 
 textarea {
+    box-sizing: border-box;
     width: 100%;
     height: 300px;
-    box-sizing: border-box;
     padding: 10px 20px;
     font-size: 16px;
     font-family: "Lato-regular", sans-serif;
