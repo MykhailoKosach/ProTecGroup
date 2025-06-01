@@ -938,7 +938,7 @@ footer {
         gap: 10px;
     }
 
-    .block-hidden {
+    .holding-block-hidden {
         height: 100%;
         overflow: visible;
         opacity: 1;
