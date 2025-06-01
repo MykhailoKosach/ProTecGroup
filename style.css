@@ -890,84 +890,61 @@ footer {
 }
 
 .holding-wrapper {
-    width: 100%;
-    padding-top: 40px;
     display: flex;
-    justify-content: space-between;
+    gap: 9%;
+    justify-content: center;
 }
 
 .holding-block {
+    background-image: url(https://picsum.photos/id/1025/1440/800);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
     width: 27%;
     height: 450px;
 }
 
-.holding-block-bg {
-    background-image: url(https://picsum.photos/id/1025/1440/800);
-    aspect-ratio: 1440 / 800;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    position: relative;
-    z-index: 0;
+.holding-block-description {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-}
-
-.holding-block-description {
-    box-sizing: border-box;
-    height: 125px;
+    height: 30%;
+    padding: 16px 24px;
     background: var(--red-holding-gradient);
     color: var(--white);
     border-radius: 10px;
-    padding: 56px 24px 0 24px;
-    /* Падінг 56px потенційно є кастилем, бо сам .holding-block-description вилазить за межі контейнера */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
-    position: absolute;
-    transition: height 0.4s ease, background 0.4s ease;
 }
 
-.holding-block-text p,
-.holding-block-description a {
+.holding-block-hidden {
+    height: 0%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
 }
 
-.holding-block-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.holding-block-text h3 {
-    margin: 0;
-    transition: color 0.3s ease;
-}
-
-
-.holding-block-bg:hover {
+.holding-block:hover {
     .holding-block-description {
-        height: 300px;
+        height: 66%;
         background: var(--red-holding-gradient-hover);
-        justify-content: flex-end;
-        gap: 20px;
-        padding: 16px 24px;
+        gap: 10px;
     }
-}
 
-.holding-block-bg:hover .holding-block-text p,
-.holding-block-description a {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    .block-hidden {
+        height: 100%;
+        overflow: visible;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 }
 
 .history {
