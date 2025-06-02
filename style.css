@@ -354,6 +354,8 @@ footer {
 }
 
 .btn-soft {
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
     box-sizing: border-box;
     width: 200px;
@@ -371,14 +373,14 @@ footer {
     gap: 10px;
     align-items: center;
     justify-content: start;
-    transition: all linear 0, 2s;
+    transition: color 0,4s ease;
 
-    .arrow-white {
+    /* .arrow-white {
         display: none;
-    }
+    } */
 }
 
-.btn-soft:hover {
+/* .btn-soft:hover {
     background-color: var(--red);
     color: var(--white);
     flex-direction: row-reverse;
@@ -391,7 +393,66 @@ footer {
     .arrow-white {
         display: inline;
     }
+} */
+
+.btn-soft .arrow {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: relative;
+    z-index: 1;
 }
+
+.arrow-red {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.arrow-white {
+    opacity: 0;
+    transform: translateX(-10px);
+    position: absolute;
+    right: 10px;
+}
+
+.btn-soft .btn-text {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+/* фон-перехід */
+.btn-soft .hover-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--red);
+    z-index: 0;
+    transition: width 0.4s ease;
+}
+
+/* ефект при hover */
+.btn-soft:hover {
+    color: var(--white);
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.btn-soft:hover .arrow-red {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.btn-soft:hover .arrow-white {
+    opacity: 1;
+    transform: translateX(20px);
+}
+
+.btn-soft:hover .hover-bg {
+    width: 100%;
+}
+
 
 .btn-soft-reverse {
     text-decoration: none;
@@ -986,8 +1047,6 @@ footer {
     flex-direction: column;
     gap: 20px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
 }
 
@@ -996,14 +1055,15 @@ footer {
         height: 66%;
         background: var(--red-holding-gradient-hover);
         gap: 10px;
+        transition: 0.2s ease;
     }
 
     .holding-block-hidden {
         height: 75%;
         overflow: visible;
         opacity: 1;
-        transform: translateY(0);
         pointer-events: auto;
+        transition: opacity 0.4s ease-in;
     }
 }
 
