@@ -628,6 +628,17 @@ footer {
     transform: translateY(0);
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(0px);
+    transition: opacity 2s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .fade-in-left {
     opacity: 0;
     transform: translateX(-40px);
@@ -773,7 +784,8 @@ footer {
 
 .about-company-right {
     width: 40%;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .slide-content-2 {
@@ -1297,7 +1309,7 @@ textarea {
 .career-block {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 28px;
@@ -1351,4 +1363,22 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.logo-animation {
+    width: 345px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-container-red {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container-grey {
+    display: flex;
+    justify-content: flex-end;
 }

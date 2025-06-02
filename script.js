@@ -72,6 +72,10 @@ document.querySelectorAll('.fade-in-right').forEach((el) => {
   observer.observe(el);
 });
 
+document.querySelectorAll('.fade-in').forEach((el) => {
+  observer.observe(el);
+});
+
 // ТЕСТУВАННЯ АНІМАЦІЙ
 
 document.addEventListener("DOMContentLoaded", () => {
