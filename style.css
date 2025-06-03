@@ -370,7 +370,7 @@ footer {
     text-align: left;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     justify-content: start;
     transition: color 0,4s ease;
@@ -437,6 +437,7 @@ footer {
     color: var(--white);
     flex-direction: row-reverse;
     justify-content: center;
+    gap: 4px;
 }
 
 .btn-soft:hover .arrow-red {
