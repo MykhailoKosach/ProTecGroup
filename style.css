@@ -20,6 +20,7 @@
             rgba(175, 34, 42, 0.4) 20.67301869392395%,
             rgba(175, 34, 42, 1) 39.72383737564087%);
     --red-btn-hover: #E92626;
+    --red-hover: #C62828;
     --shadow-base: 0px 1px 10px 0.5px rgba(0, 0, 0, 0.2);
     --shadow-middle: 0 8px 20px rgba(0, 0, 0, 0.15);
     /* зробив для хедера */
@@ -40,7 +41,7 @@ main {
 }
 
 main>section {
-    margin: 100px 155px 100px 155px;
+    margin: 100px 10% 100px 10%;
 }
 
 /* Скролбар */
@@ -354,7 +355,7 @@ footer {
     gap: 12px;
     align-items: center;
     justify-content: start;
-    transition: color 0, 4s ease;
+    transition: color 0,4s ease;
 }
 
 .btn-soft .arrow {
@@ -363,12 +364,12 @@ footer {
     z-index: 1;
 }
 
-.arrow-red {
+.arrow-visible {
     opacity: 1;
     transform: translateX(0);
 }
 
-.arrow-white {
+.arrow-hidden {
     opacity: 0;
     transform: translateX(-10px);
     position: absolute;
@@ -381,7 +382,6 @@ footer {
     transition: transform 0.4s ease;
 }
 
-/* фон-перехід */
 .btn-soft .hover-bg {
     content: "";
     position: absolute;
@@ -394,7 +394,6 @@ footer {
     transition: width 0.4s ease;
 }
 
-/* ефект при hover */
 .btn-soft:hover {
     color: var(--white);
     flex-direction: row-reverse;
@@ -402,12 +401,12 @@ footer {
     gap: 4px;
 }
 
-.btn-soft:hover .arrow-red {
+.btn-soft:hover .arrow-visible {
     opacity: 0;
     transform: translateX(10px);
 }
 
-.btn-soft:hover .arrow-white {
+.btn-soft:hover .arrow-hidden {
     opacity: 1;
     transform: translateX(20px);
 }
@@ -416,45 +415,85 @@ footer {
     width: 100%;
 }
 
-
 .btn-soft-reverse {
+    position: relative;
+    overflow: hidden;
     text-decoration: none;
     box-sizing: border-box;
     width: 200px;
     height: 50px;
     padding: 10px 10px 10px 0px;
     border-radius: 10px;
-    background-color: var(--red);
-    color: var(--white, #af222a);
+    background-color: var(--red, #af222a); /* Початковий фон — червоний */
+    color: var(--white); /* Початковий текст — білий */
     font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
     font-weight: 600;
     text-align: left;
     display: flex;
     flex-direction: row;
+    gap: 12px;
     align-items: center;
     justify-content: start;
-    gap: 10px;
-    transition: all linear 0, 2s;
-
-    .arrow-red {
-        display: none;
-    }
+    transition: color 0.4s ease;
 }
 
+.btn-soft-reverse .arrow {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.arrow-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.arrow-hidden {
+    opacity: 0;
+    transform: translateX(-10px);
+    position: absolute;
+    right: 10px;
+}
+
+.btn-soft-reverse .btn-text {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.btn-soft-reverse .hover-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--white); /* Білий фон на hover */
+    z-index: 0;
+    transition: width 0.4s ease;
+}
+
+/* Hover: змінюється на білий фон, червоний текст і червона стрілка */
 .btn-soft-reverse:hover {
-    background-color: var(--white);
     color: var(--red);
     flex-direction: row-reverse;
     justify-content: center;
+    gap: 4px;
+}
 
-    .arrow-red {
-        display: inline;
-    }
+.btn-soft-reverse:hover .arrow-visible {
+    opacity: 0;
+    transform: translateX(10px);
+}
 
-    .arrow-white {
-        display: none;
-    }
+.btn-soft-reverse:hover .arrow-hidden {
+    opacity: 1;
+    transform: translateX(20px);
+}
+
+.btn-soft-reverse:hover .hover-bg {
+    width: 100%;
 }
 
 .btn {
@@ -475,10 +514,45 @@ footer {
 }
 
 .btn:hover {
-    background-color: var(--red-btn-hover);
+    background-color: var(--red-hover);
 }
 
 /* Універсальні контейнери */
+
+.flex {
+    display: flex;
+}
+
+.heading-wrapper {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.logo-animation-wrapper {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo-animation {
+    width: 345px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-container-red {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container-grey {
+    display: flex;
+    justify-content: flex-end;
+}
 
 .white-wrapper {
     padding: 80px 155px;
@@ -488,7 +562,7 @@ footer {
 }
 
 .red-wrapper {
-    padding: 80px 155px;
+    padding: 80px 10%;
     background-color: var(--red);
     color: var(--white);
     display: flex;
@@ -497,7 +571,7 @@ footer {
 }
 
 .red-wrapper-reverse {
-    padding: 80px 155px;
+    padding: 80px 10%;
     background-color: var(--red);
     color: var(--white);
     display: flex;
@@ -648,13 +722,7 @@ footer {
     color: var(--black-mid-tone);
 }
 
-.activity {
-    width: 1130px;
-    display: grid;
-    grid-template-columns: repeat(12, 78px);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 18px;
-}
+/* Анімації */
 
 .fade-in-on-scroll {
     opacity: 0;
@@ -666,8 +734,6 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* Анімації */
 
 .fade-in-down-on-scroll {
     opacity: 0;
@@ -724,6 +790,13 @@ footer {
     transform: translateY(0);
 }
 
+.activity {
+    display: grid;
+    grid-template-columns: repeat(12, 78px);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 18px;
+}
+
 /* template */
 /* grid-area: row-start / column-start / row-end / column-end; */
 
@@ -777,7 +850,7 @@ footer {
 
 .marquee-container {
     overflow: hidden;
-    padding: 54px 0;
+    padding: 60px 0 30px 0;
 }
 
 .marquee-track {
@@ -823,83 +896,6 @@ footer {
 }
 
 /* About-us-page */
-.about-company {
-    display: flex;
-}
-
-.about-company-left {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-
-.about-company-right {
-    width: 40%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.slide-content-2 {
-    background-image: url(https://picsum.photos/id/1025/1440/800);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 800px;
-    position: relative;
-    /* z-index: 0; */
-}
-
-.honour {
-    display: flex;
-    flex-direction: column;
-    gap: 70px;
-}
-
-.honour>div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.honour-heading {
-    box-sizing: border-box;
-    padding: 15px;
-    width: 24%;
-    height: 230px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 24px;
-}
-
-.honour-btn {
-    width: 24%;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.honour-block {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 24%;
-    padding: 20px 15px 10px 15px;
-    background: var(--grey-gradient);
-    border-radius: 10px;
-    border-top: 5px solid var(--red);
-    box-shadow: var(--shadow-base);
-}
-
-.honour-block h1 {
-    font-size: 96px;
-}
-
 .block-small h1 {
     font-size: 96px;
 }
@@ -974,6 +970,7 @@ footer {
 }
 
 .holding-wrapper {
+    padding-top: 60px;
     display: flex;
     gap: 9%;
     justify-content: center;
@@ -989,6 +986,7 @@ footer {
     align-items: flex-end;
     width: 27%;
     height: 450px;
+    overflow: hidden;
 }
 
 .holding-block-description {
@@ -1001,6 +999,7 @@ footer {
     background: var(--red-holding-gradient);
     color: var(--white);
     border-radius: 10px;
+    transition: 0.2s ease;
 }
 
 .holding-block-hidden {
@@ -1011,6 +1010,7 @@ footer {
     gap: 20px;
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.6s ease-in, height 0.6s ease;
 }
 
 .holding-block:hover {
@@ -1028,10 +1028,6 @@ footer {
         pointer-events: auto;
         transition: opacity 0.4s ease-in;
     }
-}
-
-.history {
-    display: flex;
 }
 
 .history-description {
@@ -1099,6 +1095,8 @@ footer {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    align-content: flex-start;
+    height: 580px;
 }
 
 .logo-item {
@@ -1106,6 +1104,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 20%;
+    /* height: 145px; */
     padding: 16px 16px;
     border-radius: 10px;
 
@@ -1157,7 +1156,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transform: translateY(50px);
-    transition: 0.3s ease;
+    /* transition: 0.3s ease; */
     z-index: 9999;
 }
 
@@ -1283,7 +1282,7 @@ select {
 textarea {
     box-sizing: border-box;
     width: 100%;
-    height: 300px;
+    height: 150px;
     padding: 10px 20px;
     font-size: 16px;
     font-family: "Lato-regular", sans-serif;
@@ -1353,6 +1352,7 @@ textarea {
 }
 
 .career-wrapper {
+    padding-top: 60px;
     display: flex;
     justify-content: space-between;
 }
@@ -1373,7 +1373,7 @@ textarea {
 
 .career-img {
     width: 100%;
-    text-align: right;
+    text-align: left;
 }
 
 .career-1 {
@@ -1416,20 +1416,3 @@ textarea {
     gap: 8px;
 }
 
-.logo-animation {
-    width: 345px;
-    height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.logo-container-red {
-    display: flex;
-    justify-content: space-between;
-}
-
-.logo-container-grey {
-    display: flex;
-    justify-content: flex-end;
-}
