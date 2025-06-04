@@ -1,3 +1,4 @@
+// link
 document.querySelectorAll('.header-nav-item').forEach(item => {
   item.addEventListener('click', function (e) {
     // Якщо клік був по <a> або вкладених посиланнях, нічого не робимо — браузер сам перейде
@@ -81,8 +82,6 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".counter");
 
@@ -107,17 +106,15 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // тільки раз
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-// Обираємо всі елементи з класом fade-in-on-scroll
 document.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
   observer.observe(el);
 });
 
-// Спостерігаємо всі елементи з fadeInDown класом
 document.querySelectorAll('.fade-in-down-on-scroll').forEach((el) => {
   observer.observe(el);
 });
@@ -134,8 +131,6 @@ document.querySelectorAll('.fade-in').forEach((el) => {
   observer.observe(el);
 });
 
-// ТЕСТУВАННЯ АНІМАЦІЙ
-
 document.addEventListener("DOMContentLoaded", () => {
   const containers = document.querySelectorAll('[data-stagger]');
 
@@ -147,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
           items.forEach((item, index) => {
             setTimeout(() => {
               item.classList.add('visible');
-            }, index * 80); // 120ms затримка між кожним
+            }, index * 80);
           });
           observer.unobserve(entry.target);
         }
@@ -233,27 +228,78 @@ btnLogistic.addEventListener('click', () => {
 
 btnAll.addEventListener('click', () => {
   setActiveButton(btnAll);
-  document.querySelectorAll('.logo-item').forEach(logo => {
-    logo.style.display = 'flex';
-  });
+
+  const wrapper = document.querySelector('.partners-wrapper');
+  const allLogos = document.querySelectorAll('.logo-item');
+
+  // Запускаємо fade-out
+  wrapper.classList.add('fade-out');
+
+  // Чекаємо завершення анімації (300 мс)
+  setTimeout(() => {
+    // Після того як обгортка зникла — показуємо всі лого
+    allLogos.forEach(logo => {
+      logo.style.display = 'flex';
+    });
+
+    // Видаляємо fade-out і запускаємо fade-in
+    wrapper.classList.remove('fade-out');
+    wrapper.classList.add('fade-in');
+
+    // Після завершення fade-in очищаємо клас
+    setTimeout(() => {
+      wrapper.classList.remove('fade-in');
+    }, 300);
+  }, 300); // час має співпадати з transition-duration
 });
 
 function filterLogos(type) {
+  const wrapper = document.querySelector('.partners-wrapper');
   const allLogos = document.querySelectorAll('.logo-item');
 
-  allLogos.forEach(logo => {
-    if (logo.classList.contains(type)) {
-      logo.style.display = 'flex';
-    } else {
-      logo.style.display = 'none';
-    }
-  });
+  wrapper.classList.add('fade-out'); // запуск анімації зникнення
+
+  setTimeout(() => {
+    allLogos.forEach(logo => {
+      logo.style.display = logo.classList.contains(type) ? 'flex' : 'none';
+    });
+
+    wrapper.classList.remove('fade-out');
+    wrapper.classList.add('fade-in');
+
+    setTimeout(() => {
+      wrapper.classList.remove('fade-in');
+    }, 300); // завершення анімації появи
+  }, 300); // затримка, поки не завершиться fade-out
 }
+
+btnAll.addEventListener('click', () => {
+  setActiveButton(btnAll);
+  const wrapper = document.querySelector('.partners-wrapper');
+  const allLogos = document.querySelectorAll('.logo-item');
+
+  wrapper.classList.add('fade-out');
+
+  setTimeout(() => {
+    allLogos.forEach(logo => {
+      logo.style.display = 'flex';
+    });
+
+    wrapper.classList.remove('fade-out');
+    wrapper.classList.add('fade-in');
+
+    setTimeout(() => {
+      wrapper.classList.remove('fade-in');
+    }, 300);
+  }, 300);
+});
+
 
 function setActiveButton(activeBtn) {
   allButtons.forEach(btn => btn.classList.remove('active'));
   activeBtn.classList.add('active');
 }
+
 
 // Overlay
 document.addEventListener("DOMContentLoaded", function () {
