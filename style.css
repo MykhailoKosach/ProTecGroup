@@ -261,7 +261,44 @@ footer {
 .social {
     display: flex;
     gap: 40px;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+.social a {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.social img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.visible-icon {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hidden-icon {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Коли наводимо на <a> — показується кольорова іконка */
+.social a:hover .visible-icon {
+    opacity: 0;
+}
+
+.social a:hover .hidden-icon {
+    opacity: 1;
+}
+
 
 .footer-nav-container {
     box-sizing: border-box;
@@ -1322,7 +1359,8 @@ label {
     width: 100%;
 }
 
-#topic, #email {
+#topic,
+#email {
     box-sizing: border-box;
     width: 100%;
     height: 50px;
