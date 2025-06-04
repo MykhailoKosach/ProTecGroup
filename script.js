@@ -1,42 +1,87 @@
-  document.querySelectorAll('.header-nav-item').forEach(item => {
-    item.addEventListener('click', function (e) {
-      // Якщо клік був по <a> або вкладених посиланнях, нічого не робимо — браузер сам перейде
-      if (e.target.closest('a')) return;
+document.querySelectorAll('.header-nav-item').forEach(item => {
+  item.addEventListener('click', function (e) {
+    // Якщо клік був по <a> або вкладених посиланнях, нічого не робимо — браузер сам перейде
+    if (e.target.closest('a')) return;
 
-      // Отримаємо головне <a> цього пункту меню
-      const link = this.querySelector('a');
-      if (link && link.href) {
-        window.location.href = link.href;
-      }
-    });
+    // Отримаємо головне <a> цього пункту меню
+    const link = this.querySelector('a');
+    if (link && link.href) {
+      window.location.href = link.href;
+    }
   });
+});
 
 // counting
-function animateCounter(el, duration = 8000) {
-  const target = +el.getAttribute("data-target");
+// function animateCounter(el, duration = 8000) {
+//   const target = +el.getAttribute("data-target");
+//   const startTime = performance.now();
+
+//   function easeOutQuad(t) {
+//     return t * (2 - t); // плавний ефект "ease-out"
+//   }
+
+//   function update(currentTime) {
+//     const elapsed = currentTime - startTime;
+//     const progress = Math.min(elapsed / duration, 1);
+//     const easedProgress = easeOutQuad(progress);
+//     const value = Math.round(easedProgress * target);
+//     el.textContent = value;
+
+//     if (progress < 1) {
+//       requestAnimationFrame(update);
+//     } else {
+//       el.textContent = target;
+//       el.classList.add("animate-finish");
+//     }
+//   }
+
+//   requestAnimationFrame(update);
+// }
+
+function animateCounter(el) {
+  const target = parseFloat(el.getAttribute("data-target"));
+  const useDecimal = el.getAttribute("data-decimal") === "true";
+  const duration = parseInt(el.getAttribute("data-duration")) || 8000; // за замовчуванням 8000 мс
   const startTime = performance.now();
 
   function easeOutQuad(t) {
-    return t * (2 - t); // плавний ефект "ease-out"
+    return t * (2 - t);
+  }
+
+  function truncateToOneDecimal(num) {
+    return Math.floor(num * 10) / 10;
   }
 
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
     const easedProgress = easeOutQuad(progress);
-    const value = Math.round(easedProgress * target);
-    el.textContent = value;
+    const value = easedProgress * target;
+
+    let displayValue;
+    if (useDecimal) {
+      displayValue = truncateToOneDecimal(value).toString().replace('.', ',');
+    } else {
+      displayValue = Math.round(value).toString();
+    }
+
+    el.textContent = displayValue;
 
     if (progress < 1) {
       requestAnimationFrame(update);
     } else {
-      el.textContent = target;
+      const finalValue = useDecimal
+        ? target.toFixed(1).replace('.', ',')
+        : Math.round(target).toString();
+      el.textContent = finalValue;
       el.classList.add("animate-finish");
     }
   }
 
   requestAnimationFrame(update);
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".counter");
