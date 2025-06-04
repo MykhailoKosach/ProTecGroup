@@ -216,7 +216,6 @@ footer {
 
 .footer-white-wrapper {
     box-sizing: border-box;
-    /* flex: 1; */
     width: 27%;
     padding: 40px 0 40px 10%;
     background: var(--white);
@@ -232,7 +231,6 @@ footer {
 
 .footer-red-wrapper {
     box-sizing: border-box;
-    /* flex: 2; */
     width: 70%;
     padding: 40px 10% 40px 40px;
     display: flex;
@@ -290,7 +288,6 @@ footer {
     z-index: 2;
 }
 
-/* Коли наводимо на <a> — показується кольорова іконка */
 .social a:hover .visible-icon {
     opacity: 0;
 }
@@ -298,7 +295,6 @@ footer {
 .social a:hover .hidden-icon {
     opacity: 1;
 }
-
 
 .footer-nav-container {
     box-sizing: border-box;
@@ -338,7 +334,6 @@ footer {
     padding: 0;
     margin: 0;
 }
-
 
 .footer-nav-list {
     display: flex;
@@ -475,9 +470,7 @@ footer {
     padding: 10px 10px 10px 0px;
     border-radius: 10px;
     background-color: var(--red, #af222a);
-    /* Початковий фон — червоний */
     color: var(--white);
-    /* Початковий текст — білий */
     font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -522,12 +515,10 @@ footer {
     width: 0%;
     height: 100%;
     background-color: var(--white);
-    /* Білий фон на hover */
     z-index: 0;
     transition: width 0.4s ease;
 }
 
-/* Hover: змінюється на білий фон, червоний текст і червона стрілка */
 .btn-soft-reverse:hover {
     color: var(--red);
     flex-direction: row-reverse;
@@ -639,6 +630,12 @@ footer {
     gap: 32px;
 }
 
+.container-heading {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
 .container-description {
     display: flex;
     flex-direction: column;
@@ -651,6 +648,10 @@ footer {
     flex-direction: column;
     justify-content: center;
     gap: 24px;
+}
+
+.container-img img {
+    border-radius: 10px;
 }
 
 .block-wrapper {
@@ -696,14 +697,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-
-.container-text h3 {
-    font-weight: lighter;
-}
-
-.container-img img {
-    border-radius: 10px;
 }
 
 .block-middle-wrapper {
@@ -897,6 +890,10 @@ footer {
     gap: 18px;
 }
 
+/* .container-text h3 {
+    font-weight: lighter;
+} */
+
 /* template */
 /* grid-area: row-start / column-start / row-end / column-end; */
 
@@ -948,9 +945,15 @@ footer {
     gap: 60px;
 }
 
+.marquee-wrapper {
+    padding: 60px 0 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
 .marquee-container {
     overflow: hidden;
-    padding: 60px 0 30px 0;
 }
 
 .marquee-track {
@@ -1004,6 +1007,16 @@ footer {
 
 .counter-wrapper .counter-container {
     min-width: 48%;
+}
+
+.honour .block-wrapper {
+    /* padding-top: 140px; */
+    row-gap: 44px;
+    column-gap: 9%
+}
+
+.honour .block-small {
+    width: 27%;
 }
 
 .block-small h1 {
@@ -1154,6 +1167,7 @@ footer {
 }
 
 .partners-wrapper {
+    padding-top: 24px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
