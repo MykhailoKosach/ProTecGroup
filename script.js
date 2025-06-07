@@ -163,8 +163,9 @@ document.querySelectorAll('.marquee-track').forEach(track => {
   }
 });
 
-// const width = 1499;
-// const height = 1000;
+// Map
+// const width = 1440;
+// const height = 987;
 // const latMin = 44.3;
 // const latMax = 52.5;
 // const lonMin = 22.0;
@@ -199,15 +200,40 @@ document.querySelectorAll('.marquee-track').forEach(track => {
 
 // cities.forEach(city => {
 //   const { x, y } = geoToPixel(city.lat, city.lon);
-//   const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-//   circle.setAttribute("class", "city-marker");
-//   circle.setAttribute("data-name", city.name);
-//   circle.setAttribute("cx", x);
-//   circle.setAttribute("cy", y);
-//   circle.setAttribute("r", 6);
-//   circle.setAttribute("fill", "red"); // або будь-який колір
-//   svg.appendChild(circle);
+
+//   if (city.name === "Київ" || city.name === "Львів") {
+//     // SVG іконка "pin" замість кружечка
+//     const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
+//     icon.setAttribute("d", "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z M12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z");
+//     icon.setAttribute("fill", "var(--red)");
+//     icon.setAttribute("transform", `translate(${x - 12}, ${y - 24}) scale(1.5)`);
+//     icon.setAttribute("class", "city-icon");
+//     icon.setAttribute("data-name", city.name);
+//     svg.appendChild(icon);
+
+//     // Підпис
+//     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+//     text.setAttribute("x", x + 25);
+//     text.setAttribute("y", y);
+//     text.setAttribute("fill", "var(--red)"); // виправлено синтаксис!
+//     text.setAttribute("font-size", "18px");
+//     text.setAttribute("font-family", "Lato-SemiBold, sans-serif");
+//     text.textContent = city.name;
+//     svg.appendChild(text);
+
+//   } else {
+//     // Звичайний кружечок для решти міст
+//     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+//     circle.setAttribute("class", "city-marker");
+//     circle.setAttribute("data-name", city.name);
+//     circle.setAttribute("cx", x);
+//     circle.setAttribute("cy", y);
+//     circle.setAttribute("r", 6);
+//     circle.setAttribute("fill", "var(--red)");
+//     svg.appendChild(circle);
+//   }
 // });
+
 
 // Filters
 const btnDistribution = document.getElementById('filter-distribution');
