@@ -389,7 +389,7 @@ footer {
     height: 50px;
     padding: 10px 10px 10px 0px;
     border-radius: 10px;
-    background-color: var(--white);
+    /* background-color: var(--white); */
     color: var(--red, #af222a);
     font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
@@ -469,7 +469,7 @@ footer {
     height: 50px;
     padding: 10px 10px 10px 0px;
     border-radius: 10px;
-    background-color: var(--red, #af222a);
+    /* background-color: var(--red, #af222a); */
     color: var(--white);
     font-family: "Lato-SemiBold", sans-serif;
     font-size: 18px;
@@ -1060,6 +1060,7 @@ footer {
     border-radius: 10px;
     height: 54px;
     width: 30%;
+
     p {
         text-align: left;
     }
@@ -1236,18 +1237,98 @@ footer {
     }
 }
 
-circle {
-    cursor: pointer;
-}
 
 circle:hover {
     fill: var(--red-btn-hover);
+    r: 8;
 }
 
-.map text {
-    font-size: 18px;
-    font-weight: bolder;
-    fill: var(--red);
+.city-icon:hover {
+    fill: var(--red-btn-hover);
+}
+
+.map-overlay {
+    box-sizing: border-box;
+    background: var(--red);
+    color: var(--white);
+    border-top-left-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 36%;
+    display: none;
+    animation: slideInFromRight 0.4s ease-out;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.map-overlay.visible {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.map-overlay.fade-out {
+    transform: translateX(40px);
+    opacity: 0;
+}
+
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.map-overlay-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 25px;
+}
+
+.map-overlay-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overlay-number {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+    height: 40px;
+
+    h4 {
+        font-weight: lighter;
+
+    }
+}
+
+.overlay-text {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 40px;
+
+    P {
+        text-align: left;
+    }
+}
+
+.overlay-icon {
+    width: 10%;
 }
 
 
