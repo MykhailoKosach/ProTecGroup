@@ -1271,6 +1271,8 @@ footer {
     gap: 80px;
 }
 
+.mission { position: relative; }
+
 .mission .block-middle {
     height: 300px;
 }
@@ -1293,29 +1295,61 @@ footer {
     background: var(--red);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0;
+    z-index: 2;
     border: 3px solid var(--white);
     box-shadow: 0 0 0 2px var(--red);
 }
 
-.value-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+/* optional glow when the milestone is already passed */
+.value.active::before {
+  box-shadow: 0 0 0 4px var(--red), 0 0 6px var(--red);
 }
 
-.value-wrapper::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: -100px;
-    bottom: 150px;
-    width: 2px;
-    background: var(--grey);
-    transform: translateX(-50%);
-    z-index: -1;
+.mission::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: var(--rail-start, 0);
+  bottom: var(--rail-end, 0);          /* NEW: variable instead of fixed 0 */
+  width: 2px;
+  background: var(--grey);
+  transform: translateX(-50%);
+  z-index: -1;
 }
+
+
+
+/*  red overlay that grows  */
+.progress-line {
+  position: absolute;
+  left: 50%;
+  top: var(--rail-start, 0);   /* set by JS */
+  width: 2px;
+  height: 0;                   /* grows via JS */
+  background: var(--red);
+  transform: translateX(-50%);
+  transform-origin: top;
+  z-index: 0;
+  transition: height 0.25s linear;
+}
+
+/* optional highlight for passed dots */
+.value.active::before { box-shadow: 0 0 0 3px var(--red); }
+
+/* 1 ▸ default look of the content blocks */
+.value .block-middle-reverse,
+.value .block-middle {
+  /* background: transparent;  */
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* 2 ▸ when the rail has reached the dot … */
+.value.active .block-middle-reverse,
+.value.active .block-middle {
+  background: var(--red-gradient);           /* fill with red */
+  color: var(--white);              /* flip text to white for contrast */
+}
+
 
 .value-reverse {
     display: flex;
