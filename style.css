@@ -232,7 +232,7 @@ footer {
 .footer-red-wrapper {
     box-sizing: border-box;
     width: 70%;
-    padding: 60px 10% 40px 60px;
+    padding: 40px 10% 40px 40px;
     display: flex;
     gap: 10%;
     background: var(--red-gradient);
@@ -890,7 +890,7 @@ footer {
 .carousel-control {
     position: static;
     transform: none;
-    background: rgba(255, 255, 255);
+    background: rgba(255,255,255);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -1220,7 +1220,7 @@ footer {
 
 /* About-us-page */
 
-.counter {
+.counter{
     font-size: 80px;
     color: var(--black-mid-tone);
 }
@@ -1265,13 +1265,12 @@ footer {
     font-weight: lighter;
 }
 
-.mission {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+.mission{
+  position: relative;          /* <──---   make .mission the containing block */
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
-
-.mission { position: relative; }
 
 .mission .block-middle {
     height: 300px;
@@ -1309,7 +1308,7 @@ footer {
   content: '';
   position: absolute;
   left: 50%;
-  top: var(--rail-start, 0);
+  top: var(--rail-start, 0);          /* start of the rail  */
   bottom: var(--rail-end, 0);          /* NEW: variable instead of fixed 0 */
   width: 2px;
   background: var(--grey);
@@ -1420,29 +1419,6 @@ footer {
         transition: opacity 0.4s ease-in;
     }
 }
-
-
-/* circle {
-    animation: pulse 1s ease-in-out infinite;
-}
-
-.city-icon {
-    
-}
-
-@keyframes pulse {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-5px)
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-} */
 
 
 circle:hover {

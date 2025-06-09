@@ -1,44 +1,36 @@
+
 (() => {
-  const section      = document.getElementById('value');
-  const startAnchor  = document.getElementById('timelineStart');
-  const lastBlock    = section.querySelector('.value-wrapper .value:last-child .block-middle-reverse')
-                       ?? section.querySelector('.value-wrapper .value:last-child');   // fallback
-  const progress     = section.querySelector('.progress-line');
-  const milestones   = [...section.querySelectorAll('.value')];
+  const section     = document.getElementById('value');
+  const startAnchor = document.getElementById('timelineStart');
+  const progress    = document.querySelector('.progress-line');
+  const dots        = [...document.querySelectorAll('.value')];
 
-  /* these two numbers are recalculated on resize so it all stays in sync */
-  let railStartAbs   = 0;   // absolute Y-coord of rail’s start (px from top of page)
-  let railLength     = 0;   // total drawable length (px)
+  function measure () {
+    const startY  = startAnchor.offsetTop + startAnchor.offsetHeight / 2;
+    const endY    = dots.at(-1).offsetTop + dots.at(-1).offsetHeight / 2;
+    const maxFill = endY - startY;
 
-  function setRailBounds () {
-    /* distances *inside* the section (relative to its top) */
-    const startInSection = startAnchor.offsetTop + startAnchor.offsetHeight / 2;
-    const endInSection   = lastBlock.offsetTop   + lastBlock.offsetHeight   / 2;
+    section.style.setProperty('--rail-start', `${startY}px`);
+    section.style.setProperty('--rail-end',   `${section.offsetHeight - endY}px`);
 
-    railStartAbs = section.offsetTop + startInSection;
-    railLength   = endInSection - startInSection;
-
-    /* feed the pseudo-element */
-    section.style.setProperty('--rail-start', `${startInSection}px`);
-    section.style.setProperty('--rail-end',   `${section.offsetHeight - endInSection}px`);
+    return { startY, maxFill };
   }
 
-  function updateProgress () {
-    const viewportCentre = window.scrollY + window.innerHeight / 2;
-    const filled         = Math.min(Math.max(viewportCentre - railStartAbs, 0), railLength);
+  const { startY, maxFill } = measure();
+
+  function tick () {
+    const centreY = window.scrollY + innerHeight / 2;
+    const filled  = Math.min(Math.max(centreY - (section.offsetTop + startY), 0), maxFill);
+    progress.style.top    = `${startY}px`;
     progress.style.height = `${filled}px`;
 
-    /* milestone highlight */
-    const centreLine = window.innerHeight / 2;
-    milestones.forEach(el => {
-      const mid = el.getBoundingClientRect().top + el.offsetHeight / 2;
-      el.classList.toggle('active', mid < centreLine);
+    dots.forEach(el => {
+      const dotMid = el.offsetTop + el.offsetHeight / 2;
+      el.classList.toggle('active', (section.offsetTop + dotMid) < centreY);
     });
   }
 
-  /* initialise and keep synced */
-  setRailBounds();
-  updateProgress();
-  window.addEventListener('resize', () => { setRailBounds(); updateProgress(); });
-  window.addEventListener('scroll',  updateProgress, { passive: true });
+  tick();
+  addEventListener('scroll',  tick, { passive:true });
+  addEventListener('resize',  () => location.reload());  /* quickest resize fix */
 })();
