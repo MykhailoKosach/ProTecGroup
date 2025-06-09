@@ -890,7 +890,7 @@ footer {
 .carousel-control {
     position: static;
     transform: none;
-    background: rgba(255,255,255);
+    background: rgba(255, 255, 255);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -1220,7 +1220,7 @@ footer {
 
 /* About-us-page */
 
-.counter{
+.counter {
     font-size: 80px;
     color: var(--black-mid-tone);
 }
@@ -1386,6 +1386,29 @@ footer {
         transition: opacity 0.4s ease-in;
     }
 }
+
+
+/* circle {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.city-icon {
+    
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px)
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+} */
 
 
 circle:hover {
