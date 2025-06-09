@@ -1646,13 +1646,21 @@ textarea {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
     gap: 16px;
     background: var(--grey-gradient);
     border-radius: 10px;
     width: 23%;
     box-shadow: var(--shadow-base);
+
+    p {
+        text-align: left;
+    }
+}
+
+.contacts-block a:hover {
+    color: var(--red);
 }
 
 /* Model-page */
