@@ -136,6 +136,51 @@ document.addEventListener("click", function (event) {
   }
 });
 
+document.querySelectorAll('.map-overlay').forEach(overlay => {
+  // Перевірка, чи кнопка вже існує, щоб не додавати повторно
+  if (!overlay.querySelector('.overlay-close')) {
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('overlay-close');
+    closeButton.setAttribute('aria-label', 'Закрити');
+    closeButton.innerHTML = '&times;';
+
+    // Стилі через JS (можна замість цього зробити в CSS)
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '12px';
+    closeButton.style.fontSize = '32px';
+    closeButton.style.background = 'none';
+    closeButton.style.border = 'none';
+    closeButton.style.color = 'var(--white)';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.zIndex = '10';
+    // closeButton.style.transition = 'transform 0.2s ease';
+
+    // closeButton.addEventListener('mouseenter', () => {
+    //   closeButton.style.transform = 'scale(1.2)';
+    // });
+
+    // closeButton.addEventListener('mouseleave', () => {
+    //   closeButton.style.transform = 'scale(1)';
+    // });
+
+    // Подія закриття
+    closeButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hideOverlay(overlay, () => {
+        if (overlay === currentOverlay) {
+          currentOverlay = null;
+        }
+      });
+    });
+
+    overlay.appendChild(closeButton);
+  }
+});
+
+
+
+
 function isOverlayVisible() {
   const overlay = document.querySelector('.map-overlay.visible');
   return !!overlay;

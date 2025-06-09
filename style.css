@@ -1331,28 +1331,9 @@ circle:hover {
     width: 10%;
 }
 
-
-/* .map {
-    width: 1499px;
-    height: 1000px;
-} */
-
-/* .map>img {
-    display: block;
-    width: 100%;
-    height: 100%;
-} */
-
-/* .map>svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-} */
-
-/* .city-marker {
-    fill: var(--red);
+/* .overlay-close:hover {
+  transform: scale(1.3);
+  opacity: 0.8;
 } */
 
 /* Partners-page */
