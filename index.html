@@ -58,45 +58,73 @@
             </li>
         </ul>
     </header>
-    <main>
+    <main style="padding-top: 0;">
         <!-- Карусель -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-
+        <div class="carousel" id="customCarousel">
+            <div class="carousel-inner">
                 <!-- Слайд 1 -->
-                <div class="swiper-slide">
+                <div class="carousel-item active">
                     <div class="slide-content">
                         <h2>Заголовок 1</h2>
                         <p>Опис до першого слайду</p>
+                        <div class="carousel-controls-row">
+                            <button class="carousel-control prev" aria-label="Previous">
+                                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div class="carousel-indicators">
+                                <button class="active" aria-label="Slide 1"><span></span></button>
+                                <button aria-label="Slide 2"><span></span></button>
+                                <button aria-label="Slide 3"><span></span></button>
+                            </div>
+                            <button class="carousel-control next" aria-label="Next">
+                                <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Слайд 2
-                <div class="swiper-slide">
-                    <img src="https://picsum.photos/id/1025/800/400" alt="slide 2">
+                <!-- Слайд 2 -->
+                <div class="carousel-item" data-bg="https://picsum.photos/id/1025/1440/800">
                     <div class="slide-content">
                         <h2>Заголовок 2</h2>
                         <p>Опис до другого слайду</p>
+                        <div class="carousel-controls-row">
+                            <button class="carousel-control prev" aria-label="Previous">
+                                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div class="carousel-indicators">
+                                <button aria-label="Slide 1"><span></span></button>
+                                <button class="active" aria-label="Slide 2"><span></span></button>
+                                <button aria-label="Slide 3"><span></span></button>
+                            </div>
+                            <button class="carousel-control next" aria-label="Next">
+                                <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                Слайд 3
-                <div class="swiper-slide">
-                    <img src="https://picsum.photos/id/1039/800/400" alt="slide 3">
+                <!-- Слайд 3 -->
+                <div class="carousel-item" data-bg="https://picsum.photos/id/1039/1440/800">
                     <div class="slide-content">
                         <h2>Заголовок 3</h2>
                         <p>Опис до третього слайду</p>
+                        <div class="carousel-controls-row">
+                            <button class="carousel-control prev" aria-label="Previous">
+                                <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                            <div class="carousel-indicators">
+                                <button aria-label="Slide 1"><span></span></button>
+                                <button aria-label="Slide 2"><span></span></button>
+                                <button class="active" aria-label="Slide 3"><span></span></button>
+                            </div>
+                            <button class="carousel-control next" aria-label="Next">
+                                <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#AF222A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </div> -->
-
+                </div>
             </div>
-
-            <!-- Навігація -->
-            <!-- <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div> -->
-
-            <!-- Пагінація -->
-            <!-- <div class="swiper-pagination"></div> -->
         </div>
         <section class="achievement">
             <div class="block-description">
@@ -116,7 +144,7 @@
             <div class="block-wide-wrapper">
                 <div class="block-wide">
                     <div class="counter-container">
-                        <h1 class="counter" data-target="1998" data-decimal="false" data-duration="8000">0</h1>
+                        <h1 class="counter" data-target="1998" data-decimal="false" data-duration="2000">0</h1>
                     </div>
                     <div class="block-text">
                         <h4 class="red lighter">ЗАСНУВАННЯ КОМПАНІЇ</h4>
@@ -126,7 +154,7 @@
                 </div>
                 <div class="block-wide">
                     <div class="counter-container">
-                        <h1 class="counter" data-target="2005" data-decimal="false" data-duration="8000">0</h1>
+                        <h1 class="counter" data-target="1998" data-decimal="false" data-duration="2000">0</h1>
                     </div>
                     <div class="block-text">
                         <h4 class="red lighter">РЕНЕЙМІНГ КОМПАНІЇ</h4>
@@ -137,7 +165,7 @@
                 </div>
                 <div class="block-wide">
                     <div class="counter-container">
-                        <h1 class="counter" data-target="2024" data-decimal="false" data-duration="8000">0</h1>
+                        <h1 class="counter" data-target="1998" data-decimal="false" data-duration="2000">0</h1>
                     </div>
                     <div class="block-text">
                         <h4 class="red lighter">НАГОРОДИ КОМПАНІЇ</h4>
@@ -688,6 +716,7 @@
         </div>
     </footer>
     <script src="./script.js"></script>
+    <script src="./carousel.js"></script>
 </body>
 
 </html>
