@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let progress = 0;
     
     const backgrounds = [
-        'https://picsum.photos/id/1025/1440/800',
-        'https://picsum.photos/id/1026/1440/800',
+        'https://picsum.photos/id/1015/1440/800',
+        'https://picsum.photos/id/1036/1440/800',
         'https://picsum.photos/id/1039/1440/800'
     ];
 
