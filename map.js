@@ -210,12 +210,12 @@ function animatePointerToCity(cityName) {
     svg.appendChild(pointerGroup);
   }
 
-  const duration = 1200;
+  const duration = 800;
   // Start from bottom right (add offset to position it away from the target)
-  const startX = cx + 70; // 60px to the right
-  const startY = cy + 90; // 60px below
-  const endX = cx + 50;   // 20px to the left of the pin
-  const endY = cy + 80;   // 20px below the pin
+  const startX = cx - 10; // 60px to the right
+  const startY = cy - 45; // 60px below
+  const endX = cx + 18;   // 20px to the left of the pin
+  const endY = cy - 60;   // 20px below the pin
 
   function startAnimation() {
     const startTime = performance.now();
@@ -229,14 +229,14 @@ function animatePointerToCity(cityName) {
       const currentX = startX + (endX - startX) * ease;
       const currentY = startY + (endY - startY) * ease;
 
-      pointerGroup.setAttribute("transform", `translate(${currentX}, ${currentY}) scale(1.3) rotate(-90)`);
+      pointerGroup.setAttribute("transform", `translate(${currentX}, ${currentY}) scale(1.3) rotate(0)`);
 
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
         setTimeout(() => {
           // Reset to start position and restart animation
-          pointerGroup.setAttribute("transform", `translate(${startX}, ${startY}) scale(1.3) rotate(-90)`);
+          pointerGroup.setAttribute("transform", `translate(${startX}, ${startY}) scale(1.3) rotate(0)`);
           startAnimation();
         }, 800);
       }
@@ -250,4 +250,4 @@ function animatePointerToCity(cityName) {
   startAnimation();
 }
 
-animatePointerToCity("Ковель");
+animatePointerToCity("Дрогобич");

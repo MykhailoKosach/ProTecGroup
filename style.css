@@ -779,9 +779,9 @@ footer {
 .carousel {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 80px);
     overflow: hidden;
-    background-image: url(https://picsum.photos/id/1025/1440/800);
+    /* background-image: url(https://picsum.photos/id/1025/1440/800); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -890,7 +890,7 @@ footer {
 .carousel-control {
     position: static;
     transform: none;
-    background: rgba(255,255,255);
+    background: rgba(255, 255, 255);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -1222,81 +1222,98 @@ footer {
 /* About-us-page */
 
 
-.gallery{
-  position: relative;           /* ⬅️  anchor absolutely-positioned children */
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--grey);
-  margin: 0;
+.gallery {
+    position: relative;
+    /* ⬅️  anchor absolutely-positioned children */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--grey);
+    margin: 0;
 }
 
-.gallery-controls-row{
-  position: absolute;
-  left: 50%;                    /*  optional: horizontally center */
-  bottom: 30px;                 /*  50 px from the bottom of .gallery */
-  transform: translateX(-50%);  /*  optional: horizontally center */
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  z-index: 2;
+.gallery-controls-row {
+    position: absolute;
+    left: 50%;
+    /*  optional: horizontally center */
+    bottom: 30px;
+    /*  50 px from the bottom of .gallery */
+    transform: translateX(-50%);
+    /*  optional: horizontally center */
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
 }
 
 /* arrows – white outline on dark bg */
-.gallery-control{
-  background:var(--red);
-  border:none;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  backdrop-filter:blur(4px);
+.gallery-control {
+    background: var(--red);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
 }
-.gallery-control svg{width:20px;height:20px;stroke:#fff}
+
+.gallery-control svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff
+}
 
 /* pills */
-.gallery-indicators{display:flex;gap:12px}
-.gallery-indicators button{
-  position:relative;
-  width:24px;
-  height:24px;
-  border:none;border-radius:24px;
-  background:var(--red);
-  cursor:pointer;
-  outline:none;
-  padding:0;
+.gallery-indicators {
+    display: flex;
+    gap: 12px
 }
-.gallery-indicators button.active{
+
+.gallery-indicators button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 24px;
     background: var(--red);
-    width:60px}
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.gallery-indicators button.active {
+    background: var(--red);
+    width: 60px
+}
 
 /* progress bar inside pill */
-.gallery-indicators button span{
-  content:"";
-  position:absolute;
-  top:10%;
-  left:5%;
-  height:80%;
-  background:#fff;
-  border-radius:inherit;
-  opacity:0;
-  width:10%;
-  transition:width .5s;
+.gallery-indicators button span {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 80%;
+    background: #fff;
+    border-radius: inherit;
+    opacity: 0;
+    width: 10%;
+    transition: width .5s;
 }
-.gallery-indicators button.active span{
-    background:var(--white);
-    width:90%;
-    opacity:1
+
+.gallery-indicators button.active span {
+    background: var(--white);
+    width: 90%;
+    opacity: 1
 }
 
 
-.counter{
+.counter {
     font-size: 80px;
     color: var(--black-mid-tone);
 }
@@ -1341,11 +1358,12 @@ footer {
     font-weight: lighter;
 }
 
-.mission{
-  position: relative;          /* <──---   make .mission the containing block */
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
+.mission {
+    position: relative;
+    /* <──---   make .mission the containing block */
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 .mission .block-middle {
@@ -1377,52 +1395,60 @@ footer {
 
 /* optional glow when the milestone is already passed */
 .value.active::before {
-  box-shadow: 0 0 0 4px var(--red), 0 0 6px var(--red);
+    box-shadow: 0 0 0 4px var(--red), 0 0 6px var(--red);
 }
 
 .mission::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: var(--rail-start, 0);          /* start of the rail  */
-  bottom: var(--rail-end, 0);          /* NEW: variable instead of fixed 0 */
-  width: 2px;
-  background: var(--grey);
-  transform: translateX(-50%);
-  z-index: -1;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: var(--rail-start, 0);
+    /* start of the rail  */
+    bottom: var(--rail-end, 0);
+    /* NEW: variable instead of fixed 0 */
+    width: 2px;
+    background: var(--grey);
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
 
 
 /*  red overlay that grows  */
 .progress-line {
-  position: absolute;
-  left: 50%;
-  top: var(--rail-start, 0);   /* set by JS */
-  width: 2px;
-  height: 0;                   /* grows via JS */
-  background: var(--red);
-  transform: translateX(-50%);
-  transform-origin: top;
-  z-index: 0;
-  transition: height 0.25s linear;
+    position: absolute;
+    left: 50%;
+    top: var(--rail-start, 0);
+    /* set by JS */
+    width: 2px;
+    height: 0;
+    /* grows via JS */
+    background: var(--red);
+    transform: translateX(-50%);
+    transform-origin: top;
+    z-index: 0;
+    transition: height 0.25s linear;
 }
 
 /* optional highlight for passed dots */
-.value.active::before { box-shadow: 0 0 0 3px var(--red); }
+.value.active::before {
+    box-shadow: 0 0 0 3px var(--red);
+}
 
 /* 1 ▸ default look of the content blocks */
 .value .block-middle-reverse,
 .value .block-middle {
-  /* background: transparent;  */
-  transition: background-color .25s ease, color .25s ease;
+    /* background: transparent;  */
+    transition: background-color .25s ease, color .25s ease;
 }
 
 /* 2 ▸ when the rail has reached the dot … */
 .value.active .block-middle-reverse,
 .value.active .block-middle {
-  background: var(--red-gradient);           /* fill with red */
-  color: var(--white);              /* flip text to white for contrast */
+    background: var(--red-gradient);
+    /* fill with red */
+    color: var(--white);
+    /* flip text to white for contrast */
 }
 
 
@@ -1497,78 +1523,98 @@ footer {
 }
 
 /* --- NAVIGATION BAR -------------------------------------------------- */
-.holding-controls-row{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:24px;
-    margin-top:60px;
+.holding-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 60px;
 }
 
 /* arrows – white with red icon (opposite of the main slider) */
-.holding-control{
-    background:var(--red);
-    border:none;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.holding-control {
+    background: var(--red);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.holding-control svg{
-    width:20px;
-    height:20px;
-    stroke:#fff
+
+.holding-control svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff
 }
 
 /* --- INDICATOR PILLS ------------------------------------------------- */
-.holding-indicators{display:flex;gap:12px}
-
-.holding-indicators button{
-    position:relative;width:24px;
-    height:24px;
-    border:none;
-    border-radius:24px;
-    background:var(--red);
-    cursor:pointer;
-    outline:none;
-    padding:0;
+.holding-indicators {
+    display: flex;
+    gap: 12px
 }
-.holding-indicators button.active{background: var(--red);width:60px}
 
-.holding-indicators button span{
-    content:"";
-    position:absolute;
-    top:10%;
-    left:5%;
-    height:80%;
-    background:#fff;
-    border-radius:inherit;
-    transition:width .5s;
-    z-index:1;
-    opacity:0;
-    width:10%;
+.holding-indicators button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 24px;
+    background: var(--red);
+    cursor: pointer;
+    outline: none;
+    padding: 0;
 }
+
+.holding-indicators button.active {
+    background: var(--red);
+    width: 60px
+}
+
+.holding-indicators button span {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 80%;
+    background: #fff;
+    border-radius: inherit;
+    transition: width .5s;
+    z-index: 1;
+    opacity: 0;
+    width: 10%;
+}
+
 /* “progress bar” inside the active pill – white on red bg, red on white bg */
-.holding-indicators button.active span{
-    background:var(--white);
-    width:90%;opacity:1;
+.holding-indicators button.active span {
+    background: var(--white);
+    width: 90%;
+    opacity: 1;
 }
 
 /* --- SHOW / HIDE LOGIC FOR BLOCKS ----------------------------------- */
 /* (adds only a tiny helper; all your original block styling untouched) */
-.holding-block.hidden{display:none}
+.holding-block.hidden {
+    display: none
+}
 
 @keyframes holdingFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ❷ applied only for the first 0.4 s after a card becomes visible */
 .holding-block.animate-in {
-  animation: holdingFadeIn .4s ease;
+    animation: holdingFadeIn .4s ease;
 }
 
 circle:hover {
@@ -2013,101 +2059,14 @@ textarea {
     width: 65%;
 }
 
-/* .work-model-wrapper {
-    padding: 40px 10%;
-    background: var(--red-gradient);
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.work-model-container {
-    display: flex;
-    gap: 13%;
-    width: 100%;
-    height: 75vh;
-}
-
-.work-model-block {
-    width: 17%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.work-model-item {
-    box-sizing: border-box;
-    background: var(--white);
-    box-shadow: var(--shadow-base);
-    color: var(--black);
-    padding: 16px;
-    border-radius: 10px;
-    border: 0px solid var(--white);
-    outline: 0px solid var(--white);
-
+/* .application>div {
+    height: calc(100vh-80px);
+    row-gap: 4vh;
+    .block-small {
+        height: 25vh;
+    }
     h3 {
-        font-size: 32px;
-        color: var(--black-mid-tone);
+        font-size: 24px;
     }
-}
+} */
 
-.work-model-item:hover {
-    background: var(--grey-gradient);
-}
-
-.work-model-item.active {
-    outline: 2px solid var(--white);
-    outline-offset: 4px;
-}
-
-.service-block {
-    position: relative;
-    width: 70%;
-    height: 100%;
-    box-sizing: border-box;
-    background: var(--white);
-    border-radius: 16px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    row-gap: 2%;
-    padding: 16px;
-    border: 0px solid var(--white);
-    outline: 2px solid var(--white);
-    outline-offset: 4px;
-}
-
-.service-item {
-    width: 45%;
-    height: 18%;
-    flex: 0 0 auto;
-    visibility: hidden;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 10px;
-    border-radius: 10px;
-    background: var(--red-gradient);
-    opacity: 0;
-    transform: scale(0.95);
-
-    h4 {
-        font-size: 16px;
-        font-weight: normal;
-    }
-
-    img {
-        width: 16px;
-    }
-}
-
-.service-item.show {
-    visibility: visible;
-    opacity: 1;
-    height: 50px;
-    margin: 12px 0;
-    transform: scale(1);
-}
