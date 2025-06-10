@@ -829,7 +829,7 @@ footer {
 
 .slide-content {
     width: 50%;
-    height: 800px;
+    height: 100%;
     /* Remove background gradient from here */
     position: absolute;
     left: 0;
@@ -908,10 +908,11 @@ footer {
 }
 
 .carousel-controls-row {
+    position: absolute;
+    bottom: 50px;
     display: flex;
     align-items: center;
     gap: 24px;
-    margin-top: 100px;
 }
 
 /* Анімації */
@@ -1220,6 +1221,81 @@ footer {
 
 /* About-us-page */
 
+
+.gallery{
+  position: relative;           /* ⬅️  anchor absolutely-positioned children */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey);
+  margin: 0;
+}
+
+.gallery-controls-row{
+  position: absolute;
+  left: 50%;                    /*  optional: horizontally center */
+  bottom: 30px;                 /*  50 px from the bottom of .gallery */
+  transform: translateX(-50%);  /*  optional: horizontally center */
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+}
+
+/* arrows – white outline on dark bg */
+.gallery-control{
+  background:var(--red);
+  border:none;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  backdrop-filter:blur(4px);
+}
+.gallery-control svg{width:20px;height:20px;stroke:#fff}
+
+/* pills */
+.gallery-indicators{display:flex;gap:12px}
+.gallery-indicators button{
+  position:relative;
+  width:24px;
+  height:24px;
+  border:none;border-radius:24px;
+  background:var(--red);
+  cursor:pointer;
+  outline:none;
+  padding:0;
+}
+.gallery-indicators button.active{
+    background: var(--red);
+    width:60px}
+
+/* progress bar inside pill */
+.gallery-indicators button span{
+  content:"";
+  position:absolute;
+  top:10%;
+  left:5%;
+  height:80%;
+  background:#fff;
+  border-radius:inherit;
+  opacity:0;
+  width:10%;
+  transition:width .5s;
+}
+.gallery-indicators button.active span{
+    background:var(--white);
+    width:90%;
+    opacity:1
+}
+
+
 .counter{
     font-size: 80px;
     color: var(--black-mid-tone);
@@ -1420,6 +1496,80 @@ footer {
     }
 }
 
+/* --- NAVIGATION BAR -------------------------------------------------- */
+.holding-controls-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+    margin-top:60px;
+}
+
+/* arrows – white with red icon (opposite of the main slider) */
+.holding-control{
+    background:var(--red);
+    border:none;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.holding-control svg{
+    width:20px;
+    height:20px;
+    stroke:#fff
+}
+
+/* --- INDICATOR PILLS ------------------------------------------------- */
+.holding-indicators{display:flex;gap:12px}
+
+.holding-indicators button{
+    position:relative;width:24px;
+    height:24px;
+    border:none;
+    border-radius:24px;
+    background:var(--red);
+    cursor:pointer;
+    outline:none;
+    padding:0;
+}
+.holding-indicators button.active{background: var(--red);width:60px}
+
+.holding-indicators button span{
+    content:"";
+    position:absolute;
+    top:10%;
+    left:5%;
+    height:80%;
+    background:#fff;
+    border-radius:inherit;
+    transition:width .5s;
+    z-index:1;
+    opacity:0;
+    width:10%;
+}
+/* “progress bar” inside the active pill – white on red bg, red on white bg */
+.holding-indicators button.active span{
+    background:var(--white);
+    width:90%;opacity:1;
+}
+
+/* --- SHOW / HIDE LOGIC FOR BLOCKS ----------------------------------- */
+/* (adds only a tiny helper; all your original block styling untouched) */
+.holding-block.hidden{display:none}
+
+@keyframes holdingFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ❷ applied only for the first 0.4 s after a card becomes visible */
+.holding-block.animate-in {
+  animation: holdingFadeIn .4s ease;
+}
 
 circle:hover {
     fill: var(--red-btn-hover);
