@@ -2060,6 +2060,13 @@ textarea {
 }
 
 /* .application>div {
+    row-gap: 60px;
+    .block-small {
+        height: calc(45vh - 80px);
+    }
+} */
+
+/* .application>div {
     height: calc(100vh-80px);
     row-gap: 4vh;
     .block-small {

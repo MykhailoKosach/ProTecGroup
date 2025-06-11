@@ -36,7 +36,7 @@ cities.forEach(city => {
   let { x, y } = geoToPixel(city.lat, city.lon);
   if (city.name === "Київ") {
     y -= 35;
-    x += 8; // піднімаємо Київ на 20px
+    x += 8;
   }
 
   if (city.name === "Старі Петрівці") {
@@ -75,10 +75,7 @@ cities.forEach(city => {
   }
 });
 
-// ==========================
-// Плавне перемикання overlay
-// ==========================
-
+// ========== Overlay Logic ==========
 let currentOverlay = null;
 
 function hideOverlay(overlay, callback) {
@@ -104,6 +101,9 @@ function showOverlayForCity(cityName) {
   const newOverlay = document.querySelector(`.map-overlay[data-city="${cityName}"]`);
   if (!newOverlay) return;
 
+  // 🧹 Видалення pointer при показі overlay
+document.querySelectorAll(".pointer-group").forEach(pointer => pointer.remove());
+
   if (currentOverlay && currentOverlay !== newOverlay) {
     hideOverlay(currentOverlay, () => {
       showOverlay(newOverlay);
@@ -115,7 +115,7 @@ function showOverlayForCity(cityName) {
   }
 }
 
-// Події для маркерів
+// Events
 document.querySelectorAll('.city-marker, .city-icon').forEach(el => {
   el.addEventListener('click', (e) => {
     const cityName = el.getAttribute('data-name');
@@ -124,7 +124,6 @@ document.querySelectorAll('.city-marker, .city-icon').forEach(el => {
   });
 });
 
-// Закриття при кліку поза overlay або маркером
 document.addEventListener("click", function (event) {
   const isClickInsideOverlay = event.target.closest('.map-overlay');
   const isClickOnMarker = event.target.closest('.city-marker, .city-icon');
@@ -137,14 +136,11 @@ document.addEventListener("click", function (event) {
 });
 
 document.querySelectorAll('.map-overlay').forEach(overlay => {
-  // Перевірка, чи кнопка вже існує, щоб не додавати повторно
   if (!overlay.querySelector('.overlay-close')) {
     const closeButton = document.createElement('button');
     closeButton.classList.add('overlay-close');
     closeButton.setAttribute('aria-label', 'Закрити');
     closeButton.innerHTML = '&times;';
-
-    // Стилі через JS (можна замість цього зробити в CSS)
     closeButton.style.position = 'absolute';
     closeButton.style.top = '10px';
     closeButton.style.right = '12px';
@@ -154,17 +150,7 @@ document.querySelectorAll('.map-overlay').forEach(overlay => {
     closeButton.style.color = 'var(--white)';
     closeButton.style.cursor = 'pointer';
     closeButton.style.zIndex = '10';
-    // closeButton.style.transition = 'transform 0.2s ease';
 
-    // closeButton.addEventListener('mouseenter', () => {
-    //   closeButton.style.transform = 'scale(1.2)';
-    // });
-
-    // closeButton.addEventListener('mouseleave', () => {
-    //   closeButton.style.transform = 'scale(1)';
-    // });
-
-    // Подія закриття
     closeButton.addEventListener('click', (e) => {
       e.stopPropagation();
       hideOverlay(overlay, () => {
@@ -178,13 +164,11 @@ document.querySelectorAll('.map-overlay').forEach(overlay => {
   }
 });
 
-
-
-
 function isOverlayVisible() {
   const overlay = document.querySelector('.map-overlay.visible');
   return !!overlay;
 }
+
 function animatePointerToCity(cityName) {
   const target = document.querySelector(`.city-marker[data-name="${cityName}"]`);
   if (!target) return;
@@ -193,7 +177,6 @@ function animatePointerToCity(cityName) {
   const cx = parseFloat(target.getAttribute("cx"));
   const cy = parseFloat(target.getAttribute("cy"));
 
-  // Якщо вже є pointer — не додавати ще один
   let pointerGroup = svg.querySelector(`.pointer-group[data-city="${cityName}"]`);
   if (!pointerGroup) {
     pointerGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -203,7 +186,6 @@ function animatePointerToCity(cityName) {
     const handPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
     handPath.setAttribute("d", "M8.5 1.75v2.716l.047-.002c.312-.012.742-.016 1.051.046.28.056.543.18.738.288.273.152.456.385.56.642l.132-.012c.312-.024.794-.038 1.158.108.37.148.689.487.88.716q.113.137.195.248h.582a2 2 0 0 1 1.99 2.199l-.272 2.715a3.5 3.5 0 0 1-.444 1.389l-1.395 2.441A1.5 1.5 0 0 1 12.42 16H6.118a1.5 1.5 0 0 1-1.342-.83l-1.215-2.43L1.07 8.589a1.517 1.517 0 0 1 2.373-1.852L5 8.293V1.75a1.75 1.75 0 0 1 3.5 0");
     handPath.setAttribute("fill", "var(--black-mid-tone)");
-    // Rotate the hand 45 degrees and scale it
     handPath.setAttribute("transform", "scale(1.3) rotate(45 8 8)");
 
     pointerGroup.appendChild(handPath);
@@ -211,11 +193,10 @@ function animatePointerToCity(cityName) {
   }
 
   const duration = 800;
-  // Start from bottom right (add offset to position it away from the target)
-  const startX = cx - 10; // 60px to the right
-  const startY = cy - 45; // 60px below
-  const endX = cx + 18;   // 20px to the left of the pin
-  const endY = cy - 60;   // 20px below the pin
+  const startX = cx - 10;
+  const startY = cy - 45;
+  const endX = cx + 18;
+  const endY = cy - 60;
 
   function startAnimation() {
     const startTime = performance.now();
@@ -223,9 +204,8 @@ function animatePointerToCity(cityName) {
     function animate(time) {
       const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const ease = 1 - Math.pow(1 - progress, 3);
 
-      // Calculate current position along the diagonal path
       const currentX = startX + (endX - startX) * ease;
       const currentY = startY + (endY - startY) * ease;
 
@@ -235,7 +215,6 @@ function animatePointerToCity(cityName) {
         requestAnimationFrame(animate);
       } else {
         setTimeout(() => {
-          // Reset to start position and restart animation
           pointerGroup.setAttribute("transform", `translate(${startX}, ${startY}) scale(1.3) rotate(0)`);
           startAnimation();
         }, 800);
@@ -245,9 +224,9 @@ function animatePointerToCity(cityName) {
     requestAnimationFrame(animate);
   }
 
-  // Set initial position
   pointerGroup.setAttribute("transform", `translate(${startX}, ${startY}) scale(1.3) rotate(45)`);
   startAnimation();
 }
 
+// 🎯 Старт анімації для демонстрації
 animatePointerToCity("Дрогобич");
