@@ -1435,20 +1435,20 @@ footer {
     box-shadow: 0 0 0 3px var(--red);
 }
 
-/* 1 ▸ default look of the content blocks */
-.value .block-middle-reverse,
-.value .block-middle {
-    /* background: transparent;  */
-    transition: background-color .25s ease, color .25s ease;
+/* default (inactive) state */
+.value .block-middle,
+.value .block-middle-reverse {
+  --txt: var(--black);
+  background: var(--grey-gradient);
+  color: var(--txt);
+  transition: background-color 0.25s ease, color 0.1s ease;
 }
 
-/* 2 ▸ when the rail has reached the dot … */
-.value.active .block-middle-reverse,
-.value.active .block-middle {
-    background: var(--red-gradient);
-    /* fill with red */
-    color: var(--white);
-    /* flip text to white for contrast */
+/* when active */
+.value.active .block-middle,
+.value.active .block-middle-reverse {
+  --txt: var(--white);                 /* only this changes */
+  background: var(--red-gradient);
 }
 
 
@@ -1600,21 +1600,14 @@ footer {
     display: none
 }
 
-@keyframes holdingFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes holdingFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ❷ applied only for the first 0.4 s after a card becomes visible */
+/* applied only for 0.4 s when a card becomes visible */
 .holding-block.animate-in {
-    animation: holdingFadeIn .4s ease;
+  animation: holdingFadeUp 1s ease both;
 }
 
 circle:hover {
