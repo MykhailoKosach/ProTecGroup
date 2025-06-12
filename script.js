@@ -163,6 +163,14 @@ document.querySelectorAll('.marquee-track').forEach(track => {
   }
 });
 
+const textarea = document.getElementById("message");
+textarea.addEventListener("focus", () => {
+  textarea.scrollLeft = 0;
+  textarea.style.overflowX = 'hidden';
+}); textarea.addEventListener("focus", () => {
+  textarea.scrollLeft = 0;
+});
+
 // Filters
 const btnDistribution = document.getElementById('filter-distribution');
 const btnLogistic = document.getElementById('filter-logistic');
