@@ -1,0 +1,110 @@
+{
+  "offices": [
+    {
+      "officeName": "Львівська філія",
+      "contactPerson": "",
+      "address": "79069, Львів, вул. Шевченка, 323",
+      "phone": "+380 32 234 9044",
+      "email": ""
+    },
+    {
+      "officeName": "Київська філія",
+      "contactPerson": "",
+      "address": "03045, м.Київ, Столичне шосе, 100",
+      "phone": "+380 67 675 9472",
+      "email": ""
+    },
+    {
+      "officeName": "Тернопільська філія",
+      "contactPerson": "",
+      "address": "47728, Тернопільська обл., с. Острів, вул. Промислова, 3",
+      "phone": "+380 35 229 1134",
+      "email": ""
+    },
+    {
+      "officeName": "Дрогобицька філія",
+      "contactPerson": "",
+      "address": "82100, м.Дрогобич, вул. Гайдамацька, 7",
+      "phone": "+380 67 340 4144",
+      "email": ""
+    },
+    {
+      "officeName": "Ужгородська філія",
+      "contactPerson": "",
+      "address": "88000, м.Ужгород, вул. Олександра Блистіва, № 1",
+      "phone": "+380 67 343 2550",
+      "email": ""
+    },
+    {
+      "officeName": "Чортківська філія",
+      "contactPerson": "",
+      "address": "48502, м.Чортків, вул. Князя Володимира Великого, 31",
+      "phone": "+380 68 033 8313",
+      "email": ""
+    },
+    {
+      "officeName": "Сокальська філія",
+      "contactPerson": "",
+      "address": "80001, м.Сокаль, вул. Яворницького, 86a",
+      "phone": "+380 67 674 0641",
+      "email": ""
+    },
+    {
+      "officeName": "Рівненська філія",
+      "contactPerson": "",
+      "address": "33017, м.Рівне, пров. Робітничий, 5",
+      "phone": "+380 67 704 1041",
+      "email": ""
+    },
+    {
+      "officeName": "Кременецька філія",
+      "contactPerson": "",
+      "address": "47004, м.Кременець, вул. Березина, 34",
+      "phone": "+380 67 310 7090",
+      "email": ""
+    },
+    {
+      "officeName": "Компанія Ніка Захід",
+      "contactPerson": "",
+      "address": "79026, Львів, вул. Чмоли, 2",
+      "phone": "+380 67 684 9780",
+      "email": ""
+    },
+    {
+      "officeName": "Центральний регіон",
+      "contactPerson": "Назар Павлунишин",
+      "address": "",
+      "phone": "+380 97 464 5745",
+      "email": "Pavlunyshyn_N@nika-company.lviv.ua"
+    },
+    {
+      "officeName": "Західний регіон",
+      "contactPerson": "Андрій Шкробацький",
+      "address": "",
+      "phone": "+380 98 252 3899",
+      "email": "a.shkrobatskyi@nika-company.lviv.ua"
+    },
+    {
+      "officeName": "Południй регіон",
+      "contactPerson": "Вадим Толстопят",
+      "address": "",
+      "phone": "+380 97 391 7711",
+      "email": "v.tolstopiat@nika-company.lviv.ua"
+    },
+    {
+      "officeName": "Східний регіон",
+      "contactPerson": "Валентина Єремєєва",
+      "address": "",
+      "phone": "+380 98 847 4392",
+      "email": "v.eremeeva@nika-company.lviv.ua"
+    },
+{
+      "officeName": "Dublin",
+      "contactPerson": "Валентина Єремєєва",
+      "address": "",
+      "phone": "+380 98 847 4392",
+      "email": "v.eremeeva@nika-company.lviv.ua"
+    }
+
+  ]
+}

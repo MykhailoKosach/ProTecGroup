@@ -1,0 +1,32 @@
+{
+  "topics": [
+    {
+      "value": "feedback",
+      "label": "Відгук"
+    },
+    {
+      "value": "question",
+      "label": "Питання"
+    },
+    {
+      "value": "support",
+      "label": "Підтримка"
+    },
+    {
+      "value": "partnership",
+      "label": "Партнерство"
+    },
+    {
+      "value": "complaint",
+      "label": "Скарга"
+    },
+    {
+      "value": "suggestion",
+      "label": "Пропозиція"
+    },
+    {
+      "value": "other",
+      "label": "Інше"
+    }
+  ]
+}

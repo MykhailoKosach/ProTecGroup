@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="office-container"></div>
+
+    <template id="office-template">
+      <div class="office-block">
+        <h3 class="office-name"></h3>
+        <p class="contact-person"></p>
+        <p class="address"></p>
+        <a class="email" href=""></a>
+      </div>
+    </template>
+
+<script>
+  const data = [
+    {
+      officeName: "New York Office",
+      contactPerson: "John Doe",
+      address: "123 Main St, NY",
+      email: "john@example.com"
+    },
+    {
+      officeName: "Berlin Office",
+      contactPerson: "Anna Schmidt",
+      address: "Unter den Linden 1, Berlin",
+      email: "anna@example.com"
+    },
+    {
+      officeName: "Berlin Office",
+      contactPerson: "Anna Schmidt",
+      address: "Unter den Linden 1, Berlin",
+      email: "anna@example.com"
+    },
+    {
+      officeName: "Berlin Office",
+      contactPerson: "Anna Schmidt",
+      address: "Unter den Linden 1, Berlin",
+      email: "anna@example.com"
+    }
+  ];
+
+  const container = document.getElementById('office-container');
+  const template = document.getElementById('office-template');
+
+  data.forEach(office => {
+    const clone = template.content.cloneNode(true);
+    clone.querySelector('.office-name').textContent = office.officeName;
+    clone.querySelector('.contact-person').textContent = office.contactPerson;
+    clone.querySelector('.address').textContent = office.address;
+    const emailLink = clone.querySelector('.email');
+    emailLink.href = `mailto:${office.email}`;
+    emailLink.textContent = office.email;
+
+    container.appendChild(clone);
+  });
+</script>
+</body>
+</html>
