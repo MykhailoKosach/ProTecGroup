@@ -990,8 +990,10 @@ footer {
     gap: 18px;
 }
 
-/* .container-text h3 {
-    font-weight: lighter;
+/* .activity img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
 } */
 
 /* template */
@@ -1002,6 +1004,10 @@ footer {
     display: flex;
     gap: 80px;
 }
+
+/* .distribution>.container-img {
+        width: 52%;
+    } */
 
 .production {
     display: flex;
@@ -1376,6 +1382,7 @@ footer {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    transition: all 1s ease;
 }
 
 .value::before {
