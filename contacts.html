@@ -51,7 +51,7 @@
             <li class="header-nav-item"><a href="#">Контакти</a></li>
             <li><a href="./career.html" class="btn-soft">
                     <div class="btn-text">Кар'єра</div>
-                   <img class="arrow arrow-visible" src="./image/Arrow-btn.svg" alt="">
+                    <img class="arrow arrow-visible" src="./image/Arrow-btn.svg" alt="">
                     <img class="arrow arrow-hidden" src="./image/arrow-white.svg" alt="">
                     <span class="hover-bg"></span>
                 </a>
@@ -67,7 +67,7 @@
                     <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я">
                 </div>
                 <div class="select-input">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="topic">Тема</label>
                         <select id="topic" name="topic">
                             <option value="">Оберіть тему</option>
@@ -75,6 +75,26 @@
                             <option value="question">Питання</option>
                             <option value="support">Підтримка</option>
                         </select>
+                    </div> -->
+                    <div class="form-group custom-dropdown">
+                        <label for="topic">Тема</label>
+                        <div class="dropdown" id="topic-dropdown">
+                            <div class="dropdown-selected">
+                                <span class="selected-text">Оберіть тему</span>
+                                <span class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-caret-down-fill"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg></span>
+                            </div>
+                            <ul class="dropdown-options">
+                                <li data-value="feedback">Відгук</li>
+                                <li data-value="question">Питання</li>
+                                <li data-value="support">Підтримка</li>
+                            </ul>
+                            <input type="hidden" name="topic" id="topic" value="">
+                        </div>
                     </div>
 
                     <div class="form-group">

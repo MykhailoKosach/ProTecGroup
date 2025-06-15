@@ -12,32 +12,44 @@ document.querySelectorAll('.header-nav-item').forEach(item => {
   });
 });
 
-// counting
-// function animateCounter(el, duration = 8000) {
-//   const target = +el.getAttribute("data-target");
-//   const startTime = performance.now();
+// form-dropdown
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById("topic-dropdown");
+  const selectedText = dropdown.querySelector(".selected-text");
+  const options = dropdown.querySelectorAll(".dropdown-options li");
+  const hiddenInput = dropdown.querySelector("input[type=hidden]");
 
-//   function easeOutQuad(t) {
-//     return t * (2 - t); // плавний ефект "ease-out"
-//   }
+  // Відкриття/закриття списку при кліку на dropdown (але не на самі опції)
+  dropdown.addEventListener("click", (e) => {
+    const isOption = e.target.closest(".dropdown-options li");
+    if (!isOption) {
+      dropdown.classList.toggle("open");
+    }
+  });
 
-//   function update(currentTime) {
-//     const elapsed = currentTime - startTime;
-//     const progress = Math.min(elapsed / duration, 1);
-//     const easedProgress = easeOutQuad(progress);
-//     const value = Math.round(easedProgress * target);
-//     el.textContent = value;
+  // Обробка вибору опції
+  options.forEach(option => {
+    option.addEventListener("click", (e) => {
+      e.stopPropagation(); // не передаємо клік далі (уникаємо конфліктів)
+      const value = option.dataset.value;
+      const text = option.textContent;
 
-//     if (progress < 1) {
-//       requestAnimationFrame(update);
-//     } else {
-//       el.textContent = target;
-//       el.classList.add("animate-finish");
-//     }
-//   }
+      selectedText.textContent = text;
+      hiddenInput.value = value;
 
-//   requestAnimationFrame(update);
-// }
+      dropdown.classList.remove("open");
+    });
+  });
+
+  // Закриття списку при кліку поза dropdown
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
+  });
+});
+
+
 
 function animateCounter(el) {
   const target = parseFloat(el.getAttribute("data-target"));
@@ -161,14 +173,6 @@ document.querySelectorAll('.marquee-track').forEach(track => {
   while (track.scrollWidth < container.offsetWidth * 2) {
     track.appendChild(content.cloneNode(true));
   }
-});
-
-const textarea = document.getElementById("message");
-textarea.addEventListener("focus", () => {
-  textarea.scrollLeft = 0;
-  textarea.style.overflowX = 'hidden';
-}); textarea.addEventListener("focus", () => {
-  textarea.scrollLeft = 0;
 });
 
 // Filters
