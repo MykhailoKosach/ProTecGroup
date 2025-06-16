@@ -2289,6 +2289,37 @@ textarea {
     color: var(--red);
 }
 
+
+/* Copy functionality styles */
+.copy-text {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.copy-text:hover {
+    color: var(--red);
+}
+
+.copy-notification {
+    background: var(--red);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    animation: fadeInOut 2s ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
 /* Model-page */
 
 .model-wrapper {
@@ -2357,4 +2388,4 @@ textarea {
     h3 {
         font-size: 24px;
     }
-} */
+
