@@ -2581,29 +2581,130 @@ textarea {
     color: var(--red);
 }
 
-
-/* Copy functionality styles */
-.copy-text {
+/* Copyable item container */
+.copyable-item {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    padding: 2px 4px;
+    transition: all 0.2s ease;
     border-radius: 4px;
+    padding: 2px 0;
 }
 
-.copy-text:hover {
+/* Text styling */
+.copyable-text {
+    margin: 0;
+    line-height: 1.4;
+    color: var(--black);
+    transition: color 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 0;
+    width: fit-content;
+}
+
+/* Email link specific styling */
+.copyable-text.email {
+    color: var(--black);
+    text-decoration: none;
+    word-break: break-all;
+    word-break: normal;
+}
+
+/* SVG icon styling */
+.copy-icon {
+    margin-left: 6px;
+    cursor: pointer;
+    color: var(--black);
+    opacity: 0;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+/* Hover effects */
+.copyable-item:hover .copyable-text {
     color: var(--red);
 }
 
-.copy-notification {
-    background: var(--red);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    opacity: 0;
-    animation: fadeInOut 2s ease-in-out;
-    pointer-events: none;
+.copyable-item:hover .copy-icon {
+    opacity: 1;
+    color: var(--red);
 }
+
+/* Active state */
+.copyable-item:active .copyable-text,
+.copyable-item:active .copy-icon {
+    color: var(--red-dark, #c41e3a);
+    transform: scale(0.98);
+}
+
+/* Success animation */
+.copyable-item.copied .copyable-text,
+.copyable-item.copied .copy-icon {
+    color: #4CAF50;
+}
+
+.copyable-item.copied .copy-icon {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .copy-icon {
+        opacity: 0.3;
+    }
+    
+    .copyable-item:hover .copy-icon,
+    .copyable-item:active .copy-icon {
+        opacity: 1;
+    }
+    
+    .copyable-item {
+        padding: 4px 0;
+    }
+}
+
+/* Focus state for accessibility */
+.copyable-item:focus-within {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+/* Ensure no gaps and perfect alignment */
+.copyable-item * {
+    vertical-align: middle;
+}
+
+    /* Copy functionality styles
+    .copy-text {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+
+    .copy-text:hover {
+        color: var(--red);
+    }
+
+    .copy-notification {
+        background: var(--red);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        opacity: 0;
+        animation: fadeInOut 2s ease-in-out;
+        pointer-events: none;
+    } */
 
 @keyframes fadeInOut {
     0% { opacity: 0; transform: translateY(10px); }
