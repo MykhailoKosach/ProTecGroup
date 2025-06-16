@@ -35,18 +35,18 @@ const svg = document.getElementById("map-svg");
 cities.forEach(city => {
   let { x, y } = geoToPixel(city.lat, city.lon);
   if (city.name === "Київ") {
-    y -= 35;
-    x += 8;
+    y -= 25;
+    x += 10;
   }
 
   if (city.name === "Старі Петрівці") {
-    y += 10;
-    x -= 15;
+    y -= 10;
+    x -= 10;
   }
 
   if (city.name === "Київ" || city.name === "Львів") {
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    icon.setAttribute("d", "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z M12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z");
+    icon.setAttribute("d", "M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5");
     icon.setAttribute("fill", "var(--red)");
     icon.setAttribute("cursor", "pointer");
     icon.setAttribute("transform", `translate(${x - 12}, ${y - 24}) scale(1.5)`);
@@ -55,11 +55,12 @@ cities.forEach(city => {
     svg.appendChild(icon);
 
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", x + 25);
-    text.setAttribute("y", y);
+    text.setAttribute("x", x + 15);
+    text.setAttribute("y", y - 5);
     text.setAttribute("fill", "var(--red)");
     text.setAttribute("font-size", "18px");
     text.setAttribute("font-family", "Lato-SemiBold, sans-serif");
+    text.setAttribute("font-weight", "bold");
     text.textContent = city.name;
     svg.appendChild(text);
   } else {
@@ -102,7 +103,7 @@ function showOverlayForCity(cityName) {
   if (!newOverlay) return;
 
   // 🧹 Видалення pointer при показі overlay
-document.querySelectorAll(".pointer-group").forEach(pointer => pointer.remove());
+  document.querySelectorAll(".pointer-group").forEach(pointer => pointer.remove());
 
   if (currentOverlay && currentOverlay !== newOverlay) {
     hideOverlay(currentOverlay, () => {
