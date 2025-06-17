@@ -318,6 +318,11 @@ footer {
     align-items: center;
 }
 
+.footer-contacts a:hover {
+    /* color: var(--red-hover); */
+    color: var(--red-btn-hover);
+}
+
 .social {
     display: flex;
     gap: 40px;
@@ -437,8 +442,13 @@ footer {
     gap: 32px;
 }
 
-.footer-company img {
+.footer-company a  {
     width: 31%;
+    /* height: auto; */
+}
+
+.footer-company a img {
+    width: 100%;
     height: auto;
 }
 
