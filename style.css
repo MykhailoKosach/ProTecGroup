@@ -442,7 +442,7 @@ footer {
     gap: 32px;
 }
 
-.footer-company a  {
+.footer-company a {
     width: 31%;
     /* height: auto; */
 }
@@ -2188,7 +2188,8 @@ circle:hover {
 /* Partners-page */
 
 .filter {
-    width: 120px;
+    box-sizing: border-box;
+    width: 140px;
     padding: 10px 10px;
     background: var(--grey-gradient);
     color: var(--black-mid-tone);
@@ -2199,6 +2200,14 @@ circle:hover {
     border: 0;
     border-radius: 10px;
     cursor: pointer;
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .filter {
+        width: 110px;
+        padding: 8px;
+        font-size: 14px;
+    }
 }
 
 .filter:hover {
@@ -2217,7 +2226,7 @@ circle:hover {
     justify-content: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
-    height: 580px;
+    min-height: 580px;
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -2616,10 +2625,25 @@ textarea {
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(10px); }
-    20% { opacity: 1; transform: translateY(0); }
-    80% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 /* Model-page */
@@ -2755,4 +2779,3 @@ textarea {
     h3 {
         font-size: 24px;
     }
-
