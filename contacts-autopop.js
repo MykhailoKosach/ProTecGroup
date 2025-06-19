@@ -23,7 +23,11 @@ function renderContacts(contactsData) {
     mainContainer.innerHTML = '';
 
     // Group data into chunks of 4
-    const chunkSize = 4;
+    let chunkSize = 4;
+    if (window.matchMedia('(min-width: 1024px) and (max-width: 1200px)').matches) {
+        chunkSize = 3;
+    }
+    console.log(`Chunk size set to: ${chunkSize}`);
     for (let i = 0; i < contactsData.length; i += chunkSize) {
         const chunk = contactsData.slice(i, i + chunkSize);
 
