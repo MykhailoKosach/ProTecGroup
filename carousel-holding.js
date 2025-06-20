@@ -1,3 +1,4 @@
+
 function getVisibleCount() {
   const width = window.innerWidth;
   if (width < 1024) return 1;
@@ -36,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let VISIBLE = getVisibleCount();
   let PAGES = Math.ceil(blocks.length / VISIBLE);
   let indicators = createIndicators(PAGES);
+
+  // Touch control variables
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const minSwipeDistance = 50;
 
   function showPage(page) {
     VISIBLE = getVisibleCount();
@@ -100,6 +108,47 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     );
   }
+
+  function handleSwipe() {
+    const swipeDistanceX = Math.abs(touchEndX - touchStartX);
+    const swipeDistanceY = Math.abs(touchEndY - touchStartY);
+    
+    // Only handle horizontal swipes (ignore vertical scrolling)
+    if (swipeDistanceX > minSwipeDistance && swipeDistanceX > swipeDistanceY) {
+      if (touchEndX < touchStartX) {
+        // Swipe left - next page
+        showPage(currentPage + 1);
+        resetTimer();
+      } else if (touchEndX > touchStartX) {
+        // Swipe right - previous page
+        showPage(currentPage - 1);
+        resetTimer();
+      }
+    }
+  }
+
+  // Touch event listeners
+  wrapper.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  wrapper.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+  }, { passive: true });
+
+  // Prevent default touch behavior on wrapper to avoid conflicts
+  wrapper.addEventListener('touchmove', (e) => {
+    const swipeDistanceX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+    const swipeDistanceY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+    
+    // If horizontal swipe is detected, prevent vertical scrolling
+    if (swipeDistanceX > swipeDistanceY && swipeDistanceX > 10) {
+      e.preventDefault();
+    }
+  });
 
   window.addEventListener('resize', () => {
     const newVisible = getVisibleCount();
