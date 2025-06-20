@@ -11,10 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let intervalID;
     let progress = 0;
     
+    // Touch control variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    const minSwipeDistance = 50;
+    
     const backgrounds = [
-        'https://picsum.photos/id/1015/1440/800',
-        'https://picsum.photos/id/1036/1440/800',
-        'https://picsum.photos/id/1039/1440/800'
+        'back1.jpg',
+        'back2.jpg',
+        'back3.jpg',
     ];
 
     function showSlide(index) {
@@ -71,6 +78,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 80);
     }
 
+    function handleSwipe() {
+        const swipeDistanceX = Math.abs(touchEndX - touchStartX);
+        const swipeDistanceY = Math.abs(touchEndY - touchStartY);
+        
+        // Only handle horizontal swipes (ignore vertical scrolling)
+        if (swipeDistanceX > minSwipeDistance && swipeDistanceX > swipeDistanceY) {
+            if (touchEndX < touchStartX) {
+                // Swipe left - next slide
+                nextSlide();
+            } else if (touchEndX > touchStartX) {
+                // Swipe right - previous slide
+                prevSlide();
+            }
+        }
+    }
+
+    // Button event listeners
     allIndicators.forEach((btn, i) => {
         btn.addEventListener('click', () => {
             const slideIndex = i % 3;
@@ -90,6 +114,29 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             prevSlide();
         });
+    });
+
+    // Touch event listeners
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: true });
+
+    // Prevent default touch behavior during horizontal swipes
+    carousel.addEventListener('touchmove', (e) => {
+        const swipeDistanceX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+        const swipeDistanceY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+        
+        // If horizontal swipe is detected, prevent vertical scrolling
+        if (swipeDistanceX > swipeDistanceY && swipeDistanceX > 10) {
+            e.preventDefault();
+        }
     });
 
     // Start carousel on load
