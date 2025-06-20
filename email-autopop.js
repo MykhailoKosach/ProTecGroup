@@ -13,108 +13,87 @@ async function loadTopicsData() {
 }
 
 function populateTopicsSelect(topicsData) {
-    const selectElement = document.getElementById('topic');
+    const dropdownOptions = document.querySelector('#topic-dropdown .dropdown-options');
     
-    // Clear existing options except the first one (placeholder)
-    const firstOption = selectElement.querySelector('option[value=""]');
-    selectElement.innerHTML = '';
-    selectElement.appendChild(firstOption);
+    if (!dropdownOptions) {
+        console.error('Custom dropdown not found');
+        return;
+    }
+
+    // Clear existing options
+    dropdownOptions.innerHTML = '';
     
     // Add new options from JSON data
     topicsData.forEach(topic => {
-        const option = document.createElement('option');
-        option.value = topic.value;
-        option.textContent = topic.label;
-        selectElement.appendChild(option);
+        const li = document.createElement('li');
+        li.setAttribute('data-value', topic.value);
+        li.textContent = topic.label;
+        dropdownOptions.appendChild(li);
     });
+    
+    // Initialize dropdown functionality after options are loaded
+    initializeDropdown();
 }
 
-// Copy to clipboard function
-function copyToClipboard(element) {
-    const text = element.textContent || element.innerText;
+// Initialize dropdown functionality once
+function initializeDropdown() {
+    const dropdown = document.getElementById("topic-dropdown");
+    const selectedText = dropdown.querySelector(".selected-text");
+    const hiddenInput = dropdown.querySelector("input[type=hidden]");
     
-    // Modern approach using Clipboard API
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => {
-            showCopyNotification(element, 'Скопійовано!');
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
-            fallbackCopyTextToClipboard(text, element);
-        });
+    if (!dropdown || !selectedText || !hiddenInput) {
+        console.error('Dropdown elements not found');
+        return;
+    }
+    
+    // Use event delegation for better performance
+    // This handles clicks on the dropdown container
+    dropdown.addEventListener("click", handleDropdownClick);
+    
+    // Close dropdown when clicking outside
+    document.addEventListener("click", handleOutsideClick);
+}
+
+// Handle dropdown clicks using event delegation
+function handleDropdownClick(e) {
+    const dropdown = e.currentTarget;
+    const isOption = e.target.closest(".dropdown-options li");
+    
+    if (isOption) {
+        // Option was clicked
+        e.stopPropagation();
+        
+        const selectedText = dropdown.querySelector(".selected-text");
+        const hiddenInput = dropdown.querySelector("input[type=hidden]");
+        const value = isOption.dataset.value;
+        const text = isOption.textContent;
+
+        selectedText.textContent = text;
+        hiddenInput.value = value;
+        dropdown.classList.remove("open");
+        
     } else {
-        // Fallback for older browsers
-        fallbackCopyTextToClipboard(text, element);
+        // Dropdown header was clicked
+        dropdown.classList.toggle("open");
     }
 }
 
-// Fallback copy function for older browsers
-function fallbackCopyTextToClipboard(text, element) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    
-    // Avoid scrolling to bottom
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.position = "fixed";
-    
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        const successful = document.execCommand('copy');
-        if (successful) {
-            showCopyNotification(element, 'Скопійовано!');
-        } else {
-            showCopyNotification(element, 'Помилка копіювання');
-        }
-    } catch (err) {
-        console.error('Fallback: Oops, unable to copy', err);
-        showCopyNotification(element, 'Помилка копіювання');
+// Handle clicks outside dropdown
+function handleOutsideClick(e) {
+    const dropdown = document.getElementById("topic-dropdown");
+    if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
     }
-    
-    document.body.removeChild(textArea);
 }
 
-// Show copy notification
-function showCopyNotification(element, message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.textContent = message;
-    notification.className = 'copy-notification';
-    
-    // Position near the clicked element
-    // const rect = element.getBoundingClientRect();
-    notification.style.position = 'fixed';
-    notification.style.bottom = '30px';
-    notification.style.right = '30px';
-    notification.style.zIndex = '1000';
-    
-    document.body.appendChild(notification);
-    
-    // Remove notification after 2 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 2000);
-}
+// Fallback topics data
+const fallbackTopics = [
+    { value: "feedback", label: "Відгук" },
+    { value: "question", label: "Питання" },
+    { value: "support", label: "Підтримка" },
+    { value: "partnership", label: "Партнерство" },
+    { value: "career", label: "Кар'єра" }
+];
 
-function myFunction() {
-  // Get the text field
-  var copyText = document.getElementById("myInput");
-
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-
-  // Alert the copied text
-  alert("Copied the text: " + copyText.value);
-}
-
-// Load topics when page loads
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', loadTopicsData);
-

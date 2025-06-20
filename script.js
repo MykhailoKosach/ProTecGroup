@@ -12,45 +12,6 @@ document.querySelectorAll('.header-nav-item').forEach(item => {
   });
 });
 
-// form-dropdown
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.getElementById("topic-dropdown");
-  const selectedText = dropdown.querySelector(".selected-text");
-  const options = dropdown.querySelectorAll(".dropdown-options li");
-  const hiddenInput = dropdown.querySelector("input[type=hidden]");
-
-  // Відкриття/закриття списку при кліку на dropdown (але не на самі опції)
-  dropdown.addEventListener("click", (e) => {
-    const isOption = e.target.closest(".dropdown-options li");
-    if (!isOption) {
-      dropdown.classList.toggle("open");
-    }
-  });
-
-  // Обробка вибору опції
-  options.forEach(option => {
-    option.addEventListener("click", (e) => {
-      e.stopPropagation(); // не передаємо клік далі (уникаємо конфліктів)
-      const value = option.dataset.value;
-      const text = option.textContent;
-
-      selectedText.textContent = text;
-      hiddenInput.value = value;
-
-      dropdown.classList.remove("open");
-    });
-  });
-
-  // Закриття списку при кліку поза dropdown
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("open");
-    }
-  });
-});
-
-
-
 function animateCounter(el) {
   const target = parseFloat(el.getAttribute("data-target"));
   const useDecimal = el.getAttribute("data-decimal") === "true";
