@@ -3562,6 +3562,17 @@ label {
     width: 100%;
 }
 
+@media (max-width: 1023px) {
+    .form {
+        padding: 24px 0 0 0;
+    }
+
+    .select-input {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
 #email {
     box-sizing: border-box;
     width: 100%;
@@ -3690,6 +3701,20 @@ textarea {
     width: 23%;
     box-shadow: var(--shadow-base);
 
+    h5 {
+        min-height: 54.4px;
+        font-size: 24px; font-weight: bolder; margin: 0px;
+    }
+
+    .address {
+        min-height: 36.8px;
+    }
+
+    .email {
+        min-height: 44.8px;
+        font-weight: bold;
+    }
+
     p {
         text-align: left;
     }
@@ -3697,6 +3722,63 @@ textarea {
 
 .contacts-block a:hover {
     color: var(--red);
+}
+
+@media (max-width: 1200px) {
+    .contacts-block {
+        width: 30%;
+
+        h5 {
+            min-height: 0px;
+            font-size: 20px;
+        }
+
+        .address {
+            min-height: 50.4px;
+        }
+
+        .email {
+            min-height: 44.8px;
+        }
+    }
+}
+
+@media (max-width: 798px) {
+    .contacts-block {
+        width: 45%;
+
+        h5 {
+            min-height: 54.4px;
+        }
+
+        .address {
+            min-height: 0px;
+        }
+
+        .email {
+            min-height: 0px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .contacts-block {
+        width: 100%;
+
+        h5 {
+            min-height: 0px;
+        }
+
+        .address {
+            min-height: 0px;
+        }
+
+        .email {
+            min-height: 0px;
+        }
+    }
+
+
 }
 
 /* Copyable item container */
