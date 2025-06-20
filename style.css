@@ -293,6 +293,322 @@ header {
     transform: translateY(0);
 }
 
+
+
+
+/* Default mobile header hidden for larger screens */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--white);
+    z-index: 5;
+    box-shadow: var(--shadow-middle);
+}
+
+/* Mobile top bar */
+.mobile-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 26px;
+    border-bottom: 1px solid var(--grey);
+}
+
+/* Hamburger button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 3px;
+    background: var(--black-mid-tone);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile menu */
+.mobile-nav {
+    display: none;
+    background: var(--white);
+    border-top: 1px solid var(--grey);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.mobile-nav.open {
+    display: block;
+    animation: slideDownMobile 0.3s ease-out;
+}
+
+@keyframes slideDownMobile {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav-item {
+    border-bottom: 1px solid var(--grey);
+}
+
+.mobile-nav-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--black-mid-tone);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mobile-nav-link:hover {
+    background: var(--grey-gradient);
+    color: var(--red);
+}
+
+.mobile-nav-link.active {
+    background: var(--grey-gradient);
+    color: var(--red);
+}
+
+/* Dropdown arrow */
+.mobile-dropdown-arrow {
+    transition: transform 0.3s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-nav-item.open .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--red);
+}
+
+/* Dropdown list */
+.mobile-dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.mobile-nav-item.open .mobile-dropdown-list {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.mobile-dropdown-item {
+    border-top: 1px solid var(--grey);
+}
+
+.mobile-dropdown-item a {
+    display: block;
+    padding: 16px 26px 16px 50px;
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--black-mid-tone);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mobile-dropdown-item a:hover {
+    background: var(--grey-gradient);
+    color: var(--red);
+    padding-left: 55px;
+}
+
+.mobile-dropdown-item a::before {
+    content: "";
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-dropdown-item a:hover::before {
+    opacity: 1;
+}
+
+/* Mobile CTA button */
+.mobile-nav-cta {
+    padding: 20px 26px;
+    border-bottom: none;
+}
+
+.mobile-nav-btn {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    color: var(--red);
+    font-family: "Lato-SemiBold", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: start;
+    transition: color 0s ease;
+}
+
+.mobile-nav-btn .arrow {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.mobile-nav-btn .arrow-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-nav-btn .arrow-hidden {
+    opacity: 0;
+    transform: translateX(-10px);
+    position: absolute;
+    right: 10px;
+}
+
+.mobile-nav-btn .btn-text {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.mobile-nav-btn .hover-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--red);
+    z-index: 0;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.mobile-nav-btn:hover {
+    color: var(--white);
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 4px;
+}
+
+.mobile-nav-btn:hover .arrow-visible {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.mobile-nav-btn:hover .arrow-hidden {
+    opacity: 1;
+    transform: translateX(20px);
+}
+
+.mobile-nav-btn:hover .hover-bg {
+    width: 100%;
+}
+
+.mobile-logo {
+    width: 10%;
+}
+
+.mobile-header-logo {
+    height: 50px;
+}
+
+/* Hide desktop header on small screens */
+@media (max-width: 1023px) {
+    .header-nav-list {
+        display: none;
+    }
+
+    .mobile-header {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header-top {
+        padding: 12px 20px;
+    }
+    
+    .mobile-nav-link {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .mobile-dropdown-item a {
+        padding: 14px 20px 14px 40px;
+        font-size: 15px;
+    }
+    
+    .mobile-dropdown-item a:hover {
+        padding-left: 45px;
+    }
+    
+    .mobile-dropdown-item a::before {
+        left: 28px;
+    }
+    
+    .mobile-nav-cta {
+        padding: 16px 20px;
+    }
+}
+
+
+
 footer {
     width: 100%;
     display: flex;
