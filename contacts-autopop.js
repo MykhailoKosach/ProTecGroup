@@ -24,6 +24,9 @@ function renderContacts(contactsData) {
     if (window.matchMedia('(max-width: 798px)').matches) {
         chunkSize = 2;
     }
+    if (window.matchMedia('(max-width: 600px)').matches) {
+        chunkSize = 1; 
+    }
 
     const mainContainer = document.getElementById('contacts-group');
     const template = document.getElementById('contacts-template');
