@@ -52,11 +52,6 @@ main>section {
 }
 
 /* Скролбар */
-/* * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) var(--grey-gradient);
-} */
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -81,6 +76,11 @@ main>section {
 .scroll-margin-top {
     scroll-margin-top: 80px;
 }
+
+/* html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) var(--grey-gradient);
+} */
 
 /* Шрифти */
 
@@ -2773,6 +2773,19 @@ footer {
         }
     }
 
+    @media (max-width:1023px) {
+        .achievement {
+            .block-wide {
+                padding: 8px 8px 8px 0;
+                min-height: 95px;
+
+                h4 {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
     .achievement>.block-description>.block-text {
         flex-direction: column-reverse;
     }
@@ -3404,6 +3417,15 @@ circle:hover {
     fill: var(--red-btn-hover);
 }
 
+
+.city-label {
+    transition: fill 0.2s ease;
+}
+
+.city-label:hover {
+    fill: var(--red-btn-hover);
+}
+
 .map-overlay {
     box-sizing: border-box;
     background: var(--red);
@@ -3435,6 +3457,14 @@ circle:hover {
     opacity: 0;
 }
 
+.map-span {
+    font-size: 16px;
+    position: relative;
+    height: min-content;
+    bottom: 0px;
+    right: 0px;
+}
+
 
 @keyframes slideInFromRight {
     from {
@@ -3458,6 +3488,7 @@ circle:hover {
 @media (min-width: 1024px) and (max-width: 1200px) {
     .map-overlay {
         gap: 18px;
+        width: 40%;
         /* padding: 18px; */
     }
 
@@ -3470,10 +3501,15 @@ circle:hover {
 @media (max-width: 1023px) {
     .map {
         overflow: hidden;
+        margin-right: 0;
+
+        .map-span {
+            font-size: 12px;
+        }
     }
 
     #map-svg {
-        transform: scale(1.9);
+        transform: scale(1.8);
         transform-origin: top left;
         /* Щоб масштаб йшов від верхнього лівого кута */
     }
@@ -3486,7 +3522,7 @@ circle:hover {
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 899px) {
     .map-overlay {
         width: 50%;
 
@@ -3496,12 +3532,20 @@ circle:hover {
     }
 }
 
+@media (max-width: 1023px) {
+    .map-overlay {
+        .flex {
+            flex-direction: row;
+        }
+    }
+}
+
 @media (max-width: 699px) {
     .map-overlay {
         border-top-right-radius: 16px;
         width: 100%;
         height: 30%;
-        animation: slideUp 0.6s ease-out forwards;
+        animation: slideUp 0.6s ease-out;
 
         .map-overlay-wrapper {
             padding: 0 18px;
@@ -3560,7 +3604,7 @@ circle:hover {
 } */
 
 
-@keyframes fadeInCenter {
+/* @keyframes fadeInCenter {
     from {
         opacity: 0;
         transform: translate(0);
@@ -3570,7 +3614,7 @@ circle:hover {
         opacity: 1;
         transform: translate(0);
     }
-}
+} */
 
 .map-overlay-content {
     display: flex;
@@ -4568,6 +4612,30 @@ textarea {
 
             .order {
                 order: 98;
+            }
+
+            .order-one {
+                order: 1;
+            }
+
+            .order-three {
+                order: 3;
+            }
+
+            .order-four {
+                order: 5;
+            }
+
+            .order-five {
+                order: 4;
+            }
+
+            .order-eight {
+                order: 9;
+            }
+
+            .order-nine {
+                order: 8;
             }
 
             .block-small-btn {
