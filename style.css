@@ -898,7 +898,7 @@ footer {
 
 @media (max-width: 799px) {
     footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
 
         .footer-white-wrapper {
             flex-direction: row-reverse;
@@ -1260,6 +1260,8 @@ footer {
     }
 
     .logo-animation-wrapper {
+        display: none;
+        visibility: hidden;
         width: 100%;
 
         .logo-animation {
@@ -3502,6 +3504,7 @@ circle:hover {
     .map {
         overflow: hidden;
         margin-right: 0;
+        margin-bottom: 0;
 
         .map-span {
             font-size: 12px;
@@ -3509,7 +3512,7 @@ circle:hover {
     }
 
     #map-svg {
-        transform: scale(1.8);
+        transform: scale(1.7);
         transform-origin: top left;
         /* Щоб масштаб йшов від верхнього лівого кута */
     }
@@ -3545,6 +3548,7 @@ circle:hover {
         border-top-right-radius: 16px;
         width: 100%;
         height: 30%;
+        bottom: 0;
         animation: slideUp 0.6s ease-out;
 
         .map-overlay-wrapper {
