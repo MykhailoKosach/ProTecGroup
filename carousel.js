@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let current = 0;
     let intervalID;
     let progress = 0;
+    let isTransitioning = false;
+    let rafId;
     
     // Touch control variables
     let touchStartX = 0;
     let touchEndX = 0;
     let touchStartY = 0;
     let touchEndY = 0;
-    const minSwipeDistance = 50;
+    const minSwipeDistance = 30;
     
     const backgrounds = [
         'back1.jpg',
@@ -24,18 +26,37 @@ document.addEventListener('DOMContentLoaded', function() {
         'back3.jpg',
     ];
 
+    // Preload background images for smoother transitions
+    const preloadImages = () => {
+        backgrounds.forEach(bg => {
+            const img = new Image();
+            img.src = bg;
+        });
+    };
+
     function showSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
         carousel.style.backgroundImage = `url(${backgrounds[index]})`;
+        
         items.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
+        
         allIndicators.forEach((btn, i) => {
             const indicatorIndex = i % 3;
             btn.classList.toggle('active', indicatorIndex === index);
         });
+        
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 50);
     }
 
     function goToSlide(index) {
+        if (isTransitioning) return;
+        
         progress = 0;
         current = (index + items.length) % items.length;
         showSlide(current);
@@ -51,23 +72,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateProgressBars() {
+        // Update all indicators correctly
         allIndicators.forEach((btn, i) => {
             const indicatorIndex = i % 3;
             const span = btn.querySelector('span');
-            if (indicatorIndex === current) {
-                span.style.width = (35 + progress * 0.55) + '%';
-            } else {
-                span.style.width = '35%';
+            if (span) {
+                if (indicatorIndex === current) {
+                    const targetWidth = 35 + progress * 0.55;
+                    span.style.width = targetWidth + '%';
+                } else {
+                    span.style.width = '35%';
+                }
             }
         });
     }
 
     function resetInterval() {
         clearInterval(intervalID);
+        if (rafId) cancelAnimationFrame(rafId);
         progress = 0;
         
+        // Reset all progress bars when starting a new cycle
+        updateProgressBars();
+        
         intervalID = setInterval(() => {
-            progress += 1;
+            progress += 2; // Faster increment for better mobile performance
             updateProgressBars();
             
             if (progress >= 100) {
@@ -75,71 +104,110 @@ document.addEventListener('DOMContentLoaded', function() {
                 current = (current + 1) % items.length;
                 showSlide(current);
             }
-        }, 80);
+        }, 80); // Slower interval for better mobile performance
     }
 
+    let swipeStartTime = 0;
     function handleSwipe() {
-        const swipeDistanceX = Math.abs(touchEndX - touchStartX);
+        const swipeTime = Date.now() - swipeStartTime;
+        const swipeDistanceX = touchEndX - touchStartX;
         const swipeDistanceY = Math.abs(touchEndY - touchStartY);
         
-        // Only handle horizontal swipes (ignore vertical scrolling)
-        if (swipeDistanceX > minSwipeDistance && swipeDistanceX > swipeDistanceY) {
-            if (touchEndX < touchStartX) {
-                // Swipe left - next slide
+        // Only handle quick horizontal swipes
+        if (swipeTime < 300 && 
+            Math.abs(swipeDistanceX) > minSwipeDistance && 
+            Math.abs(swipeDistanceX) > swipeDistanceY * 1.5) {
+            
+            if (swipeDistanceX < 0) {
                 nextSlide();
-            } else if (touchEndX > touchStartX) {
-                // Swipe right - previous slide
+            } else {
                 prevSlide();
             }
         }
     }
 
+    // Debounced click handlers for better performance
+    let clickTimeout;
+    function debouncedGoToSlide(index) {
+        if (clickTimeout) clearTimeout(clickTimeout);
+        clickTimeout = setTimeout(() => goToSlide(index), 50);
+    }
+
     // Button event listeners
     allIndicators.forEach((btn, i) => {
-        btn.addEventListener('click', () => {
-            const slideIndex = i % 3;
-            goToSlide(slideIndex);
-        });
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isTransitioning) {
+                const slideIndex = i % 3;
+                debouncedGoToSlide(slideIndex);
+            }
+        }, { passive: false });
     });
     
     allNextBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            nextSlide();
-        });
+            if (!isTransitioning) nextSlide();
+        }, { passive: false });
     });
     
     allPrevBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            prevSlide();
-        });
+            if (!isTransitioning) prevSlide();
+        }, { passive: false });
     });
 
     // Touch event listeners
     carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
+        swipeStartTime = Date.now();
+        
+        // Pause auto-advance during touch
+        clearInterval(intervalID);
     }, { passive: true });
 
     carousel.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         touchEndY = e.changedTouches[0].screenY;
+        
         handleSwipe();
+        
+        // Resume auto-advance after touch with delay
+        setTimeout(() => resetInterval(), 500);
     }, { passive: true });
 
-    // Prevent default touch behavior during horizontal swipes
+    // Throttled touchmove for better performance
+    let lastTouchTime = 0;
     carousel.addEventListener('touchmove', (e) => {
-        const swipeDistanceX = Math.abs(e.changedTouches[0].screenX - touchStartX);
-        const swipeDistanceY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+        const now = Date.now();
+        if (now - lastTouchTime < 16) return; // Throttle to ~60fps
+        lastTouchTime = now;
         
-        // If horizontal swipe is detected, prevent vertical scrolling
-        if (swipeDistanceX > swipeDistanceY && swipeDistanceX > 10) {
+        const currentX = e.changedTouches[0].screenX;
+        const currentY = e.changedTouches[0].screenY;
+        const swipeDistanceX = Math.abs(currentX - touchStartX);
+        const swipeDistanceY = Math.abs(currentY - touchStartY);
+        
+        // Only prevent default for clear horizontal swipes
+        if (swipeDistanceX > 15 && swipeDistanceX > swipeDistanceY * 1.5) {
             e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Pause carousel when page is not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(intervalID);
+            if (rafId) cancelAnimationFrame(rafId);
+        } else {
+            resetInterval();
         }
     });
 
-    // Start carousel on load
+    // Initialize carousel
+    preloadImages();
     showSlide(current);
     resetInterval();
 });
