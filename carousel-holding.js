@@ -1,4 +1,3 @@
-
 function getVisibleCount() {
   const width = window.innerWidth;
   if (width < 1024) return 1;
@@ -34,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = 0;
   let progress = 0;
   let timerId;
+  
+  // Initialize with correct values from the start
   let VISIBLE = getVisibleCount();
   let PAGES = Math.ceil(blocks.length / VISIBLE);
   let indicators = createIndicators(PAGES);
@@ -45,12 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let touchEndY = 0;
   const minSwipeDistance = 50;
 
+  // Hide all blocks initially to prevent flash
+  blocks.forEach(block => {
+    block.classList.add('hidden');
+  });
+
   function showPage(page) {
-    VISIBLE = getVisibleCount();
-    const newPages = Math.ceil(blocks.length / VISIBLE);
+    const newVisible = getVisibleCount();
+    const newPages = Math.ceil(blocks.length / newVisible);
     
-    // Recreate indicators if page count changed
-    if (newPages !== PAGES) {
+    // Update values if they changed
+    if (newVisible !== VISIBLE || newPages !== PAGES) {
+      VISIBLE = newVisible;
       PAGES = newPages;
       indicators = createIndicators(PAGES);
       addIndicatorEvents();
@@ -83,7 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateBars() {
     indicators.forEach((btn, i) => {
       const span = btn.querySelector('span');
-      span.style.width = i === currentPage ? (35 + progress * 0.55) + '%' : '35%';
+      if (span) {
+        span.style.width = i === currentPage ? (35 + progress * 0.55) + '%' : '35%';
+      }
     });
   }
 
@@ -148,15 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (swipeDistanceX > swipeDistanceY && swipeDistanceX > 10) {
       e.preventDefault();
     }
-  });
+  }, { passive: false });
 
+  // Optimized resize handler with debouncing
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    const newVisible = getVisibleCount();
-    if (newVisible !== VISIBLE) {
-      VISIBLE = newVisible;
-      showPage(currentPage);
-      resetTimer();
-    }
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newVisible = getVisibleCount();
+      if (newVisible !== VISIBLE) {
+        showPage(currentPage);
+        resetTimer();
+      }
+    }, 150);
   });
 
   nextBtn.addEventListener('click', e => {
@@ -171,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resetTimer();
   });
 
+  // Initialize everything with correct media query values
   addIndicatorEvents();
-  showPage(currentPage);
+  showPage(currentPage); // This will show the correct number of blocks immediately
   resetTimer();
 });
