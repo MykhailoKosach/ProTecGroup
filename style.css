@@ -57,7 +57,7 @@ main>section {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0);
+    background: var(--grey-gradient);
 }
 
 ::-webkit-scrollbar-thumb {
