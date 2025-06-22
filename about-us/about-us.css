@@ -1,0 +1,986 @@
+.gallery {
+    position: relative;
+    /* ⬅️  anchor absolutely-positioned children */
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--grey);
+    background-size: cover;
+    margin: 0;
+}
+
+.gallery-controls-row {
+    position: absolute;
+    left: 50%;
+    /*  optional: horizontally center */
+    bottom: 30px;
+    /*  50 px from the bottom of .gallery */
+    transform: translateX(-50%);
+    /*  optional: horizontally center */
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    z-index: 2;
+}
+
+/* arrows – white outline on dark bg */
+.gallery-control {
+    background: var(--red);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+}
+
+.gallery-control svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff
+}
+
+/* pills */
+.gallery-indicators {
+    display: flex;
+    gap: 12px
+}
+
+.gallery-indicators button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 24px;
+    background: var(--red);
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.gallery-indicators button.active {
+    background: var(--red);
+    width: 60px
+}
+
+/* progress bar inside pill */
+.gallery-indicators button span {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 80%;
+    background: #fff;
+    border-radius: inherit;
+    opacity: 0;
+    width: 10%;
+    transition: width .5s;
+}
+
+.gallery-indicators button.active span {
+    background: var(--white);
+    width: 90%;
+    opacity: 1
+}
+
+@media (max-width: 1023px) {
+    .gallery-indicators button {
+        width: 18px;
+        height: 18px;
+    }
+
+    .gallery-indicators button.active {
+        width: 45px;
+    }
+
+    .gallery-control {
+        width: 30px;
+        height: 30px;
+    }
+
+    .gallery-control svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* @media (max-width: 1024px) {
+    .gallery-indicators button {
+        width: 14px;
+        height: 14px;
+    }
+
+    .gallery-indicators button.active {
+        width: 35px;
+    }
+
+    .gallery-control {
+        width: 24px;
+        height: 24px;
+    }
+
+    .gallery-control svg {
+        width: 12px;
+        height: 12px;
+    }
+} */
+
+
+
+.counter-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.counter-wrapper .counter-container {
+    min-width: 26%;
+    text-align: center;
+}
+
+.honour .block-wrapper {
+    /* padding-top: 140px; */
+    row-gap: 44px;
+    column-gap: 9%
+}
+
+.honour .block-small {
+    width: 27.3%;
+}
+
+.block-small h1 {
+    font-size: 96px;
+    color: var(--black);
+}
+
+.block-small span {
+    font-size: 72px;
+    font-weight: lighter;
+}
+
+.span-pad {
+    padding-top: 18px;
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+    .honour .block-wrapper {
+        column-gap: 6.5%
+    }
+
+    .honour .block-small {
+        width: 29%;
+    }
+
+    .block-small h1 {
+        font-size: 72px;
+    }
+
+    .block-small span {
+        font-size: 54px;
+    }
+
+    .span-pad {
+        padding-top: 10px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .honour .block-wrapper {
+        column-gap: 4%
+    }
+
+    .honour .block-small {
+        width: 30.6%;
+    }
+
+    .block-small h1 {
+        font-size: 66px;
+    }
+
+    .block-small span {
+        font-size: 48px;
+    }
+
+    .span-pad {
+        padding-top: 12px;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1023px) {
+    .honour .block-wrapper {
+        column-gap: 10%
+    }
+
+    .honour .block-small {
+        width: 45%;
+    }
+
+    .honour>.block-small>.counter-container {
+        width: 40%;
+    }
+
+    .block-small h1 {
+        font-size: 66px;
+    }
+
+    .block-small span {
+        position: relative;
+        left: -2%;
+        font-size: 48px;
+    }
+
+    .span-pad {
+        padding-top: 12px;
+    }
+}
+
+@media (max-width: 699px) {
+    .honour .block-wrapper {
+        justify-content: center;
+    }
+
+    .honour .block-small {
+        width: 80%;
+    }
+
+    .block-small h1 {
+        font-size: 66px;
+    }
+
+    .block-small span {
+        position: relative;
+        left: -2%;
+        font-size: 48px;
+    }
+
+    .span-pad {
+        padding-top: 12px;
+    }
+}
+
+
+
+.mission {
+    position: relative;
+    /* <──---   make .mission the containing block */
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.mission .block-middle {
+    min-height: 300px;
+    z-index: 2;
+}
+
+.value {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+}
+
+.value::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--red);
+}
+
+/* optional glow when the milestone is already passed */
+.value.active::before {
+    box-shadow: 0 0 0 4px var(--red), 0 0 6px var(--red);
+}
+
+.mission::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: var(--rail-start, 0);
+    /* start of the rail  */
+    bottom: var(--rail-end, 0);
+    /* NEW: variable instead of fixed 0 */
+    width: 2px;
+    background: var(--grey);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+
+
+/*  red overlay that grows  */
+.progress-line {
+    position: absolute;
+    left: 50%;
+    top: var(--rail-start, 0);
+    /* set by JS */
+    width: 2px;
+    height: 0;
+    /* grows via JS */
+    background: var(--red);
+    transform: translateX(-50%);
+    transform-origin: top;
+    z-index: 0;
+    transition: height 0.25s linear;
+}
+
+/* optional highlight for passed dots */
+.value.active::before {
+    box-shadow: 0 0 0 3px var(--red);
+}
+
+/* default (inactive) state */
+.value .block-middle,
+.value .block-middle-reverse {
+    --txt: var(--black);
+    background: var(--grey-gradient);
+    color: var(--txt);
+    transition: background-color 0.25s ease, color 0.1s ease;
+}
+
+/* when active */
+.value.active .block-middle,
+.value.active .block-middle-reverse {
+    --txt: var(--white);
+    /* only this changes */
+    background: var(--red-gradient);
+}
+
+
+.value-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.value .block-middle-reverse {
+    min-height: 300px;
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .mission .block-middle {
+        min-height: 250px;
+    }
+
+    .value .block-middle-reverse {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .mission {
+        gap: 40px;
+    }
+
+    .mission .block-middle-wrapper {
+        flex-direction: column;
+        gap: 24px;
+
+        .block-middle {
+            width: 80%;
+            min-height: 0;
+        }
+
+        #timelineStart {
+            order: 99;
+        }
+
+        .block-vision {
+            margin-left: 20%;
+        }
+    }
+
+    .mission::before {
+        left: 10%;
+    }
+
+    .progress-line {
+        left: 10%;
+    }
+
+    .value::before {
+        left: 10%;
+    }
+
+    .value {
+        flex-direction: row-reverse;
+        height: 220px;
+        justify-content: right;
+
+        .block-middle-reverse {
+            width: 70%;
+            min-height: 50%;
+
+        }
+    }
+
+}
+
+@media (max-width: 550px) {
+    .mission {
+        gap: 40px;
+    }
+
+    .mission .block-middle-wrapper {
+        flex-direction: column;
+        gap: 24px;
+
+        .block-middle {
+            width: 80%;
+            min-height: 0;
+            padding: 14px;
+            gap: 12px;
+        }
+
+        #timelineStart {
+            order: 99;
+        }
+
+        .block-vision {
+            margin-left: 20%;
+        }
+    }
+
+    .mission::before {
+        left: 10%;
+    }
+
+    .progress-line {
+        left: 10%;
+    }
+
+    .value::before {
+        left: 10%;
+    }
+
+    .value {
+        flex-direction: row-reverse;
+        height: 220px;
+        justify-content: right;
+
+        .block-middle-reverse {
+            width: 80%;
+            min-height: 50%;
+            padding: 14px;
+            gap: 12px;
+
+        }
+    }
+
+}
+
+.holding-wrapper {
+    padding-top: 60px;
+    display: flex;
+    gap: 9%;
+    justify-content: center;
+}
+
+.holding-block {
+    background-image: url(back3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    width: 27%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.holding-block-description {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 30%;
+    padding: 16px 24px;
+    background: var(--red-holding-gradient);
+    color: var(--white);
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.holding-block-hidden {
+    height: 0%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in, height 0.6s ease;
+}
+
+.holding-block:hover {
+    .holding-block-description {
+        height: 66%;
+        background: var(--red-holding-gradient-hover);
+        gap: 10px;
+        transition: 0.2s ease;
+    }
+
+    .holding-block-hidden {
+        height: 75%;
+        overflow: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.4s ease-in;
+    }
+}
+
+/* --- NAVIGATION BAR -------------------------------------------------- */
+.holding-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 60px;
+}
+
+/* arrows – white with red icon (opposite of the main slider) */
+.holding-control {
+    background: var(--red);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.holding-control svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff
+}
+
+/* --- INDICATOR PILLS ------------------------------------------------- */
+.holding-indicators {
+    display: flex;
+    gap: 12px
+}
+
+.holding-indicators button {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 24px;
+    background: var(--red);
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+}
+
+.holding-indicators button.active {
+    background: var(--red);
+    width: 60px
+}
+
+.holding-indicators button span {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 80%;
+    background: #fff;
+    border-radius: inherit;
+    transition: width .5s;
+    z-index: 1;
+    opacity: 0;
+    width: 10%;
+}
+
+/* “progress bar” inside the active pill – white on red bg, red on white bg */
+.holding-indicators button.active span {
+    background: var(--white);
+    width: 90%;
+    opacity: 1;
+}
+
+/* --- SHOW / HIDE LOGIC FOR BLOCKS ----------------------------------- */
+/* (adds only a tiny helper; all your original block styling untouched) */
+.holding-block.hidden {
+    display: none
+}
+
+@keyframes holdingFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* applied only for 0.4 s when a card becomes visible */
+.holding-block.animate-in {
+    animation: holdingFadeUp 1s ease both;
+}
+
+@media (max-width: 1200px) {
+    .holding-block:hover {
+        .holding-block-hidden {
+            height: 60%;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .holding-block:hover {
+        .holding-block-hidden {
+            height: 52%;
+            gap: 16px;
+        }
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1350px) {
+    .holding-wrapper {
+        gap: 5%;
+    }
+
+    .holding-block {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1151px) and (max-width: 1200px) {
+    .holding-block {
+        width: 33%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1150px) {
+    .holding-block {
+        width: 38%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .holding-indicators button {
+        width: 18px;
+        height: 18px;
+    }
+
+    .holding-indicators button.active {
+        width: 45px;
+    }
+
+    .holding-control {
+        width: 30px;
+        height: 30px;
+    }
+
+    .holding-control svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .holding-block {
+        min-width: 300px;
+    }
+
+    /* .holding-indicators button {
+        width: 14px;
+        height: 14px;
+    }
+
+    .holding-indicators button.active {
+        width: 35px;
+    }
+
+    .holding-control {
+        width: 24px;
+        height: 24px;
+    }
+
+    .holding-control svg {
+        width: 12px;
+        height: 12px;
+    } */
+}
+
+
+circle:hover {
+    fill: var(--red-btn-hover);
+    r: 8;
+}
+
+.city-icon:hover {
+    fill: var(--red-btn-hover);
+}
+
+
+.city-label {
+    transition: fill 0.2s ease;
+}
+
+.city-label:hover {
+    fill: var(--red-btn-hover);
+}
+
+.map-overlay {
+    box-sizing: border-box;
+    background: var(--red);
+    color: var(--white);
+    border-top-left-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: fixed;
+    bottom: env(safe-area-inset-bottom, 0);
+    right: 0;
+    width: 36%;
+    display: none;
+    animation: slideInFromRight 0.4s ease-out;
+    opacity: 0;
+    z-index: 5;
+    transform: translateX(40px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.map-overlay.visible {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.map-overlay.fade-out {
+    transform: translateX(40px);
+    opacity: 0;
+}
+
+.map-span {
+    font-size: 16px;
+    position: relative;
+    height: min-content;
+    bottom: 0px;
+    right: 0px;
+}
+
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.map-overlay-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 25px;
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .map-overlay {
+        gap: 18px;
+        width: 40%;
+        /* padding: 18px; */
+    }
+
+    .map-overlay-wrapper {
+        padding: 0 18px;
+        gap: 9px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .map {
+        overflow: hidden;
+        margin-right: 0;
+        margin-bottom: 0;
+
+        .map-span {
+            font-size: 12px;
+        }
+    }
+
+    #map-svg {
+        transform: scale(1.7);
+        transform-origin: top left;
+        /* Щоб масштаб йшов від верхнього лівого кута */
+    }
+
+    .map-overlay {
+        width: 40%;
+        gap: 14px;
+        padding: 18px;
+        z-index: 99999;
+    }
+}
+
+@media (max-width: 899px) {
+    .map-overlay {
+        width: 50%;
+
+        .map-overlay-wrapper {
+            padding: 0 18px;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .map-overlay {
+        .flex {
+            flex-direction: row;
+        }
+    }
+}
+
+@media (max-width: 699px) {
+    .map-overlay {
+        border-top-right-radius: 16px;
+        width: 100%;
+        height: 30%;
+        bottom: 0;
+        animation: slideUp 0.6s ease-out;
+
+        .map-overlay-wrapper {
+            padding: 0 18px;
+        }
+
+        .map-overlay-content {
+            height: 20px;
+
+            .overlay-number {
+                height: 20px;
+            }
+
+            .overlay-text {
+                height: 20px;
+            }
+
+            .overlay-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* .map-overlay {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    bottom: auto;
+    right: auto;
+    width: 50%;
+    opacity: 1;
+    z-index: 9999;
+    animation: fadeInCenter 0.3s ease;
+    border-radius: 10px;
+    gap: 14px;
+
+}
+
+.map-overlay-wrapper {
+    padding: 0 14px;
+    gap: 7px;
+} */
+
+
+/* @keyframes fadeInCenter {
+    from {
+        opacity: 0;
+        transform: translate(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+} */
+
+.map-overlay-content {
+    display: flex;
+    gap: 5%;
+}
+
+.overlay-number {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+    height: 40px;
+
+    h4 {
+        font-weight: lighter;
+
+    }
+}
+
+@media (max-width: 699px) {
+    .overlay-number {
+        h4 {
+            font-weight: normal;
+        }
+    }
+}
+
+.overlay-text {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 40px;
+
+    P {
+        text-align: left;
+    }
+}
+
+.overlay-icon {
+    width: 10%;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

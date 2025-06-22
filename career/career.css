@@ -1,0 +1,164 @@
+.career-alt {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: var(--red-gradient);
+    padding: 80px 10%;
+    gap: 5%;
+}
+
+.career-alt .block-description-white {
+    width: 30%;
+}
+
+.career-alt .block-wide-wrapper {
+    width: 65%;
+}
+
+.career-alt .block-wide {
+    gap: 2%;
+    padding: 16px;
+}
+
+.career-alt .block-wide div {
+    width: 15%;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.career-alt .block-wide .block-text {
+    width: 83%;
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+    .career-alt {
+        h2 {
+            font-size: 36px;
+        }
+
+        h4 {
+            font-size: 22.5px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .career-alt {
+        h2 {
+            font-size: 32px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1250px) {
+    .career-alt .block-wide {
+        min-height: 130px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .career-alt {
+        padding: 40px 10%;
+        flex-direction: column;
+        gap: 40px;
+
+        .block-description-white {
+            width: 100%;
+            gap: 24px;
+        }
+
+        .block-wide-wrapper {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .career-alt {
+        .block-wide {
+            padding: 12px;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .application {
+        .block-wrapper {
+            column-gap: 4%;
+            row-gap: 24px;
+
+            .block-small {
+                width: 48%;
+                min-height: 175px;
+            }
+
+            .block-hidden {
+                display: none;
+                visibility: hidden;
+            }
+
+            .order {
+                order: 98;
+            }
+
+            .order-one {
+                order: 1;
+            }
+
+            .order-three {
+                order: 3;
+            }
+
+            .order-four {
+                order: 5;
+            }
+
+            .order-five {
+                order: 4;
+            }
+
+            .order-eight {
+                order: 9;
+            }
+
+            .order-nine {
+                order: 8;
+            }
+
+            .block-small-btn {
+                order: 99;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1023px) {
+    .application {
+        .block-wrapper {
+            .block-small {
+                width: 100%;
+                min-height: 175px;
+            }
+
+            .block-small-btn {
+                justify-content: flex-start;
+            }
+        }
+    }
+}
