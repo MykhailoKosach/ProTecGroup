@@ -1,7 +1,7 @@
 // Load contacts data from JSON file
 async function loadContactsData() {
     try {
-        const response = await fetch('./offices.json');
+        const response = await fetch('../offices.json');
         const data = await response.json();
         
         // Combine offices and regions into one array

@@ -1,7 +1,7 @@
 // Load topics data from JSON file
 async function loadTopicsData() {
     try {
-        const response = await fetch('./email-topics.json');
+        const response = await fetch('../email-topics.json');
         const data = await response.json();
         
         populateTopicsSelect(data.topics);
