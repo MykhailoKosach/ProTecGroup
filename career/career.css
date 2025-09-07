@@ -21,16 +21,12 @@
 }
 
 .career-alt .block-wide div {
-    width: 15%;
-
-    img {
-        width: 100%;
-        height: auto;
-    }
+    /* width: 15%; */
+    /* text-align: center; */
 }
 
 .career-alt .block-wide .block-text {
-    width: 83%;
+    width: 90%;
 }
 
 @media (min-width: 1201px) and (max-width: 1400px) {

@@ -275,8 +275,13 @@
 }
 
 .mission .block-middle {
-    min-height: 300px;
+    /* min-height: 300px; */
     z-index: 2;
+}
+
+.block-middle-value {
+    justify-content: center;
+    align-items: center;
 }
 
 .value {
@@ -362,6 +367,12 @@
     background: var(--red-gradient);
 }
 
+.value-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
 
 .value-reverse {
     display: flex;
@@ -369,7 +380,7 @@
 }
 
 .value .block-middle-reverse {
-    min-height: 300px;
+    min-height: 200px;
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {

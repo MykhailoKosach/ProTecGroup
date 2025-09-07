@@ -238,7 +238,7 @@
 
 .achievement {
     display: flex;
-    gap: 10%;
+    gap: 5%;
 
     .block-wide {
         gap: 2%;
