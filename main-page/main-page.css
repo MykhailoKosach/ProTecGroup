@@ -15,7 +15,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 70%;
     height: 100%;
     background: var(--red-slider-gradient);
     z-index: 1;
@@ -51,7 +51,7 @@
 }
 
 .slide-content {
-    width: 50%;
+    width: 45%;
     height: 100%;
     /* Remove background gradient from here */
     position: absolute;
@@ -76,6 +76,12 @@
     .carousel-controls-row {
         padding: 0 10%;
     }
+}
+
+.slide-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .carousel-indicators {
