@@ -200,6 +200,10 @@ h5 {
     }
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 /* Повторювані елементи */
 
 header {
@@ -621,15 +625,15 @@ header {
 footer {
     width: 100%;
     display: flex;
-    /* gap: 3%; */
+    gap: 3%;
     /* height: 420px; */
     box-sizing: border-box;
 }
 
 .footer-white-wrapper {
     box-sizing: border-box;
-    width: 30%;
-    padding: 40px 40px 40px 10%;
+    width: 25%;
+    padding: 40px 40px 40px 40px;
     background: var(--white);
     color: var(--red);
     display: flex;
@@ -663,8 +667,8 @@ footer {
 
 .footer-red-wrapper {
     box-sizing: border-box;
-    width: 35%;
-    padding: 60px 40px 40px 40px;
+    width: 40%;
+    padding: 60px 40px 40px 10%;
     display: flex;
     gap: 10%;
     background: var(--red-gradient);

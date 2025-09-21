@@ -141,7 +141,7 @@
 
 .counter-wrapper .counter-container {
     min-width: 26%;
-    text-align: center;
+    text-align: left;
 }
 
 .honour .block-wrapper {
@@ -152,6 +152,21 @@
 
 .honour .block-small {
     width: 27.3%;
+
+    p {
+        min-height: 92px;
+    }
+
+    h4 {
+        font-size: 24px;
+        color: var(--red);
+
+    }
+}
+
+.honour .red-border-top {
+    justify-content: space-between;
+    gap: 0px;
 }
 
 .block-small h1 {
@@ -160,12 +175,14 @@
 }
 
 .block-small span {
-    font-size: 72px;
+    font-size: 32px;
     font-weight: lighter;
 }
 
 .span-pad {
-    padding-top: 18px;
+    /* padding-top: 30px; */
+    /* min-height: 110px; */
+
 }
 
 @media (min-width: 1201px) and (max-width: 1400px) {
