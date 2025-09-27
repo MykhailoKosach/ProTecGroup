@@ -1,3 +1,13 @@
+.bw-img {
+    filter: grayscale(100%) contrast(110%) brightness(95%);
+    -webkit-filter: grayscale(100%);
+}
+
+.bw-svg {
+    filter: grayscale(100%);
+}
+
+
 .filter {
     box-sizing: border-box;
     width: 140px;
@@ -113,13 +123,23 @@
 .logo-item:hover {
     background: var(--grey-gradient);
 
-    .logo-black {
+    /* .logo-black {
         display: none;
     }
 
     .logo-color {
         display: inline;
+    } */
+
+    .bw-img {
+        filter: grayscale(0) contrast(0) brightness(0);
+        -webkit-filter: grayscale(0);
     }
+
+    .bw-svg {
+        filter: grayscale(0);
+    }
+
 }
 
 .logo {
@@ -173,6 +193,17 @@
     width: 40%;
     /* height: 60vh; */
     /* padding: 40px; */
+}
+
+#partnersOverlay-ricard-overlay>.overlay-container {
+    width: 74%;
+    .overlay-logo-item {
+        width: 12%;
+    }
+    .btn-close {
+        width: 2%;
+        height: 2%;
+    }
 }
 
 .btn-close {

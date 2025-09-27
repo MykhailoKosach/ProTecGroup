@@ -200,6 +200,10 @@ h5 {
     }
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 /* Повторювані елементи */
 
 header {
@@ -628,13 +632,18 @@ footer {
 
 .footer-white-wrapper {
     box-sizing: border-box;
-    width: 27%;
-    padding: 40px 0 40px 10%;
+    width: 25%;
+    padding: 40px 40px 40px 40px;
     background: var(--white);
     color: var(--red);
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.footer-logo-container {
+        padding: 60px 10% 40px 40px;
+        width: 35%;
 }
 
 .footer-white-wrapper>img {
@@ -658,8 +667,8 @@ footer {
 
 .footer-red-wrapper {
     box-sizing: border-box;
-    width: 70%;
-    padding: 60px 10% 40px 60px;
+    width: 40%;
+    padding: 60px 40px 40px 10%;
     display: flex;
     gap: 10%;
     background: var(--red-gradient);
@@ -737,21 +746,21 @@ footer {
 .footer-nav-container {
     box-sizing: border-box;
     display: flex;
-    width: 50%;
     flex-direction: column;
     gap: 32px;
+    width: 100%;
 }
 
 .footer-nav {
     box-sizing: border-box;
     display: flex;
-    gap: 3%;
+    gap: 10%;
     padding: 0 16px;
 }
 
 .footer-nav-left {
     box-sizing: border-box;
-    width: 47%;
+    width: 40%;
 }
 
 .footer-nav-right {
@@ -794,7 +803,7 @@ footer {
 }
 
 .footer-company-container {
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -803,18 +812,18 @@ footer {
 .footer-company {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    /* gap: 32px; */
 }
 
 .footer-company-logo {
     display: flex;
     padding: 0 16px;
     /* justify-content: center; */
-    gap: 32px;
+    /* gap: 32px; */
 }
 
 .footer-company a {
-    width: 31%;
+    width: 100%
     /* height: auto; */
 }
 
@@ -1474,7 +1483,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30%;
+    width: 35%;
 }
 
 .block-description-white {
