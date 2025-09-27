@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career</title>
+    <title>Кар'єра</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./career.css">
 </head>
@@ -270,6 +270,44 @@
                 </div>
             </div>
         </div>
+
+        <!-- <iframe id="RUAFRAME" frameborder="0" scrolling="no" src="https://admin10.robota.ua/export/context/company.aspx?ntid=3107364&lang=ua" style="width:100%;border:none;"></iframe> 
+
+        <script type="text/javascript" src="https://admin10.robota.ua/export/context/company.js"></script> 
+
+        <div style="font-family: inherit; margin-top: 15px;">Розроблено компанією <a target="_blank" href="https://robota.ua/">robota.ua</a> спеціально для компанії <a target="_blank" href="https://robota.ua/company3107364">ProTec Logistic</a></div>en 
+
+        <iframe id="RUAFRAME" frameborder="0" scrolling="no" src="https://admin10.robota.ua/export/context/company.aspx?ntid=3107364&lang=en" style="width:100%;border:none;"></iframe> 
+
+        <script type="text/javascript" src="https://admin10.robota.ua/export/context/company.js"></script> 
+
+        <div style="font-family: inherit; margin-top: 15px;">Made by <a target="_blank" href="https://robota.ua/">robota.ua</a> company special for <a target="_blank" href="https://robota.ua/company3107364">ProTec Logistic</a></div>  -->
+
+        <!-- Job Listings Section -->
+        <section class="job-listings">
+            <div class="container-heading">
+                <h2>Вакансії</h2>
+                <p>Знайдіть свою ідеальну позицію в нашій команді</p>
+            </div>
+
+            <!-- Ukrainian Jobs -->
+            <div class="job-frame-container" id="ua-jobs">
+                <div class="job-frame-wrapper">
+                    <iframe id="RUAFRAME_UA" 
+                            frameborder="0" 
+                            scrolling="auto"
+                            src="https://admin10.robota.ua/export/context/company.aspx?ntid=3107364&lang=ua" 
+                            style="width:100%;border:none;">
+                    </iframe>
+                </div>
+                <div class="job-attribution">
+                    <p>Розроблено компанією <a target="_blank" href="https://robota.ua/">robota.ua</a> спеціально для компанії <a target="_blank" href="https://robota.ua/company3107364">ProTec Logistic</a></p>
+                </div>
+            </div>
+        </section>
+
+        <script type="text/javascript" src="https://admin10.robota.ua/export/context/company.js"></script>
+
         <section class="application">
 
             <div class="block-wrapper">
@@ -418,6 +456,7 @@
     <script src="../common-js/header.js"></script>
     <script src="../common-js/btn-delay.js"></script>
     <script src="../common-js/reveal-animation.js"></script>
+    <script src="robota-ua.js"></script>
 </body>
 
 </html>

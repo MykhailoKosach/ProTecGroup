@@ -158,3 +158,153 @@
         }
     }
 }
+
+/* Job Listings Section */
+.job-listings {
+    padding: 80px 10% 60px 10%;
+    background: var(--grey-gradient);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.job-listings .container-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.job-listings .container-heading h2 {
+    margin-bottom: 16px;
+}
+
+.job-listings .container-heading p {
+    color: var(--black-mid-tone);
+    font-size: 18px;
+}
+
+/* Job Frame Container - Simplified */
+.job-frame-container {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: none;
+    overflow: visible;
+}
+
+.job-frame-wrapper {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-large);
+    margin-bottom: 24px;
+    overflow: visible;
+}
+
+.job-frame-wrapper iframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 450px; /* Default optimized height */
+    min-height: 350px;
+    border: none;
+    display: block;
+    transition: height 0.3s ease;
+}
+
+/* Responsive optimized heights */
+@media (max-width: 1200px) {
+    .job-frame-wrapper iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .job-frame-wrapper iframe {
+        height: 380px;
+    }
+    
+    .job-frame-wrapper {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .job-frame-wrapper iframe {
+        height: 350px;
+    }
+}
+
+@media (max-width: 599px) {
+    .job-frame-wrapper iframe {
+        height: 320px;
+    }
+    
+    .job-frame-wrapper {
+        padding: 16px;
+    }
+}
+
+/* Attribution Styling */
+.job-attribution {
+    text-align: center;
+    padding: 16px;
+}
+
+.job-attribution p {
+    color: var(--black-mid-tone);
+    font-size: 14px;
+    margin: 0;
+}
+
+.job-attribution a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.job-attribution a:hover {
+    color: var(--red-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 1023px) {
+    .job-listings {
+        padding: 40px 10%;
+    }
+    
+    .job-frame-wrapper {
+        padding: 20px;
+    }
+    
+    .lang-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .job-frame-wrapper iframe {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 599px) {
+    .language-toggle {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .lang-btn {
+        width: 200px;
+    }
+    
+    .job-frame-wrapper {
+        padding: 16px;
+    }
+    
+    .job-frame-wrapper iframe {
+        min-height: 300px;
+    }
+}
