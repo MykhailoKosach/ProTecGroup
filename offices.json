@@ -2,109 +2,129 @@
   "offices": [
     {
       "officeName": "Львівська філія",
-      "contactPerson": "",
+      "contactPerson": "Кириченко Роман Васильович",
       "address": "79069, Львів, вул. Шевченка, 323",
-      "phone": "+380 32 234 9044",
+      "phone": "380322349044",
+      "email": "R_Kyrychenko@plogistic.com.ua"
+    },
+    {
+      "officeName": "Дрогобич",
+      "contactPerson": "Ємельянов Ростислав Володимирович",
+      "address": "м. Дрогобич, вул. Гайдамацька 7",
+      "phone": "380673404144",
+      "email": "EmeljanovR@plogistsc.com.ua"
+    },
+    {
+      "officeName": "Хмельницька філія",
+      "contactPerson": "Кізима Микола Васильович",
+      "address": "м. Хмельницький, вул. Козацька, 55",
+      "phone": "380679240040",
+      "email": "Kizima_M@plogistic.com.ua"
+    },
+    {
+      "officeName": "Хмельницька філія (додаткові контакти)",
+      "contactPerson": "Нижник Руслан Миколайович",
+      "address": "м. Хмельницький, вул. Козацька, 55",
+      "phone": "380987175141",
       "email": ""
     },
     {
-      "officeName": "Київська філія",
-      "contactPerson": "",
-      "address": "03045, м.Київ, Столичне шосе, 100",
-      "phone": "+380 67 675 9472",
+      "officeName": "Хмельницька філія (додаткові контакти)",
+      "contactPerson": "Броварський Роман Михайлович",
+      "address": "м. Хмельницький, вул. Козацька, 55",
+      "phone": "380674511193",
       "email": ""
     },
     {
-      "officeName": "Тернопільська філія",
-      "contactPerson": "",
-      "address": "47728, Тернопільська обл., с. Острів, вул. Промислова, 3",
-      "phone": "+380 35 229 1134",
-      "email": ""
+      "officeName": "Київська",
+      "contactPerson": "Комар Євгеній Олександрович",
+      "address": "03134, Київ, вул. Івана Дзюби, 7",
+      "phone": "380675023220",
+      "email": "komar_y@plogistic.com.ua"
     },
     {
-      "officeName": "Дрогобицька філія",
-      "contactPerson": "",
-      "address": "82100, м.Дрогобич, вул. Гайдамацька, 7",
-      "phone": "+380 67 340 4144",
-      "email": ""
+      "officeName": "Старі Петрівці",
+      "contactPerson": "Красний Ігор Володимирович",
+      "address": "Старі Петрівці, вул. Польова 9",
+      "phone": "380637800028",
+      "email": "iv.krasnyy@hdtrade.com.ua"
     },
     {
-      "officeName": "Ужгородська філія",
-      "contactPerson": "",
-      "address": "88000, м.Ужгород, вул. Олександра Блистіва, № 1",
-      "phone": "+380 67 343 2550",
-      "email": ""
+      "officeName": "Біла Церква",
+      "contactPerson": "Полянський Андрій Миколайович",
+      "address": "м. Біла Церква, вул. Узинська 5",
+      "phone": "380673227432",
+      "email": "am.polyanskyy@hdtrade.com.ua"
     },
     {
-      "officeName": "Чортківська філія",
-      "contactPerson": "",
-      "address": "48502, м.Чортків, вул. Князя Володимира Великого, 31",
-      "phone": "+380 68 033 8313",
-      "email": ""
+      "officeName": "Київ",
+      "contactPerson": "Кузьменко Володимир Олександрович",
+      "address": "Київ, вул. Івана Дзюби, 7",
+      "phone": "380673160434",
+      "email": "vo.kuzmenko@hdtrade.com.ua"
     },
     {
-      "officeName": "Сокальська філія",
-      "contactPerson": "",
-      "address": "80001, м.Сокаль, вул. Яворницького, 86a",
-      "phone": "+380 67 674 0641",
-      "email": ""
+      "officeName": "Баришівка",
+      "contactPerson": "Шульга Наталя Олександрівна",
+      "address": "СМТ Баришівка, вул. Торфяна 26а",
+      "phone": "380509729460",
+      "email": "no.shulha@hdtrade.com.ua"
     },
     {
-      "officeName": "Рівненська філія",
-      "contactPerson": "",
-      "address": "33017, м.Рівне, пров. Робітничий, 5",
-      "phone": "+380 67 704 1041",
-      "email": ""
+      "officeName": "Тернопіль",
+      "contactPerson": "Малярський Олег Дмитрович",
+      "address": "с. Острів, вул. Промислова 3",
+      "phone": "380676720108",
+      "email": "maliarskyi_o@plogistic.com.ua"
     },
     {
-      "officeName": "Кременецька філія",
-      "contactPerson": "",
-      "address": "47004, м.Кременець, вул. Березина, 34",
-      "phone": "+380 67 310 7090",
-      "email": ""
+      "officeName": "Кременець",
+      "contactPerson": "Малярський Олег Дмитрович",
+      "address": "Кременець, вул. Березина 34",
+      "phone": "380676720108",
+      "email": "maliarskyi_o@plogistic.com.ua"
     },
     {
-      "officeName": "Компанія Ніка Захід",
-      "contactPerson": "",
-      "address": "79026, Львів, вул. Чмоли, 2",
-      "phone": "+380 67 684 9780",
-      "email": ""
+      "officeName": "Житомир",
+      "contactPerson": "Дудка Юрій Петрович",
+      "address": "м. Житомир, вул. Комерційна 5",
+      "phone": "380672179010",
+      "email": "yup.dudka@hdtrade.com.ua"
     },
     {
-      "officeName": "Центральний регіон",
-      "contactPerson": "Назар Павлунишин",
-      "address": "",
-      "phone": "+380 97 464 5745",
-      "email": "Pavlunyshyn_N@nika-company.lviv.ua"
+      "officeName": "Ковель",
+      "contactPerson": "Петрина Олександр Петрович",
+      "address": "с. Дубове, вул. Калинова 152",
+      "phone": "380503784425",
+      "email": "o.petryna@hdtrade.com.ua"
     },
     {
-      "officeName": "Західний регіон",
-      "contactPerson": "Андрій Шкробацький",
-      "address": "",
-      "phone": "+380 98 252 3899",
-      "email": "a.shkrobatskyi@nika-company.lviv.ua"
+      "officeName": "Сокаль",
+      "contactPerson": "Гладкий Юрій Тарасович",
+      "address": "м. Сокаль, вул. Яворницького, 86а",
+      "phone": "380676740641",
+      "email": "gladkyjy@plogistic.com.ua"
     },
     {
-      "officeName": "Południй регіон",
-      "contactPerson": "Вадим Толстопят",
-      "address": "",
-      "phone": "+380 97 391 7711",
-      "email": "v.tolstopiat@nika-company.lviv.ua"
+      "officeName": "Чортків",
+      "contactPerson": "Вінцковський Роман Ярославович",
+      "address": "м. Чортків, вул. В. Великого 31",
+      "phone": "380680338313",
+      "email": "vintskovskyy_r@plogistic.com.ua"
     },
     {
-      "officeName": "Східний регіон",
-      "contactPerson": "Валентина Єремєєва",
-      "address": "",
-      "phone": "+380 98 847 4392",
-      "email": "v.eremeeva@nika-company.lviv.ua"
+      "officeName": "Луцьк",
+      "contactPerson": "Мацюк Андрій",
+      "address": "м. Луцьк, вул. Кабишева 2",
+      "phone": "380952169989",
+      "email": "a.matsiuk@hdtrade.com.ua"
     },
-{
-      "officeName": "Dublin",
-      "contactPerson": "Валентина Єремєєва",
-      "address": "",
-      "phone": "+380 98 847 4392",
-      "email": "v.eremeeva@nika-company.lviv.ua"
+    {
+      "officeName": "Ужгород",
+      "contactPerson": "Бошота Тарас Михайлович",
+      "address": "м. Ужгород, вул. О. Блеста 1",
+      "phone": "380950985330",
+      "email": "t.boshota@plogistic.com.ua"
     }
-
   ]
 }
