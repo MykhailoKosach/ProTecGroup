@@ -1,3 +1,7 @@
+.about-us{
+    gap: 5%;
+}
+
 .gallery {
     position: relative;
     /* ⬅️  anchor absolutely-positioned children */

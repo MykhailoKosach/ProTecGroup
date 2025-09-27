@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         'back1.jpg',
         'back2.jpg',
         'back3.jpg',
+        'back1.jpg',
+        'back2.jpg',
+        'back3.jpg',
+        'back1.jpg',
+        'back2.jpg',
     ];
 
     // Preload background images for smoother transitions
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         allIndicators.forEach((btn, i) => {
-            const indicatorIndex = i % 3;
+            const indicatorIndex = i % 8;
             btn.classList.toggle('active', indicatorIndex === index);
         });
         
@@ -74,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateProgressBars() {
         // Update all indicators correctly
         allIndicators.forEach((btn, i) => {
-            const indicatorIndex = i % 3;
+            const indicatorIndex = i % 8;
             const span = btn.querySelector('span');
             if (span) {
                 if (indicatorIndex === current) {

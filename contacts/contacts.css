@@ -179,12 +179,7 @@ textarea {
         margin: 0px;
     }
 
-    .address {
-        min-height: 36.8px;
-    }
-
     .email {
-        min-height: 44.8px;
         font-weight: bold;
     }
 
@@ -206,13 +201,13 @@ textarea {
             font-size: 20px;
         }
 
-        .address {
+        /* .address {
             min-height: 50.4px;
         }
 
         .email {
             min-height: 44.8px;
-        }
+        } */
     }
 }
 
@@ -353,36 +348,7 @@ textarea {
     }
 }
 
-/* Focus state for accessibility */
-.copyable-item:focus-within {
-    outline: 2px solid var(--red);
-    outline-offset: 2px;
-}
-
 /* Ensure no gaps and perfect alignment */
 .copyable-item * {
     vertical-align: middle;
 }
-
-/* Copy functionality styles
-    .copy-text {
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-        padding: 2px 4px;
-        border-radius: 4px;
-    }
-
-    .copy-text:hover {
-        color: var(--red);
-    }
-
-    .copy-notification {
-        background: var(--red);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 12px;
-        opacity: 0;
-        animation: fadeInOut 2s ease-in-out;
-        pointer-events: none;
-    } */
