@@ -363,7 +363,6 @@ header {
 .mobile-nav {
     display: none;
     background: var(--white);
-    border-top: 1px solid var(--grey);
     max-height: calc(100vh - 80px);
     overflow-y: auto;
 }
@@ -391,9 +390,9 @@ header {
     padding: 0;
 }
 
-.mobile-nav-item {
+/* .mobile-nav-item {
     border-bottom: 1px solid var(--grey);
-}
+} */
 
 .mobile-nav-link {
     display: flex;
@@ -447,9 +446,9 @@ header {
     opacity: 1;
 }
 
-.mobile-dropdown-item {
+/* .mobile-dropdown-item {
     border-top: 1px solid var(--grey);
-}
+} */
 
 .mobile-dropdown-item a {
     display: block;
