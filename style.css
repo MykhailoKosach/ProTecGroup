@@ -35,6 +35,7 @@ body {
     color: var(--black);
     overflow-y: scroll;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 main {
@@ -1740,6 +1741,12 @@ video {
         transform: translateY(-10px);
     }
 }
+
+/* Turn off the tap highlight on touch */
+/* a, button, input, select, textarea, label, summary, div {
+  -webkit-tap-highlight-color: transparent;
+} */
+
 
 
 
