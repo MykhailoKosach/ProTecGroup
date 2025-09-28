@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const overlay = document.getElementById(`partnersOverlay-${id}-overlay`);
       if (overlay) {
         overlay.classList.add("active");
+        document.body.classList.add('no-scroll'); // блокуємо скрол
       }
     });
   });
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (closeBtn) {
       closeBtn.addEventListener("click", function () {
         overlay.classList.remove("active");
+        document.body.classList.remove('no-scroll'); // розблоковуємо скрол
       });
     }
 
