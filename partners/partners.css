@@ -75,7 +75,8 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    /* height: 145px; */
+    min-height: 135px;
+    max-height: 145px;
     padding: 16px 16px;
     border-radius: 10px;
     opacity: 1;
@@ -144,13 +145,17 @@
 
 .logo {
     width: 100%;
+    height: 100%;
     text-align: center;
 }
 
 .logo img {
     color: var(--black);
-    width: 100px;
-    height: 90px;
+    max-width: 120px;
+    max-height: 80px;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
 }
 
 .logo-title {
@@ -184,7 +189,17 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+
+    .overlay-content {
+        box-sizing: border-box;
+        min-height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
+
+
 
 .overlay-container {
     position: relative;
@@ -193,17 +208,6 @@
     width: 40%;
     /* height: 60vh; */
     /* padding: 40px; */
-}
-
-#partnersOverlay-ricard-overlay>.overlay-container {
-    width: 74%;
-    .overlay-logo-item {
-        width: 12%;
-    }
-    .btn-close {
-        width: 2%;
-        height: 2%;
-    }
 }
 
 .btn-close {
@@ -264,6 +268,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+    min-height: 135px;
     padding: 16px 16px;
     border-radius: 10px;
 
@@ -334,4 +339,36 @@
     .overlay-logo-item {
         width: 45%;
     }
+}
+
+.overlay-slider {
+    width: 100%;
+}
+
+.overlay-slide {
+    display: none;
+    transition: opacity .4s ease;
+}
+
+.overlay-slide.active {
+    display: block;
+}
+
+.slider-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    border: none;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.slider-dots .dot.active {
+    background: var(--red);
 }
