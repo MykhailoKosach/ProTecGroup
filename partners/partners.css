@@ -190,15 +190,16 @@
     visibility: visible;
     transform: translateY(0);
 
-    .overlay-content {
-        box-sizing: border-box;
-        min-height: 550px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+
 }
 
+#partnersOverlay-ricard-overlay .overlay-content {
+    box-sizing: border-box;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 
 .overlay-container {
