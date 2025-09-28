@@ -541,9 +541,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 30%;
+    height: 16%;
     padding: 16px 24px;
-    background: var(--red-holding-gradient);
+    background: var(--red-gradient);
     color: var(--white);
     border-radius: 10px;
     transition: 0.2s ease;
@@ -563,7 +563,7 @@
 .holding-block:hover {
     .holding-block-description {
         height: 66%;
-        background: var(--red-holding-gradient-hover);
+        background: var(--red-gradient);
         gap: 10px;
         transition: 0.2s ease;
     }
