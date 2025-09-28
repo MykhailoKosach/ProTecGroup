@@ -645,6 +645,10 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    h5{
+        margin-bottom: 8px;
+    }
 }
 
 .footer-logo-container {
@@ -679,6 +683,7 @@ footer {
     gap: 10%;
     background: var(--red-gradient);
     color: var(--white);
+    border-radius: 0 15px 0 0;
 }
 
 .footer-red-wrapper a {
@@ -696,6 +701,8 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+    margin-bottom: 20px;
+    padding-left: 16px;
 }
 
 .footer-contacts {
@@ -708,12 +715,16 @@ footer {
     /* color: var(--red-hover); */
     color: var(--red-btn-hover);
 }
+.footer-nav-item a:hover {
+    color: var(--grey);
+}
 
 .social {
     display: flex;
     gap: 40px;
     align-items: center;
     justify-content: flex-start;
+    padding-left: 16px;
 }
 
 .social a {
