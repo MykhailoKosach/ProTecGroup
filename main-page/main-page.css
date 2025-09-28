@@ -56,7 +56,7 @@
 
 .slide-content {
     width: 45%;
-    height:50%; 
+    height: 50%;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -928,13 +928,14 @@
 
 .marquee-track {
     display: flex;
-    gap: 40px;
     align-items: center;
 }
 
-.marquee-track>div {
-    width: 200px;
-}
+/* .marquee-item {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+} */
 
 .marquee-track>div>img {
     user-select: none;
@@ -977,5 +978,70 @@
             width: 120px;
             height: auto
         }
+    }
+}
+
+/* ---------- CSS ---------- */
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    width: max-content;
+    /* ширина = ширина вмісту */
+    will-change: transform;
+}
+
+.marquee-content,
+.marquee-content.clone {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 100px;
+    align-items: center;
+
+    img {
+        max-width: 260px;
+        max-height: 200px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+/* ВАЖЛИВО: щоб діти НЕ стискались і не змінювали ширину */
+.marquee-content>* {
+    flex: 0 0 auto;
+}
+
+/* Анімації — використовують змінні, які ми виставляємо з JS */
+.right-to-left .marquee-track {
+    animation: move-left 90s linear infinite;
+}
+
+.left-to-right .marquee-track {
+    animation: move-right 90s linear infinite;
+}
+
+@keyframes move-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(var(--marquee-shift) * -1));
+    }
+}
+
+@keyframes move-right {
+    0% {
+        transform: translateX(calc(var(--marquee-shift) * -1));
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
