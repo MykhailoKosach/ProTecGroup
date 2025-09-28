@@ -17,7 +17,7 @@
     left: 0;
     width: 70%;
     height: 100%;
-    background: var(--red-slider-gradient);
+    /* background: var(--red-slider-gradient); */
     z-index: 1;
     pointer-events: none;
 }
@@ -42,6 +42,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 0;
+    display: flex;
+    flex-direction: column;
+        justify-content: center;
 }
 
 .carousel-item.active {
@@ -52,29 +55,33 @@
 
 .slide-content {
     width: 45%;
-    height: 100%;
+    height:50%; 
     /* Remove background gradient from here */
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    top: 0;
+    top: 0; */
     z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 32px;
+    justify-content: top;
+    gap: 20px;
     padding: 0;
     color: var(--white);
+    background: var(--red-gradient);
+    border-radius: 10px;
+    margin-left: 10%;
+    position: relative;
 
     h2 {
-        padding: 0 10%;
+        padding: 30px 30px 0 30px;
     }
 
     p {
-        padding: 0 10%;
+        padding: 0 30px 0 30px;
     }
 
     .carousel-controls-row {
-        padding: 0 10%;
+        padding: 10px 0 0 30px;
     }
 }
 
@@ -192,7 +199,7 @@
 
 .carousel-controls-row {
     position: absolute;
-    bottom: 50px;
+    bottom: 20px;
     display: flex;
     align-items: center;
     gap: 24px;
