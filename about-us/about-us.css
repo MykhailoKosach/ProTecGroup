@@ -831,6 +831,12 @@ circle:hover {
     right: 0px;
 }
 
+.city-group {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+
 
 @keyframes slideInFromRight {
     from {
