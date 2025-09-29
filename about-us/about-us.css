@@ -831,10 +831,13 @@ circle:hover {
     right: 0px;
 }
 
-.city-group {
-    pointer-events: all;
+#map-svg .city-marker,
+#map-svg g.city-group {
     cursor: pointer;
+    pointer-events: all;
+    /* важливо для iOS */
 }
+
 
 
 
