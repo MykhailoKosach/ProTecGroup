@@ -183,11 +183,11 @@
     font-weight: lighter;
 }
 
-.span-pad {
-    /* padding-top: 30px; */
-    /* min-height: 110px; */
+/* .span-pad {
+    padding-top: 30px;
+    min-height: 110px;
 
-}
+} */
 
 @media (min-width: 1201px) and (max-width: 1400px) {
     .honour .block-wrapper {
@@ -534,6 +534,38 @@
     width: 27%;
     height: 450px;
     overflow: hidden;
+}
+
+.bg-one {
+    background-image: url(../image/holdings/protec-logistic.JPG);
+}
+
+.bg-two {
+    background-image: url();
+}
+
+.bg-three {
+    background-image: url(../image/holdings/overtrans.JPG);
+}
+
+.bg-four {
+    background-image: url(../image/holdings/logistic-group.JPG);
+}
+
+.bg-five {
+    background-image: url(../image/holdings/protec-solution.jpg);
+}
+
+.bg-six {
+    background-image: url(../image/holdings/ice-protec.JPG)
+}
+
+.bg-seven {
+    background-image: url(../image/holdings/babak.jpg);
+}
+
+.bg-eight {
+    background-image: url(../image/holdings/krany.JPG);
 }
 
 .holding-block-description {
