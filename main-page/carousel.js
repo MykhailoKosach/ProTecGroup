@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const minSwipeDistance = 30;
     
     const backgrounds = [
-        'back1.jpg',
+        'image/holdings/protec-logistic.JPG',
         'back2.jpg',
-        'back3.jpg',
-        'back1.jpg',
-        'back2.jpg',
-        'back3.jpg',
-        'back1.jpg',
-        'back2.jpg',
+        'image/holdings/overtrans.JPG',
+        'image/holdings/logistic-group.JPG',
+        'image/holdings/protec-solution.jpg',
+        'image/holdings/ice-protec.JPG',
+        'image/holdings/babak.jpg',
+        'image/holdings/krany.JPG',
     ];
 
     // Preload background images for smoother transitions

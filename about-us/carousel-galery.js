@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* slide backgrounds */
   const backgrounds = [
-    '../back1.jpg',
-    '../back2.jpg',
-    '../back3.jpg',
+    '../image/about-us/about-us-carousel-one.jpg',
+    '../image/about-us/about-us-carousel-two.jpg',
+    '../image/about-us/about-us-carousel-three.jpg',
   ];
 
   /* state */
