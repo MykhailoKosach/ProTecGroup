@@ -45,15 +45,20 @@ cities.forEach(city => {
   }
 
   if (city.name === "Київ" || city.name === "Львів") {
+    // Створюємо групу для іконки та тексту
+    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    group.setAttribute("class", "city-group");
+    group.setAttribute("data-name", city.name);
+    group.setAttribute("cursor", "pointer");
+
+    // Іконка
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
     icon.setAttribute("d", "M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5");
     icon.setAttribute("fill", "var(--red)");
-    icon.setAttribute("cursor", "pointer");
     icon.setAttribute("transform", `translate(${x - 12}, ${y - 24}) scale(1.5)`);
-    icon.setAttribute("class", "city-icon");
-    icon.setAttribute("data-name", city.name);
-    svg.appendChild(icon);
+    group.appendChild(icon);
 
+    // Текст
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("x", x + 15);
     text.setAttribute("y", y - 5);
@@ -61,11 +66,10 @@ cities.forEach(city => {
     text.setAttribute("font-size", "18px");
     text.setAttribute("font-family", "Lato-SemiBold, sans-serif");
     text.setAttribute("font-weight", "bold");
-    text.setAttribute("class", "city-label");
-    text.setAttribute("data-name", city.name);
-    text.setAttribute("cursor", "pointer");
     text.textContent = city.name;
-    svg.appendChild(text);
+    group.appendChild(text);
+
+    svg.appendChild(group);
   } else {
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("class", "city-marker");
@@ -120,7 +124,7 @@ function showOverlayForCity(cityName) {
 }
 
 // Події кліку на маркери, іконки та текст
-document.querySelectorAll('.city-marker, .city-icon, .city-label').forEach(el => {
+document.querySelectorAll('.city-marker, .city-icon, .city-label, g').forEach(el => {
   el.addEventListener('click', (e) => {
     const cityName = el.getAttribute('data-name');
     showOverlayForCity(cityName);

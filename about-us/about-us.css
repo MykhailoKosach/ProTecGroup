@@ -1,4 +1,4 @@
-.about-us{
+.about-us {
     gap: 5%;
 }
 
@@ -764,6 +764,10 @@ circle:hover {
 }
 
 .city-icon:hover {
+    .city-label {
+        fill: var(--red-btn-hover);
+    }
+
     fill: var(--red-btn-hover);
 }
 
@@ -773,8 +777,19 @@ circle:hover {
 }
 
 .city-label:hover {
+    .city-icon {
+        fill: var(--red-btn-hover);
+    }
+
     fill: var(--red-btn-hover);
 }
+
+.city-group:hover path,
+.city-group:hover text {
+    fill: var(--red-hover);
+    /* або будь-який колір для ховера */
+}
+
 
 .map-overlay {
     box-sizing: border-box;
