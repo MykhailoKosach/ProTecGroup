@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             if (!isTransitioning) {
-                const slideIndex = i % 3;
+                const slideIndex = i % 8;
                 debouncedGoToSlide(slideIndex);
             }
         }, { passive: false });
