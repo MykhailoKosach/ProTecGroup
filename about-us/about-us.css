@@ -341,7 +341,7 @@
 @media (min-width: 400px) and (max-width: 480px) {
 
     .counter-container-large {
-        width: 48%;
+        width: 50%;
     }
 
     .counter-container-medium {
@@ -367,7 +367,7 @@
     }
 
     .counter-container-large {
-        width: 40%;
+        width: 42%;
     }
 
     .counter-container-medium {
