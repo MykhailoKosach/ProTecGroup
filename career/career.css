@@ -5,6 +5,11 @@
     background: var(--red-gradient);
     padding: 80px 10%;
     gap: 5%;
+
+    .block-wide-wrapper h1 {
+        font-size: 80px;
+        color: var(--red);
+    }
 }
 
 .career-alt .block-description-white {
@@ -20,10 +25,6 @@
     padding: 16px;
 }
 
-.career-alt .block-wide div {
-    /* width: 15%; */
-    /* text-align: center; */
-}
 
 .career-alt .block-wide .block-text {
     width: 90%;
@@ -63,6 +64,10 @@
             font-size: 14px;
         }
     }
+
+    .block-wide-wrapper h1 {
+        font-size: 60px;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
@@ -78,8 +83,13 @@
         p {
             font-size: 12px;
         }
+
+        .block-wide-wrapper h1 {
+            font-size: 54px;
+        }
     }
 }
+
 
 @media (min-width: 1024px) and (max-width: 1250px) {
     .career-alt .block-wide {
@@ -224,7 +234,8 @@
 .job-frame-wrapper iframe {
     border-radius: 8px;
     width: 100%;
-    height: 450px; /* Default optimized height */
+    height: 450px;
+    /* Default optimized height */
     min-height: 350px;
     border: none;
     display: block;
@@ -242,7 +253,7 @@
     .job-frame-wrapper iframe {
         height: 380px;
     }
-    
+
     .job-frame-wrapper {
         padding: 20px;
     }
@@ -258,7 +269,7 @@
     .job-frame-wrapper iframe {
         height: 320px;
     }
-    
+
     .job-frame-wrapper {
         padding: 16px;
     }
@@ -292,11 +303,11 @@
     .job-listings {
         padding: 40px 10%;
     }
-    
+
     .job-frame-wrapper {
         padding: 20px;
     }
-    
+
     .lang-btn {
         padding: 10px 20px;
         font-size: 14px;
@@ -315,15 +326,15 @@
         align-items: center;
         gap: 12px;
     }
-    
+
     .lang-btn {
         width: 200px;
     }
-    
+
     .job-frame-wrapper {
         padding: 16px;
     }
-    
+
     .job-frame-wrapper iframe {
         min-height: 300px;
     }
