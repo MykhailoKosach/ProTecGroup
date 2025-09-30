@@ -128,23 +128,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const slide2 = slides[1].querySelector(".overlay-logo-content");
   const slide3 = slides[2].querySelector(".overlay-logo-content");
 
-  // елементи з класами
   const moveTo2 = overlay.querySelectorAll(".move-to-slide2");
   const moveTo3 = overlay.querySelectorAll(".move-to-slide3");
+
+  // збережемо оригінальних батьків
+  const originalParents = new Map();
+  [...moveTo2, ...moveTo3].forEach(el => {
+    originalParents.set(el, el.parentElement);
+  });
 
   function rearrangeLogos() {
     const width = window.innerWidth;
 
-    if (width < 992) {
+    if (width < 400) {
       moveTo2.forEach(el => { if (el.parentElement !== slide2) slide2.appendChild(el); });
       moveTo3.forEach(el => { if (el.parentElement !== slide3) slide3.appendChild(el); });
     } else {
-      moveTo2.forEach(el => { if (el.parentElement !== slide1) slide1.appendChild(el); });
-      moveTo3.forEach(el => { if (el.parentElement !== slide1) slide1.appendChild(el); });
+      [...moveTo2, ...moveTo3].forEach(el => {
+        const parent = originalParents.get(el);
+        if (parent && el.parentElement !== parent) parent.appendChild(el);
+      });
     }
   }
 
-  rearrangeLogos(); // при старті
+  rearrangeLogos();
   window.addEventListener("resize", rearrangeLogos);
 });
+
 

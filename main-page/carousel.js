@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const minSwipeDistance = 30;
     
     const backgrounds = [
-        'image/holdings/protec-logistic.JPG',
-        'back2.jpg',
+        'image/holdings/protec-log.JPG',
+        'image/holdings/development.JPG',
         'image/holdings/overtrans.JPG',
         'image/holdings/logistic-group.JPG',
         'image/holdings/protec-solution.jpg',
