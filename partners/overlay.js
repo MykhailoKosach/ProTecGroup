@@ -120,3 +120,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const overlay = document.getElementById('partnersOverlay-ricard-overlay');
+  const slides = overlay.querySelectorAll('.overlay-slide');
+  const slide1 = slides[0].querySelector(".overlay-logo-content");
+  const slide2 = slides[1].querySelector(".overlay-logo-content");
+  const slide3 = slides[2].querySelector(".overlay-logo-content");
+
+  // елементи з класами
+  const moveTo2 = overlay.querySelectorAll(".move-to-slide2");
+  const moveTo3 = overlay.querySelectorAll(".move-to-slide3");
+
+  function rearrangeLogos() {
+    const width = window.innerWidth;
+
+    if (width < 992) {
+      moveTo2.forEach(el => { if (el.parentElement !== slide2) slide2.appendChild(el); });
+      moveTo3.forEach(el => { if (el.parentElement !== slide3) slide3.appendChild(el); });
+    } else {
+      moveTo2.forEach(el => { if (el.parentElement !== slide1) slide1.appendChild(el); });
+      moveTo3.forEach(el => { if (el.parentElement !== slide1) slide1.appendChild(el); });
+    }
+  }
+
+  rearrangeLogos(); // при старті
+  window.addEventListener("resize", rearrangeLogos);
+});
+

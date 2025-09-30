@@ -7,6 +7,17 @@
     filter: grayscale(100%);
 }
 
+@media (max-width: 1025px) {
+    .bw-img {
+        filter: grayscale(0) contrast(0) brightness(0);
+        -webkit-filter: grayscale(0);
+    }
+
+    .bw-svg {
+        filter: grayscale(0);
+    }
+}
+
 
 .filter {
     box-sizing: border-box;
@@ -335,10 +346,22 @@
 @media (max-width: 405px) {
     .overlay-logo-content {
         gap: 10%;
+        justify-content: space-evenly;
     }
 
     .overlay-logo-item {
-        width: 45%;
+        width: 40%;
+        min-height: 100px;
+    }
+
+    #partnersOverlay-ricard-overlay .overlay-content {
+        padding: 24px;
+        min-height: 550px;
+        max-height: 550px;
+
+        .overlay-logo-item {
+            width: 35%;
+        }
     }
 }
 
