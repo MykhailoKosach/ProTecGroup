@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay || e.target.classList.contains("overlay-layer")) {
         overlay.classList.remove("active");
+        document.body.classList.remove('no-scroll'); // ← додати це
+      }
+    });
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay || e.target.classList.contains("overlay-layer")) {
+        overlay.classList.remove("active");
       }
     });
   });

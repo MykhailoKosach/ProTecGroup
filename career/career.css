@@ -31,24 +31,13 @@
 }
 
 .block-small-img img {
-    max-height: 230px;
+    /* max-height: 230px; */
     width: auto;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
 }
 
-.career-photo-one {
-    object-position: 0 -260px;
-}
-
-.career-photo-two {
-    object-position: 0 -100px;
-}
-
-.career-photo-three {
-    object-position: 0 -220px;
-}
 
 @media (min-width: 1201px) and (max-width: 1400px) {
     .career-alt {
