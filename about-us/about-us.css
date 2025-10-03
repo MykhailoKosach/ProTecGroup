@@ -6,7 +6,7 @@
     position: relative;
     /* ⬅️  anchor absolutely-positioned children */
     height: calc(100vh - 80px);
-    height: calc(100dvh - 80px);
+    height: calc(100svh - 80px);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -16,6 +16,26 @@
     background-size: cover;
     margin: 0;
 }
+
+@media (max-width: 1023px) {
+    .gallery {
+        height: auto;
+        /* прибираємо фіксовану висоту */
+        aspect-ratio: 16 / 9;
+        /* або 4 / 3 чи 1 / 1 під твою задачу */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* fallback для браузерів без aspect-ratio */
+    .gallery::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+        /* 16:9 → 9/16*100 */
+    }
+}
+
 
 .gallery-controls-row {
     position: absolute;
@@ -611,6 +631,7 @@
     display: flex;
     gap: 9%;
     justify-content: center;
+
 }
 
 .holding-block {
@@ -631,7 +652,7 @@
 }
 
 .bg-two {
-    background-image: url();
+    background-image: url(../image/holdings/development.JPG);
 }
 
 .bg-three {
@@ -682,7 +703,61 @@
     transition: opacity 0.6s ease-in, height 0.6s ease;
 }
 
-.holding-block:hover {
+/* .holding-block:hover {
+    .holding-block-description {
+        height: 66%;
+        background: var(--red-gradient);
+        gap: 10px;
+        transition: 0.2s ease;
+    }
+
+    .holding-block-hidden {
+        height: 75%;
+        overflow: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.4s ease-in;
+    }
+} */
+
+@media (hover: hover) and (pointer: fine) {
+    .holding-block:hover {
+        .holding-block-description {
+            height: 66%;
+            background: var(--red-gradient);
+            gap: 10px;
+            transition: 0.2s ease;
+        }
+
+        .holding-block-hidden {
+            height: 75%;
+            overflow: visible;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.4s ease-in;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .holding-block:hover {
+            .holding-block-hidden {
+                height: 60%;
+            }
+        }
+    }
+
+    @media (max-width: 550px) {
+        .holding-block:hover {
+            .holding-block-hidden {
+                height: 52%;
+                gap: 16px;
+            }
+        }
+    }
+}
+
+/* Ефекти для "тапу" */
+.holding-block.active {
     .holding-block-description {
         height: 66%;
         background: var(--red-gradient);
@@ -698,6 +773,20 @@
         transition: opacity 0.4s ease-in;
     }
 }
+
+@media (max-width: 1200px) {
+    .holding-block.active .holding-block-hidden {
+        height: 60%;
+    }
+}
+
+@media (max-width: 550px) {
+    .holding-block.active .holding-block-hidden {
+        height: 52%;
+        gap: 16px;
+    }
+}
+
 
 /* --- NAVIGATION BAR -------------------------------------------------- */
 .holding-controls-row {
@@ -794,7 +883,7 @@
     animation: holdingFadeUp 1s ease both;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .holding-block:hover {
         .holding-block-hidden {
             height: 60%;
@@ -809,7 +898,7 @@
             gap: 16px;
         }
     }
-}
+} */
 
 @media (min-width: 1200px) and (max-width: 1350px) {
     .holding-wrapper {
@@ -923,7 +1012,8 @@ circle:hover {
     flex-direction: column;
     gap: 24px;
     position: fixed;
-    bottom: env(safe-area-inset-bottom, 0);
+    bottom: 0;
+    /* bottom: env(safe-area-inset-bottom, 0); */
     right: 0;
     width: 36%;
     display: none;

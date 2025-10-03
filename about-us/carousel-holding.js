@@ -7,17 +7,17 @@ function getVisibleCount() {
 
 function createIndicators(count) {
   const indicatorsContainer = document.querySelector('.holding-indicators');
-  
+
   // Clear existing indicators
   indicatorsContainer.innerHTML = '';
-  
+
   // Create new indicators based on page count
   for (let i = 0; i < count; i++) {
     const button = document.createElement('button');
     button.innerHTML = '<span></span>';
     indicatorsContainer.appendChild(button);
   }
-  
+
   return Array.from(indicatorsContainer.children);
 }
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = 0;
   let progress = 0;
   let timerId;
-  
+
   // Initialize with correct values from the start
   let VISIBLE = getVisibleCount();
   let PAGES = Math.ceil(blocks.length / VISIBLE);
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showPage(page) {
     const newVisible = getVisibleCount();
     const newPages = Math.ceil(blocks.length / newVisible);
-    
+
     // Update values if they changed
     if (newVisible !== VISIBLE || newPages !== PAGES) {
       VISIBLE = newVisible;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       indicators = createIndicators(PAGES);
       addIndicatorEvents();
     }
-    
+
     currentPage = (page + PAGES) % PAGES;
     const start = currentPage * VISIBLE;
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         blk.classList.add('animate-in');
         blk.addEventListener('animationend', () =>
           blk.classList.remove('animate-in')
-        , { once: true });
+          , { once: true });
       }
 
       if (!shouldShow && !blk.classList.contains('hidden')) {
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleSwipe() {
     const swipeDistanceX = Math.abs(touchEndX - touchStartX);
     const swipeDistanceY = Math.abs(touchEndY - touchStartY);
-    
+
     // Only handle horizontal swipes (ignore vertical scrolling)
     if (swipeDistanceX > minSwipeDistance && swipeDistanceX > swipeDistanceY) {
       if (touchEndX < touchStartX) {
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
   wrapper.addEventListener('touchmove', (e) => {
     const swipeDistanceX = Math.abs(e.changedTouches[0].screenX - touchStartX);
     const swipeDistanceY = Math.abs(e.changedTouches[0].screenY - touchStartY);
-    
+
     // If horizontal swipe is detected, prevent vertical scrolling
     if (swipeDistanceX > swipeDistanceY && swipeDistanceX > 10) {
       e.preventDefault();
@@ -188,4 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
   addIndicatorEvents();
   showPage(currentPage); // This will show the correct number of blocks immediately
   resetTimer();
+});
+
+document.querySelectorAll('.holding-block').forEach(block => {
+  block.addEventListener('click', () => {
+    // якщо вже активний — прибрати
+    if (block.classList.contains('active')) {
+      block.classList.remove('active');
+    } else {
+      // зняти active з інших блоків
+      document.querySelectorAll('.holding-block').forEach(b => b.classList.remove('active'));
+      block.classList.add('active');
+    }
+  });
 });

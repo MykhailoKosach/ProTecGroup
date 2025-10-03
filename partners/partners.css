@@ -71,6 +71,12 @@
     transition: opacity 0.3s ease;
 }
 
+@media (max-width: 1023px) {
+    .partners-wrapper{
+        min-height: 850px;
+    }
+}
+
 
 .partners-wrapper.fade-out {
     opacity: 0;
