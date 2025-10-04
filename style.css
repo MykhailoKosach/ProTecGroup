@@ -39,6 +39,15 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+.no-scroll {
+    overflow: hidden;
+    /* блокує скрол на desktop */
+    position: fixed;
+    /* блокує скрол на iOS */
+    width: 100%;
+}
+
+
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--red) transparent;
@@ -644,7 +653,7 @@ footer {
     flex-direction: column;
     gap: 24px;
 
-    h5{
+    h5 {
         margin-bottom: 8px;
     }
 }
@@ -684,9 +693,9 @@ footer {
     border-radius: 0 15px 0 0;
 }
 
-.footer-white-wrapper-raw{
+.footer-white-wrapper-raw {
     width: 60%;
-    display: flex; 
+    display: flex;
     flex-direction: row;
     padding-right: 10%;
 }
@@ -720,6 +729,7 @@ footer {
     /* color: var(--red-hover); */
     color: var(--red-btn-hover);
 }
+
 .footer-nav-item a:hover {
     color: var(--grey);
 }
@@ -846,7 +856,7 @@ footer {
 
 .footer-company a {
     width: 40%;
-        height: auto;
+    height: auto;
 }
 
 .footer-company a img {
@@ -962,8 +972,8 @@ footer {
             width: 100%;
         }
 
-        .footer-white-wrapper-raw{
-            display: flex; 
+        .footer-white-wrapper-raw {
+            display: flex;
             flex-direction: column-reverse;
         }
 
@@ -986,7 +996,7 @@ footer {
             }
         }
 
-        .footer-nav{
+        .footer-nav {
             width: 100%;
             padding: 0 0 0 16px;
         }
