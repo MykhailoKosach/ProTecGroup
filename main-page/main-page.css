@@ -1,10 +1,9 @@
 .carousel {
     position: relative;
     width: 100%;
-    /* height: calc(100vh - 80px); */
+    height: calc(100vh - 80px);
     height: calc(100svh - 80px);
     overflow: hidden;
-    /* background-image: url(https://picsum.photos/id/1025/1440/800); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -210,11 +209,14 @@
         bottom: 0;
         gap: 24px;
         justify-content: flex-start;
-        padding: 0; /* Remove any inherited padding */
+        padding: 0;
+        /* Remove any inherited padding */
         box-sizing: border-box;
     }
 
-    .carousel, .carousel-inner, .carousel-item {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
         max-width: 100vw;
         overflow-x: hidden;
     }
@@ -227,6 +229,7 @@
         height: 40%;
         /* background: var(--red-holding-gradient-hover); */
     }
+
     .slide-content h2,
     .slide-content p {
         padding-left: 20px;
@@ -249,31 +252,37 @@
         width: 14px;
         height: 14px;
     }
+
     .carousel-indicators {
         gap: 10px;
     }
+
     .carousel-control {
         width: 22px;
         height: 22px;
     }
+
     .slide-content {
         margin: 0 10%;
         position: relative;
         height: 55%;
         width: 80%;
         padding: 0;
+
         .carousel-controls-row {
             padding: 0;
         }
-        
+
     }
+
     .slide-content h2 {
         padding: 20px 16px 0 16px;
     }
-    
+
     .slide-content p {
         padding: 0 16px;
     }
+
     .carousel-indicators button.active {
         width: 36px;
         background: white;
@@ -295,10 +304,12 @@
             color: var(--black);
         }
     }
-    .carousel-item{
+
+    .carousel-item {
         justify-content: end;
         /* background: rgba(0, 0, 0, 0.7); */
     }
+
     .carousel::before {
         bottom: 0;
         left: 0;

@@ -1,8 +1,8 @@
 // Custom Carousel Implementation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('customCarousel');
     if (!carousel) return;
-    
+
     const items = carousel.querySelectorAll('.carousel-item');
     const allIndicators = carousel.querySelectorAll('.carousel-indicators button');
     const allPrevBtns = carousel.querySelectorAll('.carousel-control.prev');
@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let progress = 0;
     let isTransitioning = false;
     let rafId;
-    
+
     // Touch control variables
     let touchStartX = 0;
     let touchEndX = 0;
     let touchStartY = 0;
     let touchEndY = 0;
     const minSwipeDistance = 30;
-    
+
     const backgrounds = [
         'image/holdings/protec-log.JPG',
         'image/holdings/development.JPG',
@@ -42,18 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function showSlide(index) {
         if (isTransitioning) return;
         isTransitioning = true;
-        
+
         carousel.style.backgroundImage = `url(${backgrounds[index]})`;
-        
+
         items.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
-        
+
         allIndicators.forEach((btn, i) => {
             const indicatorIndex = i % 8;
             btn.classList.toggle('active', indicatorIndex === index);
         });
-        
+
         setTimeout(() => {
             isTransitioning = false;
         }, 50);
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function goToSlide(index) {
         if (isTransitioning) return;
-        
+
         progress = 0;
         current = (index + items.length) % items.length;
         showSlide(current);
@@ -96,14 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(intervalID);
         if (rafId) cancelAnimationFrame(rafId);
         progress = 0;
-        
+
         // Reset all progress bars when starting a new cycle
         updateProgressBars();
-        
+
         intervalID = setInterval(() => {
             progress += 2; // Faster increment for better mobile performance
             updateProgressBars();
-            
+
             if (progress >= 100) {
                 progress = 0;
                 current = (current + 1) % items.length;
@@ -117,12 +117,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const swipeTime = Date.now() - swipeStartTime;
         const swipeDistanceX = touchEndX - touchStartX;
         const swipeDistanceY = Math.abs(touchEndY - touchStartY);
-        
+
         // Only handle quick horizontal swipes
-        if (swipeTime < 300 && 
-            Math.abs(swipeDistanceX) > minSwipeDistance && 
+        if (swipeTime < 300 &&
+            Math.abs(swipeDistanceX) > minSwipeDistance &&
             Math.abs(swipeDistanceX) > swipeDistanceY * 1.5) {
-            
+
             if (swipeDistanceX < 0) {
                 nextSlide();
             } else {
@@ -148,14 +148,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, { passive: false });
     });
-    
+
     allNextBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             if (!isTransitioning) nextSlide();
         }, { passive: false });
     });
-    
+
     allPrevBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
         swipeStartTime = Date.now();
-        
+
         // Pause auto-advance during touch
         clearInterval(intervalID);
     }, { passive: true });
@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         touchEndY = e.changedTouches[0].screenY;
-        
+
         handleSwipe();
-        
+
         // Resume auto-advance after touch with delay
         setTimeout(() => resetInterval(), 500);
     }, { passive: true });
@@ -189,12 +189,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = Date.now();
         if (now - lastTouchTime < 16) return; // Throttle to ~60fps
         lastTouchTime = now;
-        
+
         const currentX = e.changedTouches[0].screenX;
         const currentY = e.changedTouches[0].screenY;
         const swipeDistanceX = Math.abs(currentX - touchStartX);
         const swipeDistanceY = Math.abs(currentY - touchStartY);
-        
+
         // Only prevent default for clear horizontal swipes
         if (swipeDistanceX > 15 && swipeDistanceX > swipeDistanceY * 1.5) {
             e.preventDefault();
@@ -216,3 +216,27 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(current);
     resetInterval();
 });
+
+function setGalleryHeight() {
+    const gallery = document.querySelector('.gallery');
+
+    // Для iOS Chrome/Safari та інших браузерів на мобільних
+    let height;
+
+    // На iOS Chrome/Safari використовуємо screen.height
+    const ua = navigator.userAgent;
+    if (/iP(ad|hone|od)/.test(ua)) {
+        height = window.screen.height - 80; // віднімаємо шапку/меню
+    } else {
+        // На інших браузерах використовуємо innerHeight
+        height = window.innerHeight - 80;
+    }
+
+    gallery.style.height = height + 'px';
+}
+
+// Встановлюємо висоту при завантаженні
+setGalleryHeight();
+
+// Оновлюємо при зміні орієнтації екрану
+window.addEventListener('orientationchange', setGalleryHeight);
