@@ -138,6 +138,12 @@ h5 {
     margin: 0;
 }
 
+@media (min-width: 1201px) and (max-width: 1400px) {
+    h3 {
+        font-size: 28px;
+    }
+}
+
 @media (min-width: 1024px) and (max-width: 1200px) {
     h1 {
         font-size: 48px;

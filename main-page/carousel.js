@@ -217,26 +217,26 @@ document.addEventListener('DOMContentLoaded', function () {
     resetInterval();
 });
 
-function setGalleryHeight() {
-    const gallery = document.querySelector('.gallery');
+// function setGalleryHeight() {
+//     const gallery = document.querySelector('.gallery');
 
-    // Для iOS Chrome/Safari та інших браузерів на мобільних
-    let height;
+//     // Для iOS Chrome/Safari та інших браузерів на мобільних
+//     let height;
 
-    // На iOS Chrome/Safari використовуємо screen.height
-    const ua = navigator.userAgent;
-    if (/iP(ad|hone|od)/.test(ua)) {
-        height = window.screen.height - 80; // віднімаємо шапку/меню
-    } else {
-        // На інших браузерах використовуємо innerHeight
-        height = window.innerHeight - 80;
-    }
+//     // На iOS Chrome/Safari використовуємо screen.height
+//     const ua = navigator.userAgent;
+//     if (/iP(ad|hone|od)/.test(ua)) {
+//         height = window.screen.height - 80; // віднімаємо шапку/меню
+//     } else {
+//         // На інших браузерах використовуємо innerHeight
+//         height = window.innerHeight - 80;
+//     }
 
-    gallery.style.height = height + 'px';
-}
+//     gallery.style.height = height + 'px';
+// }
 
-// Встановлюємо висоту при завантаженні
-setGalleryHeight();
+// // Встановлюємо висоту при завантаженні
+// setGalleryHeight();
 
-// Оновлюємо при зміні орієнтації екрану
-window.addEventListener('orientationchange', setGalleryHeight);
+// // Оновлюємо при зміні орієнтації екрану
+// window.addEventListener('orientationchange', setGalleryHeight);

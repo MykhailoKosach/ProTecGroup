@@ -13,6 +13,7 @@
     justify-content: center;
     background: var(--grey);
     background-size: cover;
+    background-position: center;
     margin: 0;
 }
 
@@ -766,11 +767,12 @@
     }
 
     .holding-block-hidden {
-        height: 75%;
+        height: 100%;
         overflow: visible;
         opacity: 1;
         pointer-events: auto;
         transition: opacity 0.4s ease-in;
+        justify-content: space-between;
     }
 }
 
@@ -782,7 +784,7 @@
 
     .holding-block.active {
         .holding-block-description {
-            height: 50%;
+            height: 55%;
         }
     }
 }

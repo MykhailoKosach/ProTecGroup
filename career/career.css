@@ -69,6 +69,7 @@
             font-size: 20px;
         }
 
+
         p {
             font-size: 12px;
         }
@@ -76,6 +77,12 @@
         .block-wide-wrapper h1 {
             font-size: 54px;
         }
+
+
+    }
+
+    .block-small h3 {
+        font-size: 26px;
     }
 }
 
