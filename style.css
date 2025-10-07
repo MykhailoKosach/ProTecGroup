@@ -51,8 +51,6 @@ body {
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--red) transparent;
-    overflow-x: hidden;
-    max-width: 100vw;
 }
 
 
@@ -1407,6 +1405,10 @@ footer {
 }
 
 @media (max-width: 599px) {
+    html {
+            overflow-x: hidden;
+    max-width: 100vw;
+    }
     .heading-container {
         gap: 16px;
     }
