@@ -112,3 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// document.querySelectorAll('.email').forEach(el => {
+//   const text = el.textContent.trim();
+//   el.innerHTML = text.replace(/([@.])/g, '$1<wbr>');
+// });

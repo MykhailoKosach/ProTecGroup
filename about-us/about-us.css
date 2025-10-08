@@ -684,7 +684,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 16%;
+    height: 13%;
     padding: 16px 24px;
     background: var(--red-gradient);
     color: var(--white);

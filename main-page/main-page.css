@@ -265,7 +265,7 @@
     .slide-content {
         margin: 0 10%;
         position: relative;
-        height: 55%;
+        min-height: 400px;
         width: 80%;
         padding: 0;
 
