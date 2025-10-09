@@ -51,8 +51,6 @@ body {
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--red) transparent;
-    overflow-x: hidden;
-    max-width: 100vw;
 }
 
 
@@ -214,6 +212,10 @@ h5 {
 
 .lighter {
     font-weight: lighter;
+}
+
+.holdings-heading {
+    font-size: 24px;
 }
 
 @media (max-width: 1023px) {
@@ -1417,6 +1419,10 @@ footer {
 }
 
 @media (max-width: 599px) {
+    html {
+            overflow-x: hidden;
+    max-width: 100vw;
+    }
     .heading-container {
         gap: 16px;
     }
