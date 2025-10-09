@@ -857,13 +857,13 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-company-logo {
+/* .footer-company-logo {
     display: flex;
-    /* padding: 0 16px; */
-    /* justify-content: space-between; */
+    padding: 0 16px;
+    justify-content: space-between;
     justify-content: flex-start;
 
-}
+} */
 
 
 .footer-company a {
@@ -874,12 +874,12 @@ footer {
     justify-content: center;
     align-items: center;
     /* width: 40%; */
-    width: 45%;
+    width: 50%;
 }
 
 .footer-company a img {
     width: 100%;
-    max-height: 60px;
+    max-height: 50px;
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
