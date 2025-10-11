@@ -31,9 +31,8 @@
 }
 
 .block-small-img img {
-    /* max-height: 230px; */
     width: auto;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -126,7 +125,7 @@
 
             .block-small {
                 width: 48%;
-                min-height: 175px;
+                min-height: 150px;
             }
 
             .block-hidden {
@@ -170,12 +169,12 @@
 }
 
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
     .application {
         .block-wrapper {
             .block-small {
                 width: 100%;
-                min-height: 175px;
+                /* min-height: 175px; */
             }
 
             .block-small-btn {
