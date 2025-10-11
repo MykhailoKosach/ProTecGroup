@@ -794,7 +794,7 @@
 @media (max-width: 550px) {
     .holding-block.active {
         .holding-block-description {
-            height: 43%;
+            height: 66%
         }
     }
 }
