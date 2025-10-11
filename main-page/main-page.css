@@ -1123,6 +1123,11 @@
     animation: move-right 30s linear infinite;
 }
 
+.marquee-container-reverse {
+    /* display: flex; */
+    flex-direction: row-reverse;
+}
+
 @keyframes move-left {
     0% {
         transform: translateX(0);

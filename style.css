@@ -876,10 +876,10 @@ footer {
     width: 33%;
 }
 
-/* .footer-company>a:hover {
-    background: var(--grey-gradient);
-    border-radius: 10px;
-} */
+.footer-company>a>img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
 
 .footer-company a img {
     width: 100%;
