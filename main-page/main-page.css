@@ -977,6 +977,21 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .model-add-container {
+        justify-content: space-evenly;
+        padding: 0;
+    }
+
+    .model-add-item {
+        width: 38%;
+
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
 @media (max-width: 949px) {
     .work-model {
         padding: 30px 5% 45px 5%;
@@ -1018,17 +1033,6 @@
         height: 10px;
     }
 
-    .model-add-container {
-        justify-content: space-evenly;
-    }
-
-    .model-add-item {
-        width: 38%;
-
-        p {
-            font-size: 12px;
-        }
-    }
 }
 
 @media (max-width: 550px) {
