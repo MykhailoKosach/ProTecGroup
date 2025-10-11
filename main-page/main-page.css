@@ -344,7 +344,7 @@
     }
 }
 
-@media (max-width:1023px) {
+@media (max-width:1024px) {
     .achievement {
         gap: 40px;
         flex-direction: column;
@@ -361,7 +361,7 @@
             padding: 8px;
 
             .counter-container {
-                min-width: 32%;
+                min-width: 20%;
             }
 
             .block-text {
@@ -369,17 +369,47 @@
             }
 
             .counter {
-                font-size: 44px;
+                font-size: 42px;
                 color: var(--black);
             }
         }
     }
 }
 
-@media (max-width:1023px) {
+@media (max-width: 630px) {
     .achievement {
         .block-wide {
-            padding: 8px 20px 8px 0;
+            .counter-container {
+                min-width: 25%;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .achievement {
+        .block-wide {
+            .counter-container {
+                min-width: 28%;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .achievement {
+        .block-wide {
+            .counter-container {
+                min-width: 33%;
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .achievement {
+        .block-wide {
+            padding: 8px 20px 8px 8px;
             min-height: 95px;
 
             h4 {
@@ -992,7 +1022,7 @@
     }
 }
 
-@media (max-width: 949px) {
+@media (max-width: 950px) {
     .work-model {
         padding: 30px 5% 45px 5%;
     }
@@ -1060,6 +1090,10 @@
         img {
             width: 12px;
         }
+    }
+
+    .name-container-item img {
+        display: none;
     }
 
     .model-container {
@@ -1148,7 +1182,7 @@
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
     .marquee-wrapper {
         gap: 40px;
         padding: 45px 0 120px 0;
